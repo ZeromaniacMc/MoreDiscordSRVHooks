@@ -8,7 +8,6 @@ import me.zeromaniac.embed.AbstractEmbed;
 import me.zeromaniac.embed.AngelChestEmbed;
 import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;

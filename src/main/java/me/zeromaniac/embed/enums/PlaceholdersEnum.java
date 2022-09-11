@@ -21,6 +21,9 @@ public enum PlaceholdersEnum {
     DEATH_LOC_X("{deathLocationX}"),
     DEATH_LOC_Y("{deathLocationY}"),
     DEATH_LOC_Z("{deathLocationZ}"),
+    CONTAINER_LOC_X("{containerLocationX}"),
+    CONTAINER_LOC_Y("{containerLocationY}"),
+    CONTAINER_LOC_Z("{containerLocationZ}"),
     
     UNLOCK_TIME("{unlockTime}"),
     IS_PROTECTED("{isProtected}"),
@@ -28,6 +31,11 @@ public enum PlaceholdersEnum {
     PLAYER_WORLD("{playerWorld}"),
     EXPIRY("{expiry}"),
     ITEM_COUNT("{itemCount}"),
+
+    SIGN_LINE_1("{signLine1}"),
+    SIGN_LINE_2("{signLine2}"),
+    SIGN_LINE_3("{signLine3}"),
+    SIGN_LINE_4("{signLine4}"),
     
     RECEIVER_IP("{receiverIP}"),
     RECEIVER_UUID("{receiverUUID}"),
@@ -49,7 +57,8 @@ public enum PlaceholdersEnum {
     BOT_AVATAR_URL("{botAvatarUrl}"),
     ITEM_IMAGE_URL("{itemImageUrl}"),
     LORE_IMAGE_URL("{loreImageUrl}"),
-    INVENTORY_IMAGE_URL("{inventoryImageUrl}");
+    INVENTORY_IMAGE_URL("{inventoryImageUrl}"),
+    SIGN_IMAGE("{signImageUrl}");
 
     final String value;
 

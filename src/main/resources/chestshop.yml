@@ -3,12 +3,12 @@
 #                  MoreDiscordSRVHooks                     #
 #              By Zeromaniac & MidnightCore                #
 #                                                          #
-#                 ☆ AngelChest Hook ☆                     #
+#                 ☆ ChestShop Hook ☆                      #
 #                                                          #
 ############################################################
 
 # Foreword: PlaceholderAPI is supported, however we encourage you to use our placeholders, which all
-# have curly braces '{}' around them - our placeholders parse data straight from AngelChest to make
+# have curly braces '{}' around them - our placeholders parse data straight from ChestShop to make
 # sure the data displayed is correct. Also, please do not worry about color codes here. These are embeds
 # sent to discord, where color codes do not work like ingame. In addition, keep in mind that you need
 # to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
@@ -27,33 +27,21 @@
 # Footer image not showing? The footer must contain text - thanks to discord.
 # Fields are dynamic! You can add as many as you like to stretch out your embed!
 
-AngelChestSpawned:
+NewChestShop:
  Embed:
   Enabled: true
   ChannelID: "0000000000"
   Color: "#fcba03"
   Author:
     ImageUrl: "{playerAvatarUrl}"
-    Name: "**Oops, looks like someone died!**"
+    Name: "xxxxxxxxxxxxx"
     Url: ""
   ThumbnailUrl: ""
   Title:
     Text: ""
     Url: ""
-  Description: "{player}'s Angel Chest spawned!"
-  Fields:
-    - " ; ;true"
-    - "Angel Chest; ;true"
-    - " ; ;true"
-    - "IsProtected:;{isProtected};true"
-    - "Unlocks:;{unlockTime};true"
-    - "Expiry:;{expiry};true"
-    - "Experience:;{xp};true"
-    - "ItemCount:;{itemCount};true"
-    - " ; ;true"
-    - " ;Chest: {chestWorld} X: `{chestLocationX}` Y: `{chestLocationY}` Z: `{chestLocationZ}`;false"
-    - " ; ;true"
-    - "Player Location;World: {playerWorld} X: `{deathLocationX}` Y: `{deathLocationY}` Z: `{deathLocationZ}`;false"
+  Description: "xxxxxxxxx"
+  Fields: []
   ImageUrl: "{inventoryImageUrl}"
   Footer:
     Text: ""
