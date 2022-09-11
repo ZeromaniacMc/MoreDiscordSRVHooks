@@ -1,0 +1,120 @@
+############################################################
+#                                                          #
+#                  MoreDiscordSRVHooks                     #
+#              By Zeromaniac & MidnightCore                #
+#                                                          #
+#              ☆ PlayerShopGUIPlus Hook ☆                 #
+#                                                          #
+############################################################
+
+# Foreword: PlaceholderAPI is supported, however we encourage you to use our placeholders, which all
+# have curly braces '{}' around them - our placeholders parse data straight from PlayerShopGUIPlus to make
+# sure the data displayed is correct. Also, please do not worry about color codes here. These are embeds
+# sent to discord, where color codes do not work like ingame. In addition, keep in mind that you need
+# to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
+
+# Supported placeholders in all image or Icon fields:
+# - {playerAvatarUrl} = The owner's flat head image.
+# - {playerHead3dUrl} = The owner's tilted 3D head image.
+# - {playerBodyUrl} = The owner's tilted full body image.
+# - {buyerAvatarUrl} = The buyer's flat head image.
+# - {buyerHead3dUrl} = The buyer's tilted 3D head image.
+# - {buyerBodyUrl} = The buyer's tilted full body image.
+# - {botAvatarUrl} = The bot avatar image.
+# - {itemImageUrl} = The item image.
+# - {loreImageUrl} = The lore image for the item containing name and enchantments.
+# Footer image not showing? The footer must contain text - thanks to discord.
+# Confused about fields? You can add as many as you like. Here's an example:
+
+# Fields:
+#  - "Some Text;%vault_eco_balance_fixed%;true"
+
+# Explanation: Delete the [] and start a new line, which is 2 spaces indented below Fields.
+# Start with a dash and make sure to add a space, then double quotes. Inside the double quotes,
+# the plugin needs a trifecta of settings, separated with a ;  - Using a : instead will cause an
+# 'index out of bounds' error. The first and second parts can be any text or just spaces,
+# the last part needs to be either 'true' or 'false' - this controls whether the fields is inlined.
+
+ShortenPrices: false
+# Should prices be shortened? Example: 1000 would become 1.0k, 2500 2.5k and so on.
+
+NewSale:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{playerAvatarUrl}"
+      Name: "[ 𝕬𝖚𝖈𝖙𝖎𝖔𝖓 𝕳𝖔𝖚𝖘𝖊 𝕬𝖑𝖊𝖗𝖙 - 𝕹𝖊𝖜 𝕷𝖎𝖘𝖙𝖎𝖓𝖌! ]"
+      Url: ""
+    ThumbnailUrl: "{itemImageUrl}"
+    Title:
+      Text: ""
+      Url: ""
+    Description: "{player} put up {quantity} x {item} for sale for {price}!"
+    Fields: []
+    ImageUrl: "{loreImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: "{server_time}"
+# Supported placeholders in text fields for NewSale:
+# - {player} = The player who started the auction.
+# - {quantity} = The number of items that were listed.
+# - {item} = The item type that was listed.
+# - {price} = The duration of the auction.
+# - {duration} = The time until the item expires in x days and x hours.
+# The duration is taken straight from PlayerShopGui's main config setting "shopItemDuration"
+
+SaleEndBought:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{buyerAvatarUrl}"
+      Name: "[ 𝕬𝖚𝖈𝖙𝖎𝖔𝖓 𝕳𝖔𝖚𝖘𝖊 𝕬𝖑𝖊𝖗𝖙 - 𝕬𝖚𝖈𝖙𝖎𝖔𝖓 𝕰𝖓𝖉𝖊𝖉! ]"
+      Url: ""
+    ThumbnailUrl: "{itemImageUrl}"
+    Title:
+      Text: ""
+      Url: ""
+    Description: "{buyer} bought {quantity} x {item} from {player} for {price}."
+    Fields: []
+    ImageUrl: "{loreImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: true
+# Supported placeholders in text fields for SaleEndBought:
+# - {player} = The owner of the auction.
+# - {buyer} = The player who bought the item.
+# - {quantity} = The number of items that were listed.
+# - {item} = The item type that was listed.
+# - {price} = The bid the item was sold with.
+
+SaleEndExpired:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{playerAvatarUrl}"
+      Name: "[ 𝕬𝖚𝖈𝖙𝖎𝖔𝖓 𝕳𝖔𝖚𝖘𝖊 𝕬𝖑𝖊𝖗𝖙 - 𝕬𝖚𝖈𝖙𝖎𝖔𝖓 𝕰𝖓𝖉𝖊𝖉! ]"
+      Url: ""
+    ThumbnailUrl: "{itemImageUrl}"
+    Title:
+      Text: ""
+      Url: ""
+    Description: "{player}'s sale offer {quantity} x {item} has expired."
+    Fields: []
+    ImageUrl: "{loreImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: true
+# Supported placeholders in text fields for SaleEndExpired:
+# - {player} = The player who started the auction.
+# - {quantity} = The number of items that were listed.
+# - {item} = The item type that was listed.
+

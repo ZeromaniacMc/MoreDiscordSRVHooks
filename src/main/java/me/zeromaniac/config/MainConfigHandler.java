@@ -1,0 +1,69 @@
+package me.zeromaniac.config;
+
+import me.zeromaniac.common.SystemHelper;
+import me.zeromaniac.config.enums.MainConfigDefaults;
+
+public class MainConfigHandler extends ConfigLoader {
+
+    // todo: add debug key checks here
+    private String version;
+    private boolean isAngleChestEnabled;
+    private boolean isAuctionGUIPlusEnabled;
+    private boolean isPlayerShopGUIPlusEnabled;
+    private boolean isLitebansEnabled;
+    private boolean isIgnoreSilentBans;
+    private String timezone;
+
+    public MainConfigHandler(String configName) {
+        super(configName);
+    }
+
+    @Override
+    public void loadMyConfig() {
+        for (MainConfigDefaults currentConfigKey : MainConfigDefaults.values()) {
+            if (!configContainsKey(currentConfigKey.getPath())) {
+                SystemHelper.consoleMessage(
+                        SystemHelper.ERROR + currentConfigKey.getPath() + SystemHelper.IN_CONFIG + configName);
+                config.addDefault(currentConfigKey.getPath(), currentConfigKey.getValue());
+                SystemHelper.consoleMessage(SystemHelper.USING_DEFAULT + currentConfigKey.getValue().toString());
+            }
+        }
+
+        this.version = config.getString(MainConfigDefaults.VERSION.getPath());
+        this.isAngleChestEnabled = config.getBoolean(MainConfigDefaults.IS_ANGEL_CHEST_ENABLED.getPath());
+        this.isAuctionGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_AUCTION_GUI_PLUS_ENABLED.getPath());
+        this.isPlayerShopGUIPlusEnabled = config
+                .getBoolean(MainConfigDefaults.IS_PLAYER_SHOP_GUI_PLUS_ENABLED.getPath());
+        this.isLitebansEnabled = config.getBoolean(MainConfigDefaults.IS_LITEBANS_ENABLED.getPath());
+        this.timezone = config.getString(MainConfigDefaults.TIME_ZONE.getPath());
+        this.isIgnoreSilentBans = config.getBoolean(MainConfigDefaults.IS_LITEBANS_IGNORE_SILENT.getPath());
+    }
+
+    public String getVersion() {
+        return this.version;
+    }
+
+    public boolean getIsAngleChestEnabled() {
+        return this.isAngleChestEnabled;
+    }
+
+    public boolean getIsAuctionGUIPlusEnabled() {
+        return this.isAuctionGUIPlusEnabled;
+    }
+
+    public boolean getIsPlayerShopGUIPlusEnabled() {
+        return this.isPlayerShopGUIPlusEnabled;
+    }
+
+    public boolean getIsLitebansEnabled() {
+        return this.isLitebansEnabled;
+    }
+
+    public boolean getIgnoreSilentBans() {
+        return this.isIgnoreSilentBans;
+    }
+
+    public String getTimezone() {
+        return this.timezone;
+    }
+}

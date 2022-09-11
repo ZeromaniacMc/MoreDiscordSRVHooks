@@ -1,0 +1,33 @@
+############################################################
+#                                                          #
+#                  MoreDiscordSRVHooks                     #
+#              By Zeromaniac & MidnightCore                #
+#                                                          #
+#                    ☆ Main Config ☆                      #
+#                                                          #
+############################################################
+
+Timezone: "Europe/Berlin"
+Hooks:
+  AngelChest:
+    Enabled: true
+    Debug: false
+  AuctionGUIPlus:
+    Enabled: true
+    Debug: false
+  PlayerShopGUIPlus:
+    Enabled: true
+    Debug: false
+  LiteBans:
+    Enabled: true
+    Debug: false
+    IgnoreSilent: false
+  
+# - When debug mode for either of these hooks in enabled, it will print messages with an [ERROR] prefix.
+# - We are doing this so the debug messages properly stick out for you to read - they aren't actually errors.
+# The time zone setting is currently only used for LiteBans to ensure you can adjust it in 
+# case your server location is different from your home location.
+# Not sure? Look here: https://docs.oracle.com/cd/E84527_01/wcs/tag-ref/MISC/TimeZones.html
+
+
+Version: ${project.version}

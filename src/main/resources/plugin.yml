@@ -1,0 +1,29 @@
+name: MoreDiscordSRVHooks
+version: '${project.version}'
+authors: [Zeromaniac]
+contributors: [LOOHP, MidnightCore]
+main: me.zeromaniac.MoreDiscordSRVHooks
+api-version: 1.19
+depend:
+  - DiscordSRV
+  - InteractiveChat
+  - InteractiveChatDiscordSrvAddon
+softdepend:
+  - AuctionGUIPlus
+  - PlayerShopGUIPlus
+  - AngelChest
+  - LiteBans
+  - PlaceholderAPI
+
+commands:
+  mdh:
+    description: Main command
+    usage: /mdh
+
+permissions:
+  morediscordsrvhooks.reload:
+    description: Permission to reload the plugin
+    default: false
+  morediscordsrvhooks.info:
+    description: Permission to see plugin info
+    default: false

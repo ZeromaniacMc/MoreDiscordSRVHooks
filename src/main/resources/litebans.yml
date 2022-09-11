@@ -1,0 +1,580 @@
+############################################################
+#                                                          #
+#                  MoreDiscordSRVHooks                     #
+#              By Zeromaniac & MidnightCore                #
+#                                                          #
+#                   ☆ LiteBans Hook ☆                     #
+#                                                          #
+############################################################
+
+# Foreford: PlaceholderAPI is supported, however we encourage you to use our placeholders, which all
+# have curly braces '{}' around them - our placeholders parse data straight from LiteBans to make
+# sure the data displayed is correct. Also, please do not worry about color codes here. These are embeds
+# sent to discord, where color codes do not work like ingame. In addition, keep in mind that you need
+# to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
+# The output of {duration} and {dateEnd} will by default return 'forever' if the punihment is permanent.
+# If you wish to change that, please do so in your LiteBans messages.yml - we get it this straight
+# from LiteBans itself, so this value will affect the output here, too!
+# {receiverName} will return the UUID of the player if the player has never joined before.
+
+# Supported placeholders in all image or Icon fields:
+# - {receiverAvatarUrl} = The player's flat head image who is subject to a punishment.
+# - {receiverHead3dUrl} = The player's tilted 3D head image who is subject to a punishment.
+# - {receiverBodyUrl} = The player's tilted full body image who is subject to a punishment.
+# - {executorAvatarUrl} = The player's flat head image who issued a punishment.
+# - {executorHead3dUrl} = The player's tilted 3D head image who issued a punishment.
+# - {executorBodyUrl} = The player's tilted full body image who issues a punishment.
+# - {revokerAvatarUrl} = The player's flat head image who un-did a punishment.
+# - {revokerHead3dUrl} = The player's tilted 3D head image who un-did a punishment.
+# - {revokerBodyUrl} = The player's tilted full body image who un-did a punishment.
+# - {botAvatarUrl} = The bot avatar image
+# - {inventoryImageUrl} = The player's entire inventory as image who received a punishment.
+
+# Please note that the inventory and body images are by far larger than head images,
+# they will likely not fit right into the thumbnail field ;)
+# Footer image not showing? The footer must contain text - thanks to discord.
+# Confused about fields? You can add as many as you like. Here's an example:
+
+
+PermanentBan:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Permanent ban issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Ban Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for PermanentBan:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+TemporaryBan:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Temporary ban issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Ban Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for TemporaryBan:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+PermanentIPBan:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Permanent IP ban issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Ban Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for PermanentIPBan:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+TemporaryIPBan:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Temporary IP ban issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Ban Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for TemporaryIPBan:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+Unban:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#1ac444"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Unban issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}"
+      Url: ""
+    Description: "**Ban Reason:** {punishReason}\n **Unban Reason:** {revokeReason}"
+    Fields:
+      - "Effective since:;{dateStart};false"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for Unban:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {revokerUUID} = The UUID of the user who revoked the punishment.
+# - {revokerName} = The name of the user who revoked the punishment.
+# - {revokeReason} = The reason given for revoking a punishment.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+PermanentMute:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Permanent mute issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Mute Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for PermanentMute:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+TemporaryMute:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Temporary mute issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Mute Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for TemporaryMute:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+PermanentIPMute:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Permanent IP mute issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Mute Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for PermanentIPMute:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+TemporaryIPMute:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Temporary IP mute issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Mute Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for TemporaryIPMute:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+Unmute:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#1ac444"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Unmute issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}"
+      Url: ""
+    Description: "**Ban Reason:** {punishReason}\n **Unmute Reason:** {revokeReason}"
+    Fields:
+      - "Effective since:;{dateStart};false"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for Unmute:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {revokerUUID} = The UUID of the user who revoked the punishment.
+# - {revokerName} = The name of the user who revoked the punishment.
+# - {revokeReason} = The reason given for revoking a punishment.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+Kick:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Kick issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Kick Reason:** {punishReason}"
+    Fields:
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for Kick:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+Warn:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#bf0f2d"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Warning issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}\n"
+      Url: ""
+    Description: "**Warn Reason:** {punishReason}"
+    Fields:
+      - "Start Date:;{dateStart};true"
+      - "End Date:;{dateEnd};true"
+      - "Duration:;{duration};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for Warn:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
+
+Unwarn:
+  Embed:
+    Enabled: true
+    ChannelID: "0000000000"
+    Color: "#1ac444"
+    Author:
+      ImageUrl: ""
+      Name: "❱❱ Unwarn issued! • ID: {id} ❰❰"
+      Url: "https://mylitebanspage.com"
+    ThumbnailUrl: "{executorAvatarUrl}"
+    Title:
+      Text: "➢  Executor: {executorName} \n➢  Receiver: {receiverName}"
+      Url: ""
+    Description: "**Warn Reason:** {punishReason}\n **Unwarn Reason:** {revokeReason}"
+    Fields:
+      - "Effective since:;{dateStart};true"
+      - "Used Silent:;{silent};true"
+      - "Origin:;{originServer};true"
+      - "Scope:;{effectScope};true"
+      - "Subject Skin:; ;true"
+    ImageUrl: "{receiverBodyUrl}"
+    Footer:
+      Text: "Zero-Bit Network"
+      IconUrl: "{botAvatarUrl}"
+    Timestamp: false
+# Supported placeholders in text fields for Unwarn:
+# - {id} = The ID of the entry.
+# - {receiverUUID} = The UUID of the player who is subject to the action.
+# - {receiverName} = The name of the player who is subject to the action.
+# - {receiverIP} = The IP of the player who is subject to the action.
+# - {punishReason} = The reason given for a punishment action.
+# - {executorUUID} = The UUID of the player who executed the punishment.
+# - {executorName} = The name of the player who executed the punishment.
+# - {dateStart} = The start time of the punishment's effectiveness.
+# - {dateEnd} = The end time of the punishment's effectiveness.
+# - {duration} = The preformatted duration of the punishment.
+# - {silent} = Returns 'true' or 'false' depending on if the punishment was done silently.
+# - {revokerUUID} = The UUID of the user who revoked the punishment.
+# - {revokerName} = The name of the user who revoked the punishment.
+# - {revokeReason} = The reason given for revoking a punishment.
+# - {originServer} = The server name on which the punishment was issued.
+# - {effectScope} = The server name(s) on which the punishment is active.
