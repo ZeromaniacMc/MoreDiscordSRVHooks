@@ -38,19 +38,13 @@ public class SystemHelper {
 
     private static String PLUGIN_PREFIX = "&3[&bMoreDiscordSRVHooks&3]&r ";
     public static String PLUGIN_STARTING = "&bThank you for using MoreDiscordSRVHooks!";
-    public static String PLUGIN_STARTING_FUN = "&bCooking some beef... Ready!";
-    public static String invalidCommandByConsole = "&bInvalid command. Did you mean /mdh reload?";
+    public static String PLUGIN_STARTING_CONFIGS = "&bChecking config file status...";
+    public static String INVALID_COMMAND_CONSOLE = "&bInvalid command. Did you mean /mdh reload?";
     public static String PLUGIN_SHUTDOWN = "&bCommencing detonation... bye!";
     public static String CONFIGS_RELOADED = "&bConfigs successfully reloaded!";
-    public static String LOADING_CONFIG = "&bLoading config file ";
     public static String ERROR = "&4Missing key or value for &c";
     public static String IN_CONFIG = " &4in config: &c";
     public static String USING_DEFAULT = "&4Using default value of &c";
-
-    public static String COMMENCING_PLUGIN_CHECK = "&bSearching for compatible hooks...";
-
-    public static String PLUGIN_NOT_INSTALLED = " &4is not installed on your server. The hook for it will not work.";
-
-    public static String PLUGIN_IS_INSTALLED = " &4is installed on your server. The hook for it will work.";
+    public static String PLUGIN_NOT_INSTALLED = " &4is not installed on your server.";
 
 }

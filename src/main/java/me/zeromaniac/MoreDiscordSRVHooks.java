@@ -11,21 +11,19 @@ public final class MoreDiscordSRVHooks extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        // Letting user know we are doing stuff ;)
+        SystemHelper.consoleMessage(SystemHelper.PLUGIN_STARTING_CONFIGS);
+
         // Initialize configs
         new ConfigHandler();
 
-        // Register commands
+        // Register commands & listeners from listener manager
         new CommandRegister(this);
-
         new ListenerManager(this).registerListener();
 
         // Just starting
         SystemHelper.consoleMessage(SystemHelper.PLUGIN_STARTING);
-        SystemHelper.consoleMessage(SystemHelper.PLUGIN_STARTING_FUN);
-
-        // Version/plugin checks
-
-        SystemHelper.consoleMessage(SystemHelper.COMMENCING_PLUGIN_CHECK);
     }
 
     @Override

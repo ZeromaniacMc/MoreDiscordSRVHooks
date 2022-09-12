@@ -63,7 +63,7 @@ public class ReloadCommand implements CommandHandler {
     @Override
     public boolean executeCommandAsConsole(ConsoleCommandSender sender, Command command, String label, String[] args) {
         if (args.length != 1) {
-            SystemHelper.consoleMessage(SystemHelper.invalidCommandByConsole);
+            SystemHelper.consoleMessage(SystemHelper.INVALID_COMMAND_CONSOLE);
         } else if (args[0].equalsIgnoreCase("reload")) {
             ConfigHandler.reloadAllConfigs();
             SystemHelper.consoleMessage(SystemHelper.CONFIGS_RELOADED);

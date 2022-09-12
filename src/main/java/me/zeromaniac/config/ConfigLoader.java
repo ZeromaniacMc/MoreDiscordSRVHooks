@@ -21,15 +21,10 @@ public abstract class ConfigLoader {
 
     ConfigLoader(String configName, String pluginName) {
         this.pluginName = pluginName;
-
         this.dataFolder = Bukkit.getPluginManager().getPlugin(PLUGIN_NAME).getDataFolder();
         this.configName = configName;
-
         this.configFile = new File(dataFolder + "/" + configName);
-
         saveResource(configName, false);
-
-        SystemHelper.consoleMessage(SystemHelper.LOADING_CONFIG + configName);
         this.config = getConfig();
     }
 
@@ -39,7 +34,6 @@ public abstract class ConfigLoader {
         this.configName = configName;
         this.configFile = new File(dataFolder + "/" + configName);
         saveResource(configName, false);
-        SystemHelper.consoleMessage(SystemHelper.LOADING_CONFIG + configName);
         this.config = getConfig();
     }
 
