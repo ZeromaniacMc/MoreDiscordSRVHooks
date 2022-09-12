@@ -3,7 +3,8 @@ package me.zeromaniac.embed.enums;
 public enum ImageNames {
     ITEM_IMAGE("item.png"),
     INVENTORY_IMAGE("inventory.png"),
-    LORE_IMAGE("lore.png");
+    LORE_IMAGE("lore.png"),
+    SIGN_IMAGE("item.png");
 
     final String value;
 

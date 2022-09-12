@@ -28,6 +28,7 @@ public enum PlaceholdersEnum {
     UNLOCK_TIME("{unlockTime}"),
     IS_PROTECTED("{isProtected}"),
     CHEST_WORLD("{chestWorld}"),
+    CONTAINER_WORLD("{containerWorld}"),
     PLAYER_WORLD("{playerWorld}"),
     EXPIRY("{expiry}"),
     ITEM_COUNT("{itemCount}"),
@@ -57,8 +58,7 @@ public enum PlaceholdersEnum {
     BOT_AVATAR_URL("{botAvatarUrl}"),
     ITEM_IMAGE_URL("{itemImageUrl}"),
     LORE_IMAGE_URL("{loreImageUrl}"),
-    INVENTORY_IMAGE_URL("{inventoryImageUrl}"),
-    SIGN_IMAGE("{signImageUrl}");
+    INVENTORY_IMAGE_URL("{inventoryImageUrl}");
 
     final String value;
 

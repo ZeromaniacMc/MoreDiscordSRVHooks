@@ -5,7 +5,6 @@ import me.zeromaniac.config.enums.MainConfigDefaults;
 
 public class MainConfigHandler extends ConfigLoader {
 
-    // todo: add debug key checks here
     private String version;
     private boolean isAngleChestEnabled;
     private boolean isAuctionGUIPlusEnabled;
@@ -24,7 +23,7 @@ public class MainConfigHandler extends ConfigLoader {
         for (MainConfigDefaults currentConfigKey : MainConfigDefaults.values()) {
             if (!configContainsKey(currentConfigKey.getPath())) {
                 SystemHelper.consoleMessage(
-                        SystemHelper.ERROR + currentConfigKey.getPath() + SystemHelper.IN_CONFIG + configName);
+                SystemHelper.ERROR + currentConfigKey.getPath() + SystemHelper.IN_CONFIG + configName);
                 config.addDefault(currentConfigKey.getPath(), currentConfigKey.getValue());
                 SystemHelper.consoleMessage(SystemHelper.USING_DEFAULT + currentConfigKey.getValue().toString());
             }
@@ -33,8 +32,7 @@ public class MainConfigHandler extends ConfigLoader {
         this.version = config.getString(MainConfigDefaults.VERSION.getPath());
         this.isAngleChestEnabled = config.getBoolean(MainConfigDefaults.IS_ANGEL_CHEST_ENABLED.getPath());
         this.isAuctionGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_AUCTION_GUI_PLUS_ENABLED.getPath());
-        this.isPlayerShopGUIPlusEnabled = config
-                .getBoolean(MainConfigDefaults.IS_PLAYER_SHOP_GUI_PLUS_ENABLED.getPath());
+        this.isPlayerShopGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_SHOP_GUI_PLUS_ENABLED.getPath());
         this.isLitebansEnabled = config.getBoolean(MainConfigDefaults.IS_LITEBANS_ENABLED.getPath());
         this.isChestShopEnabled = config.getBoolean(MainConfigDefaults.IS_CHEST_SHOP_ENABLED.getPath());
         this.timezone = config.getString(MainConfigDefaults.TIME_ZONE.getPath());

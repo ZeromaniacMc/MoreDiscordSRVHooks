@@ -1,7 +1,7 @@
 package me.zeromaniac.listener.enums;
 
 public enum ChestShopEventType {
-    CREATE("ChestShopCreate");
+    CREATE("NewChestShop");
 
     final String value;
 

@@ -80,7 +80,7 @@ public class LiteBansEmbed extends AbstractEmbed {
 
         setConfigValues(messageType);
 
-        // todo: add inventory image for receiver
+        
         if (mapContainsValue(textFieldsMap, ImageNames.INVENTORY_IMAGE.getValue()) && validateUUID(receiverUUID)) {
             try {
                 try {

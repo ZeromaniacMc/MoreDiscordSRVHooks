@@ -50,7 +50,8 @@ public class AngelChestEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.EXPIRY.getValue(), String.valueOf(timeLeft));
         replacer.put(PlaceholdersEnum.ITEM_COUNT.getValue(), String.valueOf(itemCount));
 
-        replacer.put(PlaceholdersEnum.OFFHAND_ITEM_URL.getValue(), attachmentType + ImageNames.ITEM_IMAGE.getValue());
+        replacer.put(PlaceholdersEnum.OFFHAND_ITEM_URL.getValue(), 
+                attachmentType + ImageNames.ITEM_IMAGE.getValue());
 
         replacer.put(PlaceholdersEnum.OFFHAND_ITEM_LORE_URL.getValue(),
                 attachmentType + ImageNames.LORE_IMAGE.getValue());
@@ -60,7 +61,8 @@ public class AngelChestEmbed extends AbstractEmbed {
 
         for (AvatarImages avatar : Avatars.PLAYER.getAvatarImages()) {
             replacer.put(avatar.getValue(),
-                    ImageHelper.constructAvatarUrl(player.getName(), player.getUniqueId(), avatar.getType()));
+                    ImageHelper.constructAvatarUrl(player.getName(), 
+                        player.getUniqueId(), avatar.getType()));
         }
 
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
