@@ -103,22 +103,7 @@ public class ItemHelper {
     }
 
     public static String bukkitColorYeeter(String input) {
-        // input example = §x§A§A§B§B§C§C
-        Matcher matcher = BUKKI_HEX_COLOR.matcher(input);
-        StringBuilder sb = new StringBuilder();
-
-        while (matcher.find()) {
-            matcher.appendReplacement(sb,
-                    BUKKIT_COLOR_CHAR + "x" +
-                            BUKKIT_COLOR_CHAR + matcher.group(1) +
-                            BUKKIT_COLOR_CHAR + matcher.group(2) +
-                            BUKKIT_COLOR_CHAR + matcher.group(3) +
-                            BUKKIT_COLOR_CHAR + matcher.group(4) +
-                            BUKKIT_COLOR_CHAR + matcher.group(5) +
-                            BUKKIT_COLOR_CHAR + matcher.group(6));
-        }
-
-        return ChatColor.stripColor(matcher.replaceAll("").toString());
+        return ChatColor.stripColor(BUKKI_HEX_COLOR.matcher(input).replaceAll(""));
     }
 
 }
