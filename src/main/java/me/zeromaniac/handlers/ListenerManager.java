@@ -7,7 +7,6 @@ import me.zeromaniac.listener.AuctionGUIPlusListener;
 import me.zeromaniac.listener.LiteBansListener;
 import me.zeromaniac.listener.PlayerShopGUIPlusListener;
 import me.zeromaniac.listener.QuickShopListener;
-
 import org.bukkit.Bukkit;
 
 public class ListenerManager {
