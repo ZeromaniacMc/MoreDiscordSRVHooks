@@ -17,6 +17,7 @@ import me.zeromaniac.types.Image;
 import java.awt.image.BufferedImage;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -81,6 +82,14 @@ public class ImageHelper {
             OfflineICPlayerAdapter adaptedPlayer = new OfflineICPlayerAdapter(icPlayer);
 
             EntityEquipment equipment = icPlayer.getEquipment();
+
+            Player onlinePlayer = player.getPlayer();
+
+            if(onlinePlayer != null) {
+                equipment.setArmorContents(onlinePlayer.getInventory().getArmorContents());
+                equipment.setItemInMainHand(onlinePlayer.getInventory().getItemInMainHand());
+                equipment.setItemInOffHand(onlinePlayer.getInventory().getItemInOffHand());
+            }
 
             adaptedPlayer.setEquipment(equipment);
 
