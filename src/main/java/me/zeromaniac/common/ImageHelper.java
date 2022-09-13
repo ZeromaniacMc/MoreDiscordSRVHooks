@@ -79,6 +79,10 @@ public class ImageHelper {
         try {
             OfflineICPlayer icPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
 
+            if(icPlayer == null) {
+                return null;
+            }
+
             OfflineICPlayerAdapter adaptedPlayer = new OfflineICPlayerAdapter(icPlayer);
 
             EntityEquipment equipment = icPlayer.getEquipment();
