@@ -75,7 +75,7 @@ public class AngelChestEmbed extends AbstractEmbed {
                 attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(),
                         getPlayerInventory(angelChestContents, player)));
             } catch (Throwable e) {
-                // empty
+                e.printStackTrace();
             }
         }
 
