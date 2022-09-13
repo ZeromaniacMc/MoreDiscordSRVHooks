@@ -39,7 +39,7 @@ public class AngelChestListener implements Listener {
         debug = ConfigHandler.getMainConfig().getConfig().getBoolean(MainConfigDefaults.IS_ANGEL_CHEST_DEBUG.getPath());
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOW)
     public void onDeathEvent(PlayerDeathEvent e) {
         playerDeathAndItemOnMainCursor.put(e.getEntity().getUniqueId(), e.getEntity().getInventory().getItemInMainHand());
     }
