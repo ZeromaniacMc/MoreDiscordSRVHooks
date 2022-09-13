@@ -72,9 +72,8 @@ public class AngelChestEmbed extends AbstractEmbed {
 
         if (mapContainsValue(textFieldsMap, ImageNames.INVENTORY_IMAGE.getValue())) {
             try {
-                OfflineICPlayer offlineICPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
                 attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(),
-                        getPlayerInventory(angelChestContents, offlineICPlayer)));
+                        getPlayerInventory(angelChestContents, player)));
             } catch (Throwable e) {
                 // empty
             }

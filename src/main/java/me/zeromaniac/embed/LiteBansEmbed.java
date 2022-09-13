@@ -1,7 +1,5 @@
 package me.zeromaniac.embed;
 
-import com.loohp.interactivechat.objectholders.ICPlayerFactory;
-import com.loohp.interactivechat.objectholders.OfflineICPlayer;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import me.zeromaniac.common.Debug;
 import me.zeromaniac.common.ImageHelper;
@@ -19,6 +17,9 @@ import static me.zeromaniac.common.ImageHelper.getPlayerInventory;
 import static me.zeromaniac.common.ImageHelper.getImage;
 
 import java.util.UUID;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 public class LiteBansEmbed extends AbstractEmbed {
     public LiteBansEmbed(LiteBansEventType type, long punishmentID, String receiverUUID,
@@ -90,11 +91,10 @@ public class LiteBansEmbed extends AbstractEmbed {
                     Debug.log(e.getMessage(), debug);
                 }
 
-                OfflineICPlayer offlineICPlayer = ICPlayerFactory.getOfflineICPlayer(UUID.fromString(receiverUUID));
-                if (offlineICPlayer != null && offlineICPlayer.getInventory() != null) {
-                    attachmentImages.add(
-                            getImage(ImageNames.INVENTORY_IMAGE.getValue(),
-                                    getPlayerInventory(offlineICPlayer.getInventory(), offlineICPlayer)));
+                Player player = Bukkit.getPlayer(UUID.fromString(receiverUUID));
+
+                if (player != null && player.getInventory() != null) {
+                    attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(), getPlayerInventory(player.getInventory(), player)));
                 }
             } catch (Throwable e) {
                 Debug.log("ERROR ", debug);

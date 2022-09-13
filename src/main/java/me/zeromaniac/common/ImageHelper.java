@@ -9,14 +9,20 @@ import javax.imageio.ImageIO;
 import com.loohp.interactivechatdiscordsrvaddon.graphics.ImageGeneration;
 import com.loohp.interactivechatdiscordsrvaddon.objectholders.ToolTipComponent;
 import com.loohp.interactivechatdiscordsrvaddon.utils.DiscordItemStackUtils;
+
+import me.zeromaniac.Adapters.OfflineICPlayerAdapter;
 import me.zeromaniac.embed.enums.AvatarType;
 import me.zeromaniac.types.Image;
+
 import java.awt.image.BufferedImage;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import com.loohp.interactivechat.objectholders.ICPlayerFactory;
 import com.loohp.interactivechat.objectholders.OfflineICPlayer;
 
 public class ImageHelper {
@@ -68,9 +74,17 @@ public class ImageHelper {
         return null;
     }
 
-    public static BufferedImage getPlayerInventory(Inventory inv, OfflineICPlayer player) {
+    public static BufferedImage getPlayerInventory(Inventory inv, OfflinePlayer player) {
         try {
-            return ImageGeneration.getPlayerInventoryImage(inv, player);
+            OfflineICPlayer icPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
+
+            OfflineICPlayerAdapter adaptedPlayer = new OfflineICPlayerAdapter(icPlayer);
+
+            EntityEquipment equipment = icPlayer.getEquipment();
+
+            adaptedPlayer.setEquipment(equipment);
+
+            return ImageGeneration.getPlayerInventoryImage(inv, adaptedPlayer);
         } catch (Exception e) {
             e.printStackTrace();
         }
