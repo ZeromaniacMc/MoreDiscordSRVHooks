@@ -6,6 +6,7 @@ import me.zeromaniac.listener.AngelChestListener;
 import me.zeromaniac.listener.AuctionGUIPlusListener;
 import me.zeromaniac.listener.LiteBansListener;
 import me.zeromaniac.listener.PlayerShopGUIPlusListener;
+import me.zeromaniac.listener.QuickShopListener;
 
 import org.bukkit.Bukkit;
 
@@ -28,6 +29,9 @@ public class ListenerManager {
         }
         if (ThirdPartyChecker.isPluginInstalled("LiteBans")) {
             Bukkit.getServer().getPluginManager().registerEvents(new LiteBansListener(plugin), plugin);
+        }
+        if (ThirdPartyChecker.isPluginInstalled("QuickShop")) {
+            Bukkit.getServer().getPluginManager().registerEvents(new QuickShopListener(plugin), plugin);
         }
     }
 }

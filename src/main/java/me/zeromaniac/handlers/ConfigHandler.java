@@ -24,6 +24,10 @@ public class ConfigHandler {
     private static LiteBansConfigHandler LITEBANS_CONFIG;
     public static String LITE_BANS_PLUGIN_NAME = "LiteBans";
 
+    private static final String QUICK_SHOP_CONFIG_NAME = "quickshop.yml";
+    private static QuickShopConfigHandler QUICK_SHOP_CONFIG;
+    public static String QUICK_SHOP_PLUGIN_NAME = "QuickShop";
+
     private static boolean configsLoaded = false;
 
     static {
@@ -40,7 +44,8 @@ public class ConfigHandler {
         }
         MAIN_CONFIG = new MainConfigHandler(MAIN_CONFIG_NAME);
 
-        ANGEL_CHEST_CONFIG = new AngelChestConfigHandler(ANGEL_CHEST_CONFIG_NAME, ANGEL_CHEST_PLUGIN_NAME);
+        ANGEL_CHEST_CONFIG = new AngelChestConfigHandler(ANGEL_CHEST_CONFIG_NAME, 
+                ANGEL_CHEST_PLUGIN_NAME);
 
         AUCTION_GUI_PLUS_CONFIG = new AuctionGUIPlusConfigHandler(AUCTION_GUI_PLUS_CONFIG_NAME,
                 AUCTION_GUI_PLUS_PLUGIN_NAME);
@@ -48,7 +53,11 @@ public class ConfigHandler {
         PLAYER_SHOP_GUI_PLUS_CONFIG = new PlayerShopGuiPlusConfigHandler(PLAYER_SHOP_GUI_PLUS_CONFIG_NAME,
                 PLAYER_SHOP_GUI_PLUS_PLUGIN_NAME);
 
-        LITEBANS_CONFIG = new LiteBansConfigHandler(LITEBANS_CONFIG_NAME, LITE_BANS_PLUGIN_NAME);
+        LITEBANS_CONFIG = new LiteBansConfigHandler(LITEBANS_CONFIG_NAME, 
+                LITE_BANS_PLUGIN_NAME);
+
+        QUICK_SHOP_CONFIG = new QuickShopConfigHandler(QUICK_SHOP_CONFIG_NAME, 
+                QUICK_SHOP_PLUGIN_NAME);
 
         configsLoaded = true;
     }
@@ -63,6 +72,8 @@ public class ConfigHandler {
         PLAYER_SHOP_GUI_PLUS_CONFIG.reloadConfig();
 
         LITEBANS_CONFIG.reloadConfig();
+
+        QUICK_SHOP_CONFIG.reloadConfig();
     }
 
     public static MainConfigHandler getMainConfig() {
@@ -83,6 +94,10 @@ public class ConfigHandler {
 
     public static LiteBansConfigHandler getLitebansConfig() {
         return LITEBANS_CONFIG;
+    }
+
+    public static QuickShopConfigHandler getQuickShopConfig() {
+        return QUICK_SHOP_CONFIG;
     }
 
 }
