@@ -20,7 +20,7 @@ public enum AngelChestDefaults implements EnumGeneral{
     // Embed thumbnail settings
     ANGEL_CHEST_SPAWNED_EMBED_THUMBNAIL("AngelChestSpawned.Embed.ThumbnailUrl",""),
     ANGEL_CHEST_SPAWNED_EMBED_TITLE_TEXT("AngelChestSpawned.Embed.Title.Text",""),
-    NEW_AUCTION_EMBED_TITLE_URL("AngelChestSpawned.Embed.Title.Url",""),
+    ANGEL_CHEST_SPAWNED_TITLE_URL("AngelChestSpawned.Embed.Title.Url",""),
 
     // Embed description
     ANGEL_CHEST_SPAWNED_EMBED_DESCRIPTION("AngelChestSpawned.Embed.Description","{player}'s Angel Chest spawned!"),

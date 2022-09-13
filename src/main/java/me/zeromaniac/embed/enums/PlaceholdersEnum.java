@@ -14,6 +14,7 @@ public enum PlaceholdersEnum {
     ID("{id}"),
     PRICE("{price}"),
     XP("{xp}"),
+    TYPE_SELL_OR_BUY("{type}"),
 
     CHEST_LOC_X("{chestLocationX}"),
     CHEST_LOC_Y("{chestLocationY}"),

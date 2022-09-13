@@ -11,6 +11,7 @@ public class MainConfigHandler extends ConfigLoader {
     private boolean isPlayerShopGUIPlusEnabled;
     private boolean isLitebansEnabled;
     private boolean isIgnoreSilentBans;
+    private boolean getIsQuickShopEnabled;
     private String timezone;
 
     public MainConfigHandler(String configName) {
@@ -33,6 +34,7 @@ public class MainConfigHandler extends ConfigLoader {
         this.isAuctionGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_AUCTION_GUI_PLUS_ENABLED.getPath());
         this.isPlayerShopGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_SHOP_GUI_PLUS_ENABLED.getPath());
         this.isLitebansEnabled = config.getBoolean(MainConfigDefaults.IS_LITEBANS_ENABLED.getPath());
+        this.getIsQuickShopEnabled = config.getBoolean(MainConfigDefaults.IS_QUICK_SHOP_ENABLED.getPath());
         this.timezone = config.getString(MainConfigDefaults.TIME_ZONE.getPath());
         this.isIgnoreSilentBans = config.getBoolean(MainConfigDefaults.IS_LITEBANS_IGNORE_SILENT.getPath());
     }
@@ -59,6 +61,10 @@ public class MainConfigHandler extends ConfigLoader {
 
     public boolean getIgnoreSilentBans() {
         return this.isIgnoreSilentBans;
+    }
+
+    public boolean getIsQuickShopEnabled() {
+        return this.getIsQuickShopEnabled;
     }
 
     public String getTimezone() {

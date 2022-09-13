@@ -1,0 +1,58 @@
+############################################################
+#                                                          #
+#                  MoreDiscordSRVHooks                     #
+#              By Zeromaniac & MidnightCore                #
+#                                                          #
+#                  ☆ QuickShop Hook ☆                     #
+#                                                          #
+############################################################
+
+# Foreword: PlaceholderAPI is supported, however we encourage you to use our placeholders, which all
+# have curly braces '{}' around them - our placeholders parse data straight from QuickShop to make
+# sure the data displayed is correct. Also, please do not worry about color codes here. These are embeds
+# sent to discord, where color codes do not work like ingame. In addition, keep in mind that you need
+# to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
+
+# Supported placeholders in all image or Icon fields:
+# - {playerAvatarUrl} = The player's flat head image.
+# - {playerHead3dUrl} = The player's tilted 3D head image.
+# - {playerBodyUrl} = The player's tilted full body image.
+# - {botAvatarUrl} = The bot avatar image.
+# - {itemImageUrl} = The item image being sold or bought in the shop.
+# - {loreImageUrl} = The lore image of the item being sold or bought.
+# Footer image not showing? The footer must contain text - thanks to discord.
+# Fields are dynamic! You can add as many as you like to stretch out your embed!
+
+ShortenPrices: true
+# Should prices be shortened? Example: 1000 would become 1.0k, 2500 2.5k and so on.
+
+NewShopCreated:
+ Embed:
+  Enabled: true
+  ChannelID: "1014485573660061726"
+  Color: "#fcba03"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} 𝖈𝖗𝖊𝖆𝖙𝖊𝖉 𝖆 𝖈𝖍𝖊𝖘𝖙 𝖘𝖍𝖔𝖕"
+    Url: ""
+  ThumbnailUrl: "{itemImageUrl}"
+  Title:
+    Text: "{type} for {price}€"
+    Url: ""
+  Description: "Item: {item}"
+  Fields:
+    - "LocX:;{chestLocationX};true"
+    - "LocY:;{chestLocationY};true"
+    - "LocZ:;{chestLocationZ};true"
+  ImageUrl: "{loreImageUrl}"
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+# Supported placeholders in text fields for NewShopCreated:
+# - {player} = The player who owns the shop.
+# - {price} = The price the item is sold or bought for.
+# - {type} = Returns either "Selling" or "Buying", based on type.
+# - {chestLocationX} = The X coordinate of the ChestShop position.
+# - {chestLocationY} = The Y coordinate of the ChestShop position.
+# - {chestLocationZ} = The Z coordinate of the ChestShop position.
