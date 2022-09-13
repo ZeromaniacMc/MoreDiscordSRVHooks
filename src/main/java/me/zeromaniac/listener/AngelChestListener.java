@@ -9,6 +9,7 @@ import me.zeromaniac.embed.AngelChestEmbed;
 import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.EventHandler;
@@ -32,6 +33,12 @@ public class AngelChestListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void chestSpawn(AngelChestSpawnEvent event) {
         Debug.log("Detected Angel Chest Event firing, Type: AngelChestSpawnEvent" , debug);
+        Location lastDeathLocation = event.getAngelChest().getPlayer().getLastDeathLocation();
+
+        if(lastDeathLocation == null) {
+            lastDeathLocation = Bukkit.getWorlds().get(0).getBlockAt(0, 0, 0).getLocation();
+        }
+
         ProcessEvent(AngelChestEventType.SPAWN,
                 event.getAngelChest().getStorageInv(),
                 event.getAngelChest().getBlock().getX(),
@@ -44,11 +51,11 @@ public class AngelChestListener implements Listener {
                 event.getAngelChest().isProtected(),
                 event.getAngelChest().getOffhandItem(),
                 event.getAngelChest().getSecondsLeft(),
-                event.getAngelChest().getPlayer().getLastDeathLocation().getBlockX(),
-                event.getAngelChest().getPlayer().getLastDeathLocation().getBlockY(),
-                event.getAngelChest().getPlayer().getLastDeathLocation().getBlockZ(),
+                lastDeathLocation.getBlockX(),
+                lastDeathLocation.getBlockY(),
+                lastDeathLocation.getBlockZ(),
                 event.getAngelChest().getArmorInv(),
-                event.getAngelChest().getPlayer().getLastDeathLocation().getWorld().getName());
+                lastDeathLocation.getWorld().getName());
     }
 
     /**
