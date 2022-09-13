@@ -26,7 +26,7 @@ public class AngelChestEmbed extends AbstractEmbed {
             int chestPositionX,
             int chestPositionY, int chestPositionZ,
             int experience, String world,
-            String unlockIn, boolean isProtected, ItemStack offHandItem, String timeLeft,
+            String unlockIn, boolean isProtected, ItemStack mainHandItem, ItemStack offHandItem, String timeLeft,
             String itemCount, int deathPositionX, int deathPositionY, int deathPositionZ, String playerDeathWorld) {
         super();
         String messageType = type.getValue();
@@ -73,7 +73,7 @@ public class AngelChestEmbed extends AbstractEmbed {
         if (mapContainsValue(textFieldsMap, ImageNames.INVENTORY_IMAGE.getValue())) {
             try {
                 attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(),
-                        getPlayerInventory(angelChestContents, player)));
+                        getPlayerInventory(angelChestContents, player, mainHandItem, offHandItem)));
             } catch (Throwable e) {
                 e.printStackTrace();
             }

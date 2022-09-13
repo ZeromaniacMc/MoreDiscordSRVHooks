@@ -10,12 +10,12 @@ import com.loohp.interactivechatdiscordsrvaddon.graphics.ImageGeneration;
 import com.loohp.interactivechatdiscordsrvaddon.objectholders.ToolTipComponent;
 import com.loohp.interactivechatdiscordsrvaddon.utils.DiscordItemStackUtils;
 
-import me.zeromaniac.Adapters.OfflineICPlayerAdapter;
 import me.zeromaniac.embed.enums.AvatarType;
 import me.zeromaniac.types.Image;
 
 import java.awt.image.BufferedImage;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EntityEquipment;
@@ -23,6 +23,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.loohp.interactivechat.objectholders.ICPlayer;
 import com.loohp.interactivechat.objectholders.ICPlayerFactory;
 import com.loohp.interactivechat.objectholders.OfflineICPlayer;
 
@@ -76,6 +77,10 @@ public class ImageHelper {
     }
 
     public static BufferedImage getPlayerInventory(Inventory inv, OfflinePlayer player) {
+        return getPlayerInventory(inv, player, new ItemStack(Material.AIR), new ItemStack(Material.AIR));
+    }
+
+    public static BufferedImage getPlayerInventory(Inventory inv, OfflinePlayer player, ItemStack itemInMainHand, ItemStack itemInOffHand) {
         try {
             OfflineICPlayer icPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
 
@@ -83,21 +88,15 @@ public class ImageHelper {
                 return null;
             }
 
-            OfflineICPlayerAdapter adaptedPlayer = new OfflineICPlayerAdapter(icPlayer);
-
-            EntityEquipment equipment = icPlayer.getEquipment();
-
-            Player onlinePlayer = player.getPlayer();
-
-            if(onlinePlayer != null) {
-                equipment.setArmorContents(onlinePlayer.getInventory().getArmorContents());
-                equipment.setItemInMainHand(onlinePlayer.getInventory().getItemInMainHand());
-                equipment.setItemInOffHand(onlinePlayer.getInventory().getItemInOffHand());
+            if(icPlayer.getPlayer() != null) {
+                icPlayer = icPlayer.getPlayer();
+                icPlayer.getInventory().setContents(inv.getContents());
+                icPlayer.getEquipment().setItemInMainHand(itemInMainHand);
+                icPlayer.getEquipment().setItemInOffHand(itemInOffHand);
             }
 
-            adaptedPlayer.setEquipment(equipment);
 
-            return ImageGeneration.getPlayerInventoryImage(inv, adaptedPlayer);
+            return ImageGeneration.getPlayerInventoryImage(inv, icPlayer);
         } catch (Exception e) {
             e.printStackTrace();
         }

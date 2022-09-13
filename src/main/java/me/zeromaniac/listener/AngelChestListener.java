@@ -15,8 +15,13 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class AngelChestListener implements Listener {
@@ -24,10 +29,19 @@ public class AngelChestListener implements Listener {
     MoreDiscordSRVHooks plugin;
     boolean debug;
 
+    Map<UUID, ItemStack> playerDeathAndItemOnMainCursor;
+
     public AngelChestListener(MoreDiscordSRVHooks plugin) {
         this.plugin = plugin;
 
+        this.playerDeathAndItemOnMainCursor = new HashMap<>();
+
         debug = ConfigHandler.getMainConfig().getConfig().getBoolean(MainConfigDefaults.IS_ANGEL_CHEST_DEBUG.getPath());
+    }
+
+    @EventHandler
+    public void onDeathEvent(PlayerDeathEvent e) {
+        playerDeathAndItemOnMainCursor.put(e.getEntity().getUniqueId(), e.getEntity().getInventory().getItemInMainHand());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -49,6 +63,7 @@ public class AngelChestListener implements Listener {
                 event.getAngelChest().getWorld().getName(),
                 event.getAngelChest().getUnlockIn(),
                 event.getAngelChest().isProtected(),
+                playerDeathAndItemOnMainCursor.get(event.getAngelChest().getPlayer().getUniqueId()),
                 event.getAngelChest().getOffhandItem(),
                 event.getAngelChest().getSecondsLeft(),
                 lastDeathLocation.getBlockX(),
@@ -79,14 +94,14 @@ public class AngelChestListener implements Listener {
      */
     public void ProcessEvent(AngelChestEventType type, ItemStack[] angelChestContents, int chestPositionX,
             int chestPositionY, int chestPositionZ, OfflinePlayer player, int experience, String world,
-            int unlockIn, boolean isProtected, ItemStack offHandItem, int timeLeft, int deathPositionX,
+            int unlockIn, boolean isProtected, ItemStack mainHandItem, ItemStack offHandItem, int timeLeft, int deathPositionX,
             int deathPositionY, int deathPositionZ, ItemStack[] armor, String playerDeathWorld) {
 
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             AbstractEmbed embed = new AngelChestEmbed(type, player,
                     pseudoInventory(angelChestContents, armor, offHandItem), chestPositionX,
                     chestPositionY, chestPositionZ, experience, worldRegexer(world), unlockHelper(unlockIn),
-                    isProtected, offHandItem,
+                    isProtected, mainHandItem, offHandItem,
                     parseTime(timeLeft, " minutes  ", " seconds"), itemCounter(angelChestContents, armor, offHandItem),
                     deathPositionX, deathPositionY, deathPositionZ, worldRegexer(playerDeathWorld));
 
