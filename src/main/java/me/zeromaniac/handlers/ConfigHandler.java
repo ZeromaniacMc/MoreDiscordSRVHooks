@@ -24,10 +24,6 @@ public class ConfigHandler {
     private static LiteBansConfigHandler LITEBANS_CONFIG;
     public static String LITE_BANS_PLUGIN_NAME = "LiteBans";
 
-    private static final String CHEST_SHOP_CONFIG_NAME = "chestshop.yml";
-    private static ChestShopConfigHandler CHEST_SHOP_CONFIG;
-    public static String CHEST_SHOP_PLUGIN_NAME = "ChestShop";
-
     private static boolean configsLoaded = false;
 
     static {
@@ -54,8 +50,6 @@ public class ConfigHandler {
 
         LITEBANS_CONFIG = new LiteBansConfigHandler(LITEBANS_CONFIG_NAME, LITE_BANS_PLUGIN_NAME);
 
-        CHEST_SHOP_CONFIG = new ChestShopConfigHandler(CHEST_SHOP_CONFIG_NAME, CHEST_SHOP_PLUGIN_NAME);
-
         configsLoaded = true;
     }
 
@@ -69,8 +63,6 @@ public class ConfigHandler {
         PLAYER_SHOP_GUI_PLUS_CONFIG.reloadConfig();
 
         LITEBANS_CONFIG.reloadConfig();
-
-        CHEST_SHOP_CONFIG.reloadConfig();
     }
 
     public static MainConfigHandler getMainConfig() {
@@ -91,10 +83,6 @@ public class ConfigHandler {
 
     public static LiteBansConfigHandler getLitebansConfig() {
         return LITEBANS_CONFIG;
-    }
-
-    public static ChestShopConfigHandler getChestShopConfig() {
-        return CHEST_SHOP_CONFIG;
     }
 
 }

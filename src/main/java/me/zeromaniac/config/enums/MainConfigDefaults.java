@@ -16,9 +16,6 @@ public enum MainConfigDefaults implements EnumGeneral {
     IS_LITEBANS_DEBUG("Hooks.LiteBans.Debug", false),
     IS_LITEBANS_IGNORE_SILENT("Hooks.LiteBans.IgnoreSilent", false),
 
-    IS_CHEST_SHOP_ENABLED("Hooks.ChestShop.Enabled", true),
-    IS_CHEST_SHOP_DEBUG_ENABLED("Hooks.ChestShop.Debug", false),
-
     TIME_ZONE("Timezone", "Europe/Berlin");
 
     public String path;

@@ -4,7 +4,6 @@ import me.zeromaniac.MoreDiscordSRVHooks;
 import me.zeromaniac.common.ThirdPartyChecker;
 import me.zeromaniac.listener.AngelChestListener;
 import me.zeromaniac.listener.AuctionGUIPlusListener;
-import me.zeromaniac.listener.ChestShopListener;
 import me.zeromaniac.listener.LiteBansListener;
 import me.zeromaniac.listener.PlayerShopGUIPlusListener;
 
@@ -29,9 +28,6 @@ public class ListenerManager {
         }
         if (ThirdPartyChecker.isPluginInstalled("LiteBans")) {
             Bukkit.getServer().getPluginManager().registerEvents(new LiteBansListener(plugin), plugin);
-        }
-        if (ThirdPartyChecker.isPluginInstalled("ChestShop")) {
-            Bukkit.getServer().getPluginManager().registerEvents(new ChestShopListener(plugin), plugin);
         }
     }
 }
