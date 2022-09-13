@@ -65,6 +65,14 @@ public class PlayerShopGUIPlusListener implements Listener {
                 null);
     }
 
+    /**
+     * @param type = Enum of event type
+     * @param shop = Shop
+     * @param stack = Itemstack item tofrom shop
+     * @param quantity = int of item quantity
+     * @param price = double of price
+     * @param buyer = buyer player
+     */
     public void ProcessEvent(PlayerShopEventType type, Shop shop, ItemStack stack, int quantity,
             double price, OfflinePlayer buyer) {
 

@@ -7,7 +7,6 @@ import me.zeromaniac.embed.AbstractEmbed;
 import me.zeromaniac.embed.AuctionGuiPlusEmbed;
 import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
-
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.EventHandler;
