@@ -1,9 +1,8 @@
 package me.zeromaniac.listener.enums;
 
 public enum QuickShopEventType {
-    CREATE("NewShopCreated"),
-    SELL("SaleEndExpired"),
-    BUY("SaleEndBought");
+    createShop("NewShopCreated"),
+    purchaseSuccess("Purchase");
 
     final String value;
 

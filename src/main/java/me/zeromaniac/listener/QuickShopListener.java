@@ -7,6 +7,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.maxgamer.quickshop.api.event.ShopCreateEvent;
+import org.maxgamer.quickshop.api.event.ShopSuccessPurchaseEvent;
 import me.zeromaniac.common.Debug;
 import me.zeromaniac.MoreDiscordSRVHooks;
 import me.zeromaniac.config.enums.MainConfigDefaults;
@@ -26,16 +27,41 @@ public class QuickShopListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST) 
-    public void CREATE(ShopCreateEvent event) {
+    public void createShop(ShopCreateEvent event) {
         Debug.log("Detected QuickShop Event firing: ShopCreateEvent, Type: " + event.getEventName(), debug);
-        ProcessEvent(QuickShopEventType.CREATE,
+        ProcessEvent(QuickShopEventType.createShop,
         event.getShop().getOwner(),
         event.getShop().getItem(),
         event.getShop().getLocation().getX(),
         event.getShop().getLocation().getY(),
         event.getShop().getLocation().getZ(),
         event.getShop().getShopType().toID(),
-        event.getShop().getPrice());
+        event.getShop().getPrice(),
+        0,
+        0,
+        0,
+        0,
+        null,
+        event.getShop().getCurrency());
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void purchaseSuccess(ShopSuccessPurchaseEvent event) {
+        Debug.log("Detected QuickShop Event firing: ShopSuccessPurchaseEvent, Type: " + event.getEventName(), debug);
+        ProcessEvent(QuickShopEventType.purchaseSuccess,
+        event.getShop().getOwner(),
+        event.getShop().getItem(),
+        event.getShop().getLocation().getX(),
+        event.getShop().getLocation().getY(),
+        event.getShop().getLocation().getZ(),
+        event.getShop().getShopType().toID(),
+        event.getShop().getPrice(),
+        event.getAmount(),
+        event.getBalance(),
+        event.getTax(),
+        event.getBalanceWithoutTax(),
+        event.getPurchaser(),
+        event.getShop().getCurrency());
     }
 
     /**
@@ -49,11 +75,13 @@ public class QuickShopListener implements Listener {
      * @param price = double of price for shop item buying/selling
      */
     public void ProcessEvent(QuickShopEventType type, UUID owner , ItemStack item,
-        double locationX, double locationY, double locationZ, int shoptype, double price) {
+        double locationX, double locationY, double locationZ, int shoptype, double price, int amount,
+        double balance, double tax, double balanceNoTax, UUID buyer, String currencySymbol) {
 
             Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                 AbstractEmbed embed = new QuickShopEmbed(type, owner, item, locationX,
-                    locationY, locationZ, shoptype, price);
+                    locationY, locationZ, shoptype, price, amount, balance, tax, balanceNoTax,
+                    buyer, currencySymbol);
                 
             embed.sendEmbed();
             });

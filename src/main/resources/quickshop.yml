@@ -56,3 +56,34 @@ NewShopCreated:
 # - {chestLocationX} = The X coordinate of the ChestShop position.
 # - {chestLocationY} = The Y coordinate of the ChestShop position.
 # - {chestLocationZ} = The Z coordinate of the ChestShop position.
+
+Purchase:
+ Embed:
+  Enabled: true
+  ChannelID: "1014485573660061726"
+  Color: "#fcba03"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player}"
+    Url: ""
+  ThumbnailUrl: "{itemImageUrl}"
+  Title:
+    Text: "{type} for {price}€"
+    Url: ""
+  Description: "Item: {item}"
+  Fields:
+    - "LocX:;{chestLocationX};true"
+    - "LocY:;{chestLocationY};true"
+    - "LocZ:;{chestLocationZ};true"
+  ImageUrl: "{loreImageUrl}"
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+# Supported placeholders in text fields for NewShopCreated:
+# - {player} = The player who owns the shop.
+# - {price} = The price the item is sold or bought for.
+# - {type} = Returns either "Selling" or "Buying", based on type.
+# - {chestLocationX} = The X coordinate of the ChestShop position.
+# - {chestLocationY} = The Y coordinate of the ChestShop position.
+# - {chestLocationZ} = The Z coordinate of the ChestShop position.

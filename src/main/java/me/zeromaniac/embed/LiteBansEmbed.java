@@ -15,9 +15,7 @@ import static me.zeromaniac.common.StringHelper.validateUUID;
 import static me.zeromaniac.common.StringHelper.validateString;
 import static me.zeromaniac.common.ImageHelper.getPlayerInventory;
 import static me.zeromaniac.common.ImageHelper.getImage;
-
 import java.util.UUID;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

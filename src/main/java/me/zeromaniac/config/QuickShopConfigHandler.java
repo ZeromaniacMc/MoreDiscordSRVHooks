@@ -7,6 +7,8 @@ public class QuickShopConfigHandler extends ConfigLoader {
 
     private boolean isNewShopCreatedEmbedEnabled;
 
+    private boolean isPurchaseEmbedEnabled;
+
     private boolean isShortenPricesEnabled;
 
 
@@ -25,11 +27,16 @@ public class QuickShopConfigHandler extends ConfigLoader {
             }
         }
         this.isNewShopCreatedEmbedEnabled = config.getBoolean(QuickShopDefaults.IS_NEW_SHOP_CREATED_EMBED_ENABLED.getPath());
+        this.isNewShopCreatedEmbedEnabled = config.getBoolean(QuickShopDefaults.IS_PURCHASE_EMBED_ENABLED.getPath());
         this.isShortenPricesEnabled = config.getBoolean(QuickShopDefaults.SHORTEN_PRICES.getPath());
     }
 
     public boolean getIsNewShopCreatedEmbedEnabled() {
         return this.isNewShopCreatedEmbedEnabled;
+    }
+
+    public boolean getIsPurchaseEmbedEnabled() {
+        return this.isPurchaseEmbedEnabled;
     }
 
     public boolean getIsShortenPricesEnabled() {

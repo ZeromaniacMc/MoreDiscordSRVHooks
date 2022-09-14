@@ -8,6 +8,12 @@ public enum PlaceholdersEnum {
     QUANTITY("{quantity}"),
     ITEM("{item}"),
     STARTING_PRICE("{startingprice}"),
+
+    BALANCE("{balance}"),
+    BALANCE_NO_TAX("{balanceNoTax}"),
+    TAX("{tax}"),
+    CURRENCYSYMBOL("{currencySymbol}"),
+
     INCREMENT("{increment}"),
     AMOUNT("{amount}"),
     DURATION("{duration}"),

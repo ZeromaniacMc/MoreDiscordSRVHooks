@@ -33,7 +33,37 @@ public enum QuickShopDefaults implements EnumGeneral{
     // Footer settings
     NEW_SHOP_CREATED_EMBED_FOOTER_TEXT("NewShopCreated.Embed.Footer.Text",""),
     NEW_SHOP_CREATED_EMBED_FOOTER_ICONURL("NewShopCreated.Embed.Footer.IconUrl",""),
-    NEW_SHOP_CREATED_EMBED_TIMESTAMP("NewShopCreated.Embed.Timestamp",true);
+    NEW_SHOP_CREATED_EMBED_TIMESTAMP("NewShopCreated.Embed.Timestamp",true),
+
+    /*
+     * PURCHASE FROM SHOP
+     */
+
+    IS_PURCHASE_EMBED_ENABLED("Purchase.Embed.Enabled", true),
+
+    // Main embed settings
+    PURCHASE_EMBED_CHANNEL_ID("Purchase.Embed.ChannelID", "0000000000"),
+    PURCHASE_EMBED_COLOR("Purchase.Embed.Color","#fcba03"),
+
+    // Embed author settings
+    PURCHASE_EMBED_AUTHOR_IMAGEURL("Purchase.Embed.Author.ImageUrl","{playerAvatarUrl}"),
+    PURCHASE_EMBED_AUTHOR_NAME("Purchase.Embed.Author.Name","**Oops, looks like someone died!**"),
+    PURCHASE_EMBED_AUTHOR_URL("Purchase.Embed.Author.Url",""),
+
+    // Embed thumbnail settings
+    PURCHASE_EMBED_THUMBNAIL("Purchase.Embed.ThumbnailUrl",""),
+    PURCHASE_EMBED_TITLE_TEXT("Purchase.Embed.Title.Text",""),
+    PURCHASE_EMBED_TITLE_URL("Purchase.Embed.Title.Url",""),
+
+    // Embed description
+    PURCHASE_EMBED_DESCRIPTION("Purchase.Embed.Description","{player}'s Angel Chest spawned!"),
+    PURCHASE_EMBED_FIELDS("Purchase.Embed.Fields","[]"),
+    PURCHASE_EMBED_IMAGEURL("Purchase.Embed.ImageUrl","{inventoryImageUrl}"),
+
+    // Footer settings
+    PURCHASE_EMBED_FOOTER_TEXT("Purchase.Embed.Footer.Text",""),
+    PURCHASE_EMBED_FOOTER_ICONURL("Purchase.Embed.Footer.IconUrl",""),
+    PURCHASE_EMBED_TIMESTAMP("Purchase.Embed.Timestamp",true);
 
 
 
