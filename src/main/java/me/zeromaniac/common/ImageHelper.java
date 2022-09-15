@@ -84,10 +84,10 @@ public class ImageHelper {
         boolean rightHanded = icPlayer.isRightHanded();
         ItemStack rightHand = rightHanded ? itemInMainHand : itemInOffHand;
         ItemStack leftHand = rightHanded ? itemInOffHand : itemInMainHand;
-        ItemStack helmet = inv.getItem(36);
-        ItemStack chestplate = inv.getItem(37);
-        ItemStack leggings = inv.getItem(38);
-        ItemStack boots = inv.getItem(39);
+        ItemStack helmet = inv.getItem(39);
+        ItemStack chestplate = inv.getItem(38);
+        ItemStack leggings = inv.getItem(37);
+        ItemStack boots = inv.getItem(36);
         try {
             return ImageGeneration.getPlayerInventoryImage(inv, rightHand, leftHand, helmet, chestplate, leggings, boots, icPlayer);
         } catch (Exception e) {
