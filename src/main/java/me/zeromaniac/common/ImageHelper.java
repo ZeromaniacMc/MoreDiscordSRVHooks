@@ -46,6 +46,7 @@ public class ImageHelper {
 
     public static BufferedImage getLoreImage(ItemStack stack) {
         try {
+            stack = stack.clone();
             ItemMeta meta = stack.getItemMeta();
             meta.setDisplayName(ItemHelper.convertHexToBukkit(meta.getDisplayName()));
 
