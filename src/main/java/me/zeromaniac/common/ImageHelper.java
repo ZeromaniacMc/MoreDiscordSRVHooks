@@ -77,6 +77,9 @@ public class ImageHelper {
 
     public static BufferedImage getPlayerInventory(Inventory inv, OfflinePlayer player, ItemStack itemInMainHand, ItemStack itemInOffHand) {
         OfflineICPlayer icPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
+        if (icPlayer == null) {
+            return null;
+        }
         boolean rightHanded = icPlayer.isRightHanded();
         ItemStack rightHand = rightHanded ? itemInMainHand : itemInOffHand;
         ItemStack leftHand = rightHanded ? itemInOffHand : itemInMainHand;
