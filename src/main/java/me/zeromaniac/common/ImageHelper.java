@@ -1,31 +1,26 @@
 package me.zeromaniac.common;
 
+import com.loohp.interactivechat.objectholders.ICPlayerFactory;
+import com.loohp.interactivechat.objectholders.OfflineICPlayer;
+import com.loohp.interactivechatdiscordsrvaddon.graphics.ImageGeneration;
+import com.loohp.interactivechatdiscordsrvaddon.objectholders.ToolTipComponent;
+import com.loohp.interactivechatdiscordsrvaddon.utils.DiscordItemStackUtils;
+import me.zeromaniac.embed.enums.AvatarType;
+import me.zeromaniac.types.Image;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
-import javax.imageio.ImageIO;
-import com.loohp.interactivechatdiscordsrvaddon.graphics.ImageGeneration;
-import com.loohp.interactivechatdiscordsrvaddon.objectholders.ToolTipComponent;
-import com.loohp.interactivechatdiscordsrvaddon.utils.DiscordItemStackUtils;
-
-import me.zeromaniac.embed.enums.AvatarType;
-import me.zeromaniac.types.Image;
-
-import java.awt.image.BufferedImage;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.EntityEquipment;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import com.loohp.interactivechat.objectholders.ICPlayer;
-import com.loohp.interactivechat.objectholders.ICPlayerFactory;
-import com.loohp.interactivechat.objectholders.OfflineICPlayer;
 
 public class ImageHelper {
 
@@ -82,22 +77,19 @@ public class ImageHelper {
     }
 
     public static BufferedImage getPlayerInventory(Inventory inv, OfflinePlayer player, ItemStack itemInMainHand, ItemStack itemInOffHand) {
+        OfflineICPlayer icPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
+        if (icPlayer == null) {
+            return null;
+        }
+        boolean rightHanded = icPlayer.isRightHanded();
+        ItemStack rightHand = rightHanded ? itemInMainHand : itemInOffHand;
+        ItemStack leftHand = rightHanded ? itemInOffHand : itemInMainHand;
+        ItemStack helmet = inv.getItem(36);
+        ItemStack chestplate = inv.getItem(37);
+        ItemStack leggings = inv.getItem(38);
+        ItemStack boots = inv.getItem(39);
         try {
-            OfflineICPlayer icPlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
-
-            if(icPlayer == null) {
-                return null;
-            }
-
-            if(icPlayer.getPlayer() != null) {
-                icPlayer = icPlayer.getPlayer();
-                icPlayer.getInventory().setContents(inv.getContents());
-                icPlayer.getEquipment().setItemInMainHand(itemInMainHand);
-                icPlayer.getEquipment().setItemInOffHand(itemInOffHand);
-            }
-
-
-            return ImageGeneration.getPlayerInventoryImage(inv, icPlayer);
+            return ImageGeneration.getPlayerInventoryImage(inv, rightHand, leftHand, helmet, chestplate, leggings, boots, icPlayer);
         } catch (Exception e) {
             e.printStackTrace();
         }
