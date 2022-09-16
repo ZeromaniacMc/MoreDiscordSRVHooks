@@ -10,9 +10,10 @@ public enum PlaceholdersEnum {
     STARTING_PRICE("{startingprice}"),
 
     BALANCE("{balance}"),
-    BALANCE_NO_TAX("{balanceNoTax}"),
     TAX("{tax}"),
-    CURRENCYSYMBOL("{currencySymbol}"),
+    INCOME_BEFORE_TAX("{incomeBeforeTax}"),
+    INCOME_AFTER_TAX("{incomeAfterTax}"),
+    SINGLETON_PRICE_BEFORE_TAX("{singleItemPriceBeforeTax}"),
 
     INCREMENT("{increment}"),
     AMOUNT("{amount}"),

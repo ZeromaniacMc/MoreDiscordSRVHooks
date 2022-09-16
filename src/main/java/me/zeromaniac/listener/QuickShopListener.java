@@ -41,8 +41,7 @@ public class QuickShopListener implements Listener {
         0,
         0,
         0,
-        null,
-        event.getShop().getCurrency());
+        null);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -60,8 +59,7 @@ public class QuickShopListener implements Listener {
         event.getBalance(),
         event.getTax(),
         event.getBalanceWithoutTax(),
-        event.getPurchaser(),
-        event.getShop().getCurrency());
+        event.getPurchaser());
     }
 
     /**
@@ -75,13 +73,13 @@ public class QuickShopListener implements Listener {
      * @param price = double of price for shop item buying/selling
      */
     public void ProcessEvent(QuickShopEventType type, UUID owner , ItemStack item,
-        double locationX, double locationY, double locationZ, int shoptype, double price, int amount,
-        double balance, double tax, double balanceNoTax, UUID buyer, String currencySymbol) {
+        double locationX, double locationY, double locationZ, int shoptype, double singleItemPriceBeforeTax, int amount,
+        double incomeAfterTax, double tax, double incomeBeforeTax, UUID buyer) {
 
             Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                 AbstractEmbed embed = new QuickShopEmbed(type, owner, item, locationX,
-                    locationY, locationZ, shoptype, price, amount, balance, tax, balanceNoTax,
-                    buyer, currencySymbol);
+                    locationY, locationZ, shoptype, singleItemPriceBeforeTax, amount, incomeAfterTax, tax, incomeBeforeTax,
+                    buyer);
                 
             embed.sendEmbed();
             });

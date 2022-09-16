@@ -23,8 +23,8 @@ import static me.zeromaniac.common.ImageHelper.getImage;
 public class QuickShopEmbed extends AbstractEmbed {
 
     public QuickShopEmbed(QuickShopEventType type, UUID owner, ItemStack item,
-            double locationX, double locationY, double locationZ, int shoptype, double price,
-            int amount, double balance, double tax, double balanceNoTax, UUID buyer, String currencySymbol) {
+            double locationX, double locationY, double locationZ, int shoptype, double singleItemPriceBeforeTax,
+            int amount, double incomeAfterTax, double tax, double incomeBeforeTax, UUID buyer) {
         super();
         boolean formatPrices = ConfigHandler.getQuickShopConfig().getIsShortenPricesEnabled();
         String messageType = type.getValue();
@@ -41,22 +41,17 @@ public class QuickShopEmbed extends AbstractEmbed {
             replacer.put(PlaceholdersEnum.ITEM.getValue(), ItemHelper.nameFormatter(item));
         }
 
-        replacer.put(PlaceholdersEnum.AMOUNT.getValue(), String.valueOf(amount));
-        replacer.put(PlaceholdersEnum.BALANCE.getValue(), String.valueOf(balance));
-        replacer.put(PlaceholdersEnum.TAX.getValue(), String.valueOf(tax));
-        replacer.put(PlaceholdersEnum.BALANCE_NO_TAX.getValue(), String.valueOf(balanceNoTax));
-        replacer.put(PlaceholdersEnum.CURRENCYSYMBOL.getValue(), currencySymbol);
-
+        replacer.put(PlaceholdersEnum.AMOUNT.getValue(), String.valueOf(amount)); 
+        replacer.put(PlaceholdersEnum.INCOME_AFTER_TAX.getValue(), String.valueOf(incomeAfterTax));
+        replacer.put(PlaceholdersEnum.TAX.getValue(), String.valueOf(tax)); 
+        replacer.put(PlaceholdersEnum.INCOME_BEFORE_TAX.getValue(), String.valueOf(incomeBeforeTax)); 
+        replacer.put(PlaceholdersEnum.SINGLETON_PRICE_BEFORE_TAX.getValue(), ItemHelper.priceShortener(singleItemPriceBeforeTax, formatPrices));
 
         replacer.put(PlaceholdersEnum.CHEST_LOC_X.getValue(), String.valueOf(locationX));
         replacer.put(PlaceholdersEnum.CHEST_LOC_Y.getValue(), String.valueOf(locationY));
         replacer.put(PlaceholdersEnum.CHEST_LOC_Z.getValue(), String.valueOf(locationZ));
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), Bukkit.getPlayer(owner).getName());
-
-        //replacer.put(PlaceholdersEnum.BUYER.getValue(), Bukkit.getPlayer(buyer).getName());
-
-        replacer.put(PlaceholdersEnum.PRICE.getValue(), ItemHelper.priceShortener(price, formatPrices));
 
         // SELLING(0)
         // BUYING(1)
