@@ -1,6 +1,8 @@
 package me.zeromaniac.listener;
 
 import java.util.UUID;
+import java.util.regex.Pattern;
+
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -41,7 +43,8 @@ public class QuickShopListener implements Listener {
         0,
         0,
         0,
-        null);
+        null,
+        event.getShop().getLocation().getWorld().getName());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -59,7 +62,8 @@ public class QuickShopListener implements Listener {
         event.getBalance(),
         event.getTax(),
         event.getBalanceWithoutTax(),
-        event.getPurchaser());
+        event.getPurchaser(),
+        event.getShop().getLocation().getWorld().getName());
     }
 
     /**
@@ -74,14 +78,19 @@ public class QuickShopListener implements Listener {
      */
     public void ProcessEvent(QuickShopEventType type, UUID owner , ItemStack item,
         double locationX, double locationY, double locationZ, int shoptype, double singleItemPriceBeforeTax, int amount,
-        double incomeAfterTax, double tax, double incomeBeforeTax, UUID buyer) {
+        double incomeAfterTax, double tax, double incomeBeforeTax, UUID buyer, String world) {
 
             Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                 AbstractEmbed embed = new QuickShopEmbed(type, owner, item, locationX,
                     locationY, locationZ, shoptype, singleItemPriceBeforeTax, amount, incomeAfterTax, tax, incomeBeforeTax,
-                    buyer);
+                    buyer, worldRegexer(world));
                 
             embed.sendEmbed();
             });
         }
+
+    public String worldRegexer(String world) {
+        Pattern worldNameNoUnderScores = Pattern.compile("_");
+        return worldNameNoUnderScores.matcher(world).replaceAll(" ");
+    }
 }
