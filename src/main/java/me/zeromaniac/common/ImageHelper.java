@@ -13,14 +13,15 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.profile.PlayerProfile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.net.URL;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 public class ImageHelper {
 
@@ -97,70 +98,25 @@ public class ImageHelper {
     }
 
     /**
-     * Based on DiscordSRV constructAvatarUrl
+     * Constructs an avatar url with mc-heads
      */
     public static String constructAvatarUrl(String username, UUID uuid, AvatarType imageType) {
-        try {
-            boolean offline = uuid == null || uuid.version() == 3;
-            OfflinePlayer player = null;
-
-            if (!StringHelper.stringEmpty(username) && offline) {
-                player = Bukkit.getOfflinePlayer(username);
-                uuid = player.getUniqueId();
-                offline = uuid.version() == 3;
-            }
-            if (StringHelper.stringEmpty(username) && uuid != null) {
-                // resolve uuid to player/username
-                player = Bukkit.getOfflinePlayer(uuid);
-                username = player.getName();
-            }
-
-            String defaultUrl;
-            String offlineUrl;
-
-            if (imageType == AvatarType.HEAD) {
-                defaultUrl = "https://crafatar.com/avatars/{uuid-nodashes}.png?overlay&size={size}";
-                offlineUrl = "https://cravatar.eu/helmavatar/{username}/{size}.png";
-                // offlineUrl = "https://mc-heads.net/{texture}";
-            } else if (imageType == AvatarType.BODY) {
-                defaultUrl = "https://crafatar.com/renders/body/{uuid-nodashes}.png?overlay&scale={scale}";
-                offlineUrl = "https://cravatar.eu/helmhead/{username}/{size}.png";
-            } else {
-                defaultUrl = "https://crafatar.com/renders/head/{uuid-nodashes}.png?overlay&scale={scale}";
-                offlineUrl = "https://cravatar.eu/helmhead/{username}/{size}.png";
-            }
-
-            String avatarUrl = !offline ? defaultUrl : offlineUrl;
-
-            if (offline && !avatarUrl.contains("{username}")) {
-                boolean defaultValue = avatarUrl.equals(defaultUrl);
-                if (defaultValue) {
-                    // Using default value while in offline mode -> use offline url
-                    avatarUrl = offlineUrl;
-                }
-            }
-
-            if (username != null && (username.startsWith("*") || username.startsWith("."))) {
-                // geyser adds * or . to beginning of it's usernames
-                username = username.substring(1);
-            }
-
+        OfflinePlayer offlinePlayer = uuid == null ? Bukkit.getOfflinePlayer(username) : Bukkit.getOfflinePlayer(uuid);
+        PlayerProfile playerProfile = offlinePlayer.getPlayerProfile();
+        if (!playerProfile.isComplete()) {
             try {
-                username = URLEncoder.encode(username, "utf8");
-            } catch (UnsupportedEncodingException ignored) {
+                playerProfile = offlinePlayer.getPlayerProfile().update().get();
+            } catch (InterruptedException | ExecutionException ignore) {
             }
-
-            avatarUrl = avatarUrl
-                    .replace("{username}", username != null ? username : "")
-                    .replace("{uuid}", uuid != null ? uuid.toString() : "")
-                    .replace("{uuid-nodashes}", uuid.toString().replace("-", ""))
-                    .replace("{size}", "82")
-                    .replace("{scale}", "5");
-
-            return avatarUrl;
-        } catch (Throwable e) {
-
         }
-        return null;
+        URL skinUrl = playerProfile.getTextures().getSkin();
+        String skinValue = skinUrl == null ? username.replaceAll("^\\*", "") : skinUrl.toString().replace("http://textures.minecraft.net/texture/", "");
+        String avatarUrl;
+        switch (imageType) {
+            case HEAD -> avatarUrl = "https://mc-heads.net/avatar/" + skinValue + "/82";
+            case HEAD_3D -> avatarUrl = "https://mc-heads.net/head/" + skinValue + "/82";
+            default -> avatarUrl = "https://mc-heads.net/body/" + skinValue + "/82";
+        }
+        return avatarUrl;
     }
 }
