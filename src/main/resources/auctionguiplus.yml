@@ -44,7 +44,9 @@ ShortenPrices: false
 NewAuction:
  Embed:
   Enabled: true
-  ChannelID: "0000000000"
+  ChannelID: 
+    - "0000000000"
+    - "0000000000"
   Color: "#fcba03"
   Author:
     ImageUrl: "{playerAvatarUrl}"
@@ -74,7 +76,9 @@ NewAuction:
 AuctionBid:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#fcba03"
     Author:
       ImageUrl: "{bidderAvatarUrl}"
@@ -101,7 +105,9 @@ AuctionBid:
 AuctionEnd:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#fcba03"
     Author:
       ImageUrl: "{buyerAvatarUrl}"
@@ -128,7 +134,9 @@ AuctionEnd:
 AuctionEndNoBids:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#fcba03"
     Author:
       ImageUrl: "{playerAvatarUrl}"

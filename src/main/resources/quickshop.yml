@@ -32,7 +32,9 @@ ShortenPrices: true
 NewShopCreated:
  Embed:
   Enabled: true
-  ChannelID: "1014485573660061726"
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
   Color: "#fcba03"
   Author:
     ImageUrl: "{playerAvatarUrl}"
@@ -64,7 +66,9 @@ NewShopCreated:
 Purchase:
  Embed:
   Enabled: true
-  ChannelID: "1014485573660061726"
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
   Color: "#fcba03"
   Author:
     ImageUrl: "{buyerAvatarUrl}"

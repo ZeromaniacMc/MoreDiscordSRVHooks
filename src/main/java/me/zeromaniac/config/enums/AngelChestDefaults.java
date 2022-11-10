@@ -9,7 +9,7 @@ public enum AngelChestDefaults implements EnumGeneral{
     IS_ANGEL_CHEST_SPAWNED_EMBED_ENABLED("AngelChestSpawned.Embed.Enabled", true),
 
     // Main embed settings
-    ANGEL_CHEST_SPAWNED_EMBED_CHANNEL_ID("AngelChestSpawned.Embed.ChannelID", "0000000000"),
+    ANGEL_CHEST_SPAWNED_EMBED_CHANNEL_ID("AngelChestSpawned.Embed.ChannelID", "[]"),
     ANGEL_CHEST_SPAWNED_EMBED_COLOR("AngelChestSpawned.Embed.Color","#fcba03"),
 
     // Embed author settings

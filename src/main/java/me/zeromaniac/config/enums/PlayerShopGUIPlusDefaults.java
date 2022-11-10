@@ -12,7 +12,7 @@ public enum PlayerShopGUIPlusDefaults implements EnumGeneral {
     IS_NEW_SALE_EMBED_ENABLED("NewSale.Embed.Enabled", true),
 
     // Main embed settings
-    NEW_SALE_EMBED_CHANNEL_ID("NewSale.Embed.ChannelID","0000000000"),
+    NEW_SALE_EMBED_CHANNEL_ID("NewSale.Embed.ChannelID","[]"),
     NEW_SALE_EMBED_COLOR("NewSale.Embed.Color","#fcba03"),
 
     // Embed author settings
@@ -42,7 +42,7 @@ public enum PlayerShopGUIPlusDefaults implements EnumGeneral {
     SALE_END_EXPIRED_EMBED_ENABLED("SaleEndExpired.Embed.Enabled", true),
 
     // Main embed settings
-    SALE_END_EXPIRED_EMBED_CHANNEL_ID("SaleEndExpired.Embed.ChannelID","0000000000"),
+    SALE_END_EXPIRED_EMBED_CHANNEL_ID("SaleEndExpired.Embed.ChannelID","[]"),
     SALE_END_EXPIRED_EMBED_COLOR("SaleEndExpired.Embed.Color","#fcba03"),
 
     // Embed author settings
@@ -72,7 +72,7 @@ public enum PlayerShopGUIPlusDefaults implements EnumGeneral {
     SALE_END_BOUGHT_EMBED_ENABLED("SaleEndBought.Embed.Enabled", true),
 
     // Main embed settings
-    SALE_END_BOUGHT_EMBED_CHANNEL_ID("SaleEndBought.Embed.ChannelID","0000000000"),
+    SALE_END_BOUGHT_EMBED_CHANNEL_ID("SaleEndBought.Embed.ChannelID","[]"),
     SALE_END_BOUGHT_EMBED_COLOR("SaleEndBought.Embed.Color","#fcba03"),
 
     // Embed author settings

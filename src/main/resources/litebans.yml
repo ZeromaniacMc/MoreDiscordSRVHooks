@@ -39,7 +39,9 @@
 PermanentBan:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -81,7 +83,9 @@ PermanentBan:
 TemporaryBan:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -123,7 +127,9 @@ TemporaryBan:
 PermanentIPBan:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -165,7 +171,9 @@ PermanentIPBan:
 TemporaryIPBan:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -207,7 +215,9 @@ TemporaryIPBan:
 Unban:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#1ac444"
     Author:
       ImageUrl: ""
@@ -250,7 +260,9 @@ Unban:
 PermanentMute:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -292,7 +304,9 @@ PermanentMute:
 TemporaryMute:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -334,7 +348,9 @@ TemporaryMute:
 PermanentIPMute:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -376,7 +392,9 @@ PermanentIPMute:
 TemporaryIPMute:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -418,7 +436,9 @@ TemporaryIPMute:
 Unmute:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#1ac444"
     Author:
       ImageUrl: ""
@@ -461,7 +481,9 @@ Unmute:
 Kick:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -497,7 +519,9 @@ Kick:
 Warn:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#bf0f2d"
     Author:
       ImageUrl: ""
@@ -539,7 +563,9 @@ Warn:
 Unwarn:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#1ac444"
     Author:
       ImageUrl: ""

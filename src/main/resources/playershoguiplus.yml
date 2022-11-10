@@ -41,7 +41,9 @@ ShortenPrices: false
 NewSale:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#fcba03"
     Author:
       ImageUrl: "{playerAvatarUrl}"
@@ -69,7 +71,9 @@ NewSale:
 SaleEndBought:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#fcba03"
     Author:
       ImageUrl: "{buyerAvatarUrl}"
@@ -96,7 +100,9 @@ SaleEndBought:
 SaleEndExpired:
   Embed:
     Enabled: true
-    ChannelID: "0000000000"
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
     Color: "#fcba03"
     Author:
       ImageUrl: "{playerAvatarUrl}"

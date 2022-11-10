@@ -30,7 +30,9 @@
 AngelChestSpawned:
  Embed:
   Enabled: true
-  ChannelID: "0000000000"
+  ChannelID: 
+    - "0000000000"
+    - "0000000000"
   Color: "#fcba03"
   Author:
     ImageUrl: "{playerAvatarUrl}"

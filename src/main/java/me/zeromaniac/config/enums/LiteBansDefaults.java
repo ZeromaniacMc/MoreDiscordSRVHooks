@@ -8,7 +8,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_PERMANENT_BAN_EMBED_ENABLED("PermanentBan.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_PERMANENT_BAN_EMBED_CHANNEL_ID("PermanentBan.Embed.ChannelID", "0000000000"),
+    LITE_BANS_PERMANENT_BAN_EMBED_CHANNEL_ID("PermanentBan.Embed.ChannelID", "[]"),
     LITE_BANS_PERMANENT_BAN_EMBED_COLOR("PermanentBan.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -37,7 +37,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_TEMPORARY_BAN_EMBED_ENABLED("TemporaryBan.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_TEMPORARY_BAN_EMBED_CHANNEL_ID("TemporaryBan.Embed.ChannelID", "0000000000"),
+    LITE_BANS_TEMPORARY_BAN_EMBED_CHANNEL_ID("TemporaryBan.Embed.ChannelID", "[]"),
     LITE_BANS_TEMPORARY_BAN_EMBED_COLOR("TemporaryBan.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -66,7 +66,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_PERMANENT_IP_BAN_EMBED_ENABLED("PermanentIPBan.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_PERMANENT_IP_BAN_EMBED_CHANNEL_ID("PermanentIPBan.Embed.ChannelID", "0000000000"),
+    LITE_BANS_PERMANENT_IP_BAN_EMBED_CHANNEL_ID("PermanentIPBan.Embed.ChannelID", "[]"),
     LITE_BANS_PERMANENT_IP_BAN_EMBED_COLOR("PermanentIPBan.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -95,7 +95,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_TEMPORARY_IP_BAN_EMBED_ENABLED("TemporaryIPBan.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_TEMPORARY_IP_BAN_EMBED_CHANNEL_ID("TemporaryIPBan.Embed.ChannelID", "0000000000"),
+    LITE_BANS_TEMPORARY_IP_BAN_EMBED_CHANNEL_ID("TemporaryIPBan.Embed.ChannelID", "[]"),
     LITE_BANS_TEMPORARY_IP_BAN_EMBED_COLOR("TemporaryIPBan.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -124,7 +124,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_UNBAN_EMBED_ENABLED("Unban.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_UNBAN_EMBED_CHANNEL_ID("Unban.Embed.ChannelID", "0000000000"),
+    LITE_BANS_UNBAN_EMBED_CHANNEL_ID("Unban.Embed.ChannelID", "[]"),
     LITE_BANS_UNBAN_EMBED_COLOR("Unban.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -153,7 +153,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_PERMANENT_MUTE_EMBED_ENABLED("PermanentMute.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_PERMANENT_MUTE_EMBED_CHANNEL_ID("PermanentMute.Embed.ChannelID", "0000000000"),
+    LITE_BANS_PERMANENT_MUTE_EMBED_CHANNEL_ID("PermanentMute.Embed.ChannelID", "[]"),
     LITE_BANS_PERMANENT_MUTE_EMBED_COLOR("PermanentMute.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -182,7 +182,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_TEMPORARY_MUTE_EMBED_ENABLED("TemporaryMute.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_TEMPORARY_MUTE_EMBED_CHANNEL_ID("TemporaryMute.Embed.ChannelID", "0000000000"),
+    LITE_BANS_TEMPORARY_MUTE_EMBED_CHANNEL_ID("TemporaryMute.Embed.ChannelID", "[]"),
     LITE_BANS_TEMPORARY_MUTE_EMBED_COLOR("TemporaryMute.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -211,7 +211,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_PERMANENT_IP_MUTE_EMBED_ENABLED("PermanentIPMute.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_PERMANENT_IP_MUTE_EMBED_CHANNEL_ID("PermanentIPMute.Embed.ChannelID", "0000000000"),
+    LITE_BANS_PERMANENT_IP_MUTE_EMBED_CHANNEL_ID("PermanentIPMute.Embed.ChannelID", "[]"),
     LITE_BANS_PERMANENT_IP_MUTE_EMBED_COLOR("PermanentIPMute.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -240,7 +240,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_TEMPORARY_IP_MUTE_EMBED_ENABLED("TemporaryIPMute.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_TEMPORARY_IP_MUTE_EMBED_CHANNEL_ID("TemporaryIPMute.Embed.ChannelID", "0000000000"),
+    LITE_BANS_TEMPORARY_IP_MUTE_EMBED_CHANNEL_ID("TemporaryIPMute.Embed.ChannelID", "[]"),
     LITE_BANS_TEMPORARY_IP_MUTE_EMBED_COLOR("TemporaryIPMute.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -269,7 +269,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_UNMUTE_EMBED_ENABLED("Unmute.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_UNMUTE_EMBED_CHANNEL_ID("Unmute.Embed.ChannelID", "0000000000"),
+    LITE_BANS_UNMUTE_EMBED_CHANNEL_ID("Unmute.Embed.ChannelID", "[]"),
     LITE_BANS_UNMUTE_EMBED_COLOR("Unmute.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -298,7 +298,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_KICK_EMBED_ENABLED("Kick.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_KICK_EMBED_CHANNEL_ID("Kick.Embed.ChannelID", "0000000000"),
+    LITE_BANS_KICK_EMBED_CHANNEL_ID("Kick.Embed.ChannelID", "[]"),
     LITE_BANS_KICK_EMBED_COLOR("Kick.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -327,7 +327,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_WARN_EMBED_ENABLED("Warn.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_WARN_EMBED_CHANNEL_ID("Warn.Embed.ChannelID", "0000000000"),
+    LITE_BANS_WARN_EMBED_CHANNEL_ID("Warn.Embed.ChannelID", "[]"),
     LITE_BANS_WARN_EMBED_COLOR("Warn.Embed.Color", "#fcba03"),
 
     // Embed author settings
@@ -356,7 +356,7 @@ public enum LiteBansDefaults implements EnumGeneral {
     LITE_BANS_UNWARN_EMBED_ENABLED("Unwarn.Embed.Enabled", true),
 
     // Main embed settings
-    LITE_BANS_UNWARN_EMBED_CHANNEL_ID("Unwarn.Embed.ChannelID", "0000000000"),
+    LITE_BANS_UNWARN_EMBED_CHANNEL_ID("Unwarn.Embed.ChannelID", "[]"),
     LITE_BANS_UNWARN_EMBED_COLOR("Unwarn.Embed.Color", "#fcba03"),
 
     // Embed author settings

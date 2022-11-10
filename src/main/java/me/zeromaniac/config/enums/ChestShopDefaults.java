@@ -9,7 +9,7 @@ public enum ChestShopDefaults implements EnumGeneral{
     IS_NEW_CHEST_SHOP_EMBED_ENABLED("NewChestShop.Embed.Enabled", true),
 
     // Main embed settings
-    NEW_CHEST_SHOP_EMBED_CHANNEL_ID("NewChestShop.Embed.ChannelID", "0000000000"),
+    NEW_CHEST_SHOP_EMBED_CHANNEL_ID("NewChestShop.Embed.ChannelID", "[]"),
     NEW_CHEST_SHOP_EMBED_COLOR("NewChestShop.Embed.Color","#fcba03"),
 
     // Embed author settings

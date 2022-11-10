@@ -11,7 +11,7 @@ public enum AuctionGUIPlusDefaults implements EnumGeneral {
     IS_NEW_AUCTION_EMBED_ENABLED("NewAuction.Embed.Enabled", true),
 
     // Main embed settings
-    NEW_AUCTION_EMBED_CHANNEL_ID("NewAuction.Embed.ChannelID", "0000000000"),
+    NEW_AUCTION_EMBED_CHANNEL_ID("NewAuction.Embed.ChannelID", "[]"),
     NEW_AUCTION_EMBED_COLOR("NewAuction.Embed.Color","#fcba03"),
 
     // Embed author settings
@@ -41,7 +41,7 @@ public enum AuctionGUIPlusDefaults implements EnumGeneral {
     IS_AUCTION_BID_EMBED_ENABLED("AuctionBid.Embed.Enabled", true),
 
     // Main embed settings
-    AUCTION_BID_EMBED_CHANNEL_ID("AuctionBid.Embed.ChannelID", "0000000000"),
+    AUCTION_BID_EMBED_CHANNEL_ID("AuctionBid.Embed.ChannelID", "[]"),
     AUCTION_BID_EMBED_COLOR("AuctionBid.Embed.Color","#fcba03"),
 
     // Embed author settings
@@ -71,7 +71,7 @@ public enum AuctionGUIPlusDefaults implements EnumGeneral {
     IS_AUCTION_END_EMBED_ENABLED("AuctionEnd.Embed.Enabled", true),
 
     // Main embed settings
-    AUCTION_END_EMBED_CHANNEL_ID("AuctionEnd.Embed.ChannelID", "0000000000"),
+    AUCTION_END_EMBED_CHANNEL_ID("AuctionEnd.Embed.ChannelID", "[]"),
     AUCTION_END_EMBED_COLOR("AuctionEnd.Embed.Color","#fcba03"),
 
     // Embed author settings
@@ -101,7 +101,7 @@ public enum AuctionGUIPlusDefaults implements EnumGeneral {
     IS_AUCTION_END_NO_BIDS_EMBED_ENABLED("AuctionEndNoBids.Embed.Enabled", true),
 
     // Main embed settings
-    AUCTION_END_NO_BIDS_EMBED_CHANNEL_ID("AuctionEndNoBids.Embed.ChannelID", "0000000000"),
+    AUCTION_END_NO_BIDS_EMBED_CHANNEL_ID("AuctionEndNoBids.Embed.ChannelID", "[]"),
     AUCTION_END_NO_BIDS_EMBED_COLOR("AuctionEndNoBids.Embed.Color","#fcba03"),
 
     // Embed author settings

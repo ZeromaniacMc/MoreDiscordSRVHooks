@@ -13,9 +13,11 @@ import me.zeromaniac.types.Image;
 import me.zeromaniac.types.Title;
 import org.bukkit.configuration.file.FileConfiguration;
 import java.awt.Color;
+import java.lang.reflect.Array;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import static me.zeromaniac.common.StringHelper.validateString;
 import static me.zeromaniac.common.StringHelper.validateUrlOrAttachment;
@@ -27,7 +29,7 @@ public abstract class AbstractEmbed {
     protected Map<String, String> replacer = new HashMap<>();
     protected boolean enabled;
     protected boolean debug;
-    protected String channelID;
+    // protected String channelID;
     protected String color;
     protected Author author;
     protected String thumbnail;
@@ -40,6 +42,7 @@ public abstract class AbstractEmbed {
 
     protected ArrayList<Image> attachmentImages = new ArrayList<>();
     protected Map<String, String> textFieldsMap = new HashMap<>();
+    protected List<String> channelIDs = new ArrayList<>();
 
     protected AbstractEmbed() {
         initConfig();
@@ -100,22 +103,25 @@ public abstract class AbstractEmbed {
                 Debug.log("Time stamp appears to be disabled.", debug);
             }
 
-            TextChannel myChannel = DiscordSRV.getPlugin().getMainGuild().getTextChannelById(channelID);
-            if (myChannel == null) {
-                Debug.log("Channel ID could not be verified. Please check your config.", debug);
-                return;
+            for (String channelID : channelIDs) {
+                TextChannel myChannel = DiscordSRV.getPlugin().getMainGuild().getTextChannelById(channelID);
+                if (myChannel == null) {
+                    Debug.log("Channel ID could not be verified. Please check your config.", debug);
+                    return;
+                }
+
+                MessageAction myMessage = myChannel.sendMessageEmbeds(myEmbed.build());
+                for (Image img : attachmentImages) {
+                    if (!img.isValid()) {
+                        Debug.log("Invalid image - could not complete embed with image: " + img.getImageName(), debug);
+                        continue;
+                    }
+                    // noinspection ResultOfMethodCallIgnored
+                    myMessage.addFile(img.getImage(), img.getImageName());
+                }
+                myMessage.queue();
             }
 
-            MessageAction myMessage = myChannel.sendMessageEmbeds(myEmbed.build());
-            for (Image img : attachmentImages) {
-                if (!img.isValid()) {
-                    Debug.log("Invalid image - could not complete embed with image: " + img.getImageName(), debug);
-                    continue;
-                }
-                // noinspection ResultOfMethodCallIgnored
-                myMessage.addFile(img.getImage(), img.getImageName());
-            }
-            myMessage.queue();
         } catch (Exception e) {
             Debug.log("Error, embed could not be completed!", debug);
             Debug.log(e.getMessage(), debug);
@@ -135,7 +141,7 @@ public abstract class AbstractEmbed {
         String footerText = textFieldsMap.get(ConfigFields.FOOTER_TEXT.getValue());
         String footerIconUrl = textFieldsMap.get(ConfigFields.FOOTER_ICON_URL.getValue());
 
-        channelID = config.getString(type + ConfigFields.CHANNEL_ID.getValue());
+        channelIDs = config.getStringList(type + ConfigFields.CHANNEL_ID.getValue());
         color = config.getString(type + ConfigFields.COLOR.getValue());
         thumbnail = textFieldsMap.get(ConfigFields.THUMBNAIL_URL.getValue());
         description = textFieldsMap.get(ConfigFields.DESCRIPTION.getValue());

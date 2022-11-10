@@ -12,7 +12,7 @@ public enum QuickShopDefaults implements EnumGeneral{
     IS_NEW_SHOP_CREATED_EMBED_ENABLED("NewShopCreated.Embed.Enabled", true),
 
     // Main embed settings
-    NEW_SHOP_CREATED_EMBED_CHANNEL_ID("NewShopCreated.Embed.ChannelID", "0000000000"),
+    NEW_SHOP_CREATED_EMBED_CHANNEL_ID("NewShopCreated.Embed.ChannelID", "[]"),
     NEW_SHOP_CREATED_EMBED_COLOR("NewShopCreated.Embed.Color","#fcba03"),
 
     // Embed author settings
@@ -42,7 +42,7 @@ public enum QuickShopDefaults implements EnumGeneral{
     IS_PURCHASE_EMBED_ENABLED("Purchase.Embed.Enabled", true),
 
     // Main embed settings
-    PURCHASE_EMBED_CHANNEL_ID("Purchase.Embed.ChannelID", "0000000000"),
+    PURCHASE_EMBED_CHANNEL_ID("Purchase.Embed.ChannelID", "[]"),
     PURCHASE_EMBED_COLOR("Purchase.Embed.Color","#fcba03"),
 
     // Embed author settings
