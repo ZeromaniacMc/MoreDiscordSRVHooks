@@ -25,6 +25,9 @@ Hooks:
   QuickShop:
     Enabled: true
     Debug: false
+  PlayerWarps:
+    Enabled: true
+    Debug: false
   
 # - When debug mode for either of these hooks in enabled, it will print messages with an [ERROR] prefix.
 # - We are doing this so the debug messages properly stick out for you to read - they aren't actually errors.

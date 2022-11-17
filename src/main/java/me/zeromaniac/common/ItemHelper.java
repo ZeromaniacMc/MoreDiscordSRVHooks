@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.bukkit.inventory.ItemStack;
-
 import net.md_5.bungee.api.ChatColor;
 
 public class ItemHelper {

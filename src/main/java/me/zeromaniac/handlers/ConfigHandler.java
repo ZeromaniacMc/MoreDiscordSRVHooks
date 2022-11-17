@@ -26,6 +26,10 @@ public class ConfigHandler {
     private static QuickShopConfigHandler QUICK_SHOP_CONFIG;
     public static String QUICK_SHOP_PLUGIN_NAME = "QuickShop";
 
+    private static final String PLAYER_WARPS_CONFIG_NAME = "playerwarps.yml";
+    private static PlayerWarpsConfigHandler PLAYER_WARPS_CONFIG;
+    public static String PLAYER_WARPS_PLUGIN_NAME = "PlayerWarps";
+
     private static boolean configsLoaded = false;
 
     static {
@@ -57,6 +61,9 @@ public class ConfigHandler {
         QUICK_SHOP_CONFIG = new QuickShopConfigHandler(QUICK_SHOP_CONFIG_NAME, 
                 QUICK_SHOP_PLUGIN_NAME);
 
+        PLAYER_WARPS_CONFIG = new PlayerWarpsConfigHandler(PLAYER_WARPS_CONFIG_NAME, 
+                PLAYER_SHOP_GUI_PLUS_PLUGIN_NAME);
+
         configsLoaded = true;
     }
 
@@ -72,6 +79,8 @@ public class ConfigHandler {
         LITEBANS_CONFIG.reloadConfig();
 
         QUICK_SHOP_CONFIG.reloadConfig();
+
+        PLAYER_WARPS_CONFIG.reloadConfig();
     }
 
     public static MainConfigHandler getMainConfig() {
@@ -96,6 +105,10 @@ public class ConfigHandler {
 
     public static QuickShopConfigHandler getQuickShopConfig() {
         return QUICK_SHOP_CONFIG;
+    }
+
+    public static PlayerWarpsConfigHandler getPlayerWarpsConfig() {
+        return PLAYER_WARPS_CONFIG;
     }
 
 }

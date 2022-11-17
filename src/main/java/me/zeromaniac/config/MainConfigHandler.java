@@ -11,7 +11,8 @@ public class MainConfigHandler extends ConfigLoader {
     private boolean isPlayerShopGUIPlusEnabled;
     private boolean isLitebansEnabled;
     private boolean isIgnoreSilentBans;
-    private boolean getIsQuickShopEnabled;
+    private boolean isQuickShopEnabled;
+    private boolean isPlayerWarpsEnabled;
     private String timezone;
 
     public MainConfigHandler(String configName) {
@@ -34,9 +35,10 @@ public class MainConfigHandler extends ConfigLoader {
         this.isAuctionGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_AUCTION_GUI_PLUS_ENABLED.getPath());
         this.isPlayerShopGUIPlusEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_SHOP_GUI_PLUS_ENABLED.getPath());
         this.isLitebansEnabled = config.getBoolean(MainConfigDefaults.IS_LITEBANS_ENABLED.getPath());
-        this.getIsQuickShopEnabled = config.getBoolean(MainConfigDefaults.IS_QUICK_SHOP_ENABLED.getPath());
+        this.isQuickShopEnabled = config.getBoolean(MainConfigDefaults.IS_QUICK_SHOP_ENABLED.getPath());
         this.timezone = config.getString(MainConfigDefaults.TIME_ZONE.getPath());
         this.isIgnoreSilentBans = config.getBoolean(MainConfigDefaults.IS_LITEBANS_IGNORE_SILENT.getPath());
+        this.isPlayerWarpsEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_WARPS_ENABLED.getPath());
     }
 
     public String getVersion() {
@@ -64,7 +66,11 @@ public class MainConfigHandler extends ConfigLoader {
     }
 
     public boolean getIsQuickShopEnabled() {
-        return this.getIsQuickShopEnabled;
+        return this.isQuickShopEnabled;
+    }
+
+    public boolean getIsPlayerWarpsEnabled() {
+        return this.isPlayerWarpsEnabled;
     }
 
     public String getTimezone() {

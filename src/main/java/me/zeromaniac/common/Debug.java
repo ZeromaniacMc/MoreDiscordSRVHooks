@@ -1,7 +1,6 @@
 package me.zeromaniac.common;
 
 import java.util.logging.Level;
-
 import org.bukkit.Bukkit;
 
 public class Debug {

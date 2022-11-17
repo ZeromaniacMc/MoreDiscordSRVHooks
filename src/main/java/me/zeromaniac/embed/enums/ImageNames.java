@@ -4,7 +4,9 @@ public enum ImageNames {
     ITEM_IMAGE("item.png"),
     INVENTORY_IMAGE("inventory.png"),
     LORE_IMAGE("lore.png"),
-    SIGN_IMAGE("item.png");
+    SIGN_IMAGE("sign.png"),
+    CATEGORY_IMAGE("cat.png"),
+    WARP_IMAGE("warp.png");
 
     final String value;
 

@@ -19,6 +19,9 @@ public enum MainConfigDefaults implements EnumGeneral {
     IS_QUICK_SHOP_ENABLED("Hooks.QuickShop.Enabled", true),
     IS_QUICK_SHOP_DEBUG("Hooks.QuickShop.Debug", false),
 
+    IS_PLAYER_WARPS_ENABLED("Hooks.PlayerWarps.Enabled", true),
+    IS_PLAYER_WARPS_DEBUG("Hooks.PlayerWarps.Debug", false),
+
     TIME_ZONE("Timezone", "Europe/Berlin");
 
     public String path;

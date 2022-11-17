@@ -2,7 +2,6 @@ package me.zeromaniac.common;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.zeromaniac.handlers.ConfigHandler;
-
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;

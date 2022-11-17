@@ -4,7 +4,8 @@ public enum PlaceholdersEnum {
     PLAYER("{player}"),
     BIDDER("{bidder}"),
     BUYER("{buyer}"),
-    
+    TELEPORTER("{visitorName}"),
+
     QUANTITY("{quantity}"),
     ITEM("{item}"),
     STARTING_PRICE("{startingprice}"),
@@ -34,20 +35,29 @@ public enum PlaceholdersEnum {
     CONTAINER_LOC_X("{containerLocationX}"),
     CONTAINER_LOC_Y("{containerLocationY}"),
     CONTAINER_LOC_Z("{containerLocationZ}"),
-    
+    LOC_X("{locationX}"),
+    LOC_Y("{locationY}"),
+    LOC_Z("{locationZ}"),
+
     UNLOCK_TIME("{unlockTime}"),
     IS_PROTECTED("{isProtected}"),
     CHEST_WORLD("{chestWorld}"),
     CONTAINER_WORLD("{containerWorld}"),
     PLAYER_WORLD("{playerWorld}"),
+    WORLD_NAME("{worldname}"),
+    RATING("{rating}"),
+
     EXPIRY("{expiry}"),
     ITEM_COUNT("{itemCount}"),
+    WARP_NAME("{warpname}"),
+    DESCRIPTION("{description}"),
+    CATEGORY_NAME("{category}"),
 
     SIGN_LINE_1("{signLine1}"),
     SIGN_LINE_2("{signLine2}"),
     SIGN_LINE_3("{signLine3}"),
     SIGN_LINE_4("{signLine4}"),
-    
+
     RECEIVER_IP("{receiverIP}"),
     RECEIVER_UUID("{receiverUUID}"),
     RECEIVER_NAME("{receiverName}"),
@@ -68,7 +78,9 @@ public enum PlaceholdersEnum {
     BOT_AVATAR_URL("{botAvatarUrl}"),
     ITEM_IMAGE_URL("{itemImageUrl}"),
     LORE_IMAGE_URL("{loreImageUrl}"),
-    INVENTORY_IMAGE_URL("{inventoryImageUrl}");
+    INVENTORY_IMAGE_URL("{inventoryImageUrl}"),
+    CATEGORY_IMAGE_URL("{categoryImageUrl}"),
+    WARP_IMAGE_URL("{warpImageUrl}");
 
     final String value;
 

@@ -13,7 +13,6 @@ import me.zeromaniac.types.Image;
 import me.zeromaniac.types.Title;
 import org.bukkit.configuration.file.FileConfiguration;
 import java.awt.Color;
-import java.lang.reflect.Array;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;

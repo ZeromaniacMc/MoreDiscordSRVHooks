@@ -91,6 +91,11 @@
             <id>quickshop-repo</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
+
+        <repository>
+            <id>olzie-repo</id>
+            <url>https://repo.olziedev.com/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -128,14 +133,14 @@
         <dependency>
             <groupId>com.loohp</groupId>
             <artifactId>InteractiveChatDiscordSrvAddon</artifactId>
-            <version>4.2.3.6</version>
+            <version>4.2.3.13</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.loohp</groupId>
             <artifactId>InteractiveChat</artifactId>
-            <version>4.2.3.6</version>
+            <version>4.2.3.13</version>
             <scope>provided</scope>
         </dependency>
 
@@ -164,6 +169,13 @@
             <groupId>org.maxgamer</groupId>
             <artifactId>QuickShop</artifactId>
             <version>5.1.0.9</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.olziedev</groupId>
+            <artifactId>playerwarps-api</artifactId>
+            <version>6.18.1</version>
             <scope>provided</scope>
         </dependency>
 

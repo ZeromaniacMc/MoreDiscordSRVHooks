@@ -2,7 +2,6 @@ package me.zeromaniac.listener;
 
 import java.util.UUID;
 import java.util.regex.Pattern;
-
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
