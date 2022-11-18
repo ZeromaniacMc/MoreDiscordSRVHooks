@@ -55,13 +55,11 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
             replacer.put(PlaceholdersEnum.PRICE.getValue(), ItemHelper.priceShortener(cost, formatPrices));
         }
 
-
         replacer.put(PlaceholdersEnum.ID.getValue(), String.valueOf(id));
         replacer.put(PlaceholdersEnum.WORLD_NAME.getValue(), StringHelper.nameFormatter(worldname));
         replacer.put(PlaceholdersEnum.LOC_X.getValue(), String.valueOf(Math.round(locX)));
         replacer.put(PlaceholdersEnum.LOC_Y.getValue(), String.valueOf(Math.round(locY)));
         replacer.put(PlaceholdersEnum.LOC_Z.getValue(), String.valueOf(Math.round(locZ)));
-
 
         if (teleportprice == null || teleportprice < 0) {
             replacer.put(PlaceholdersEnum.TELEPORT_PRICE.getValue(), "0.0");
@@ -93,9 +91,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
                 DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
 
-        // bug: need conditions per embed, in this case "teleporter == owner", maybe
-        // even commands for the really nuts people?
-        // todo: cleanup config as well and defaults for player warps.
+        // bug: need conditions per embed, in this case "teleporter == owner", maybe even commands for the really nuts people?
 
         boolean isIconSet = false;
         ItemStack itemStackWarpIcon = null;
@@ -139,23 +135,14 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         // {categoryImageUrl}
         if (mapContainsValue(textFieldsMap, ImageNames.CATEGORY_IMAGE.getValue()) && categoryitem != null) {
             try {
-                System.out.println("categoryitem  is not null");
                 OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getPlayer().getUniqueId());
                 attachmentImages
                         .add(getImage(ImageNames.CATEGORY_IMAGE.getValue(), getItemImage(categoryitem, imagePlayer)));
-                System.out.println("Category item -> " + categoryitem);
             } catch (Throwable e) {
                 e.printStackTrace();
                 // empty
             }
         }
-
-        // no lore images for warps
-
-        // no inv img for warps
-
-        // no offhand item for warps
-
     }
 
     @Override

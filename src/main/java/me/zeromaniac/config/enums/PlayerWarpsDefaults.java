@@ -16,18 +16,19 @@ public enum PlayerWarpsDefaults implements EnumGeneral {
 
     // Embed author settings
     NEW_WARP_CREATED_EMBED_AUTHOR_IMAGEURL("NewWarpCreated.Embed.Author.ImageUrl", "{playerAvatarUrl}"),
-    NEW_WARP_CREATED_EMBED_AUTHOR_NAME("NewWarpCreated.Embed.Author.Name", "**Oops, looks like someone died!**"),
+    NEW_WARP_CREATED_EMBED_AUTHOR_NAME("NewWarpCreated.Embed.Author.Name",
+            "{player} created a new warp called {warpname} for {price}€!"),
     NEW_WARP_CREATED_EMBED_AUTHOR_URL("NewWarpCreated.Embed.Author.Url", ""),
 
     // Embed thumbnail settings
-    NEW_WARP_CREATED_EMBED_THUMBNAIL("NewWarpCreated.Embed.ThumbnailUrl", ""),
+    NEW_WARP_CREATED_EMBED_THUMBNAIL("NewWarpCreated.Embed.ThumbnailUrl", "{warpImageUrl}"),
     NEW_WARP_CREATED_EMBED_TITLE_TEXT("NewWarpCreated.Embed.Title.Text", ""),
     NEW_WARP_CREATED_TITLE_URL("NewWarpCreated.Embed.Title.Url", ""),
 
     // Embed description
-    NEW_WARP_CREATED_EMBED_DESCRIPTION("NewWarpCreated.Embed.Description", "{player}'s Angel Chest spawned!"),
+    NEW_WARP_CREATED_EMBED_DESCRIPTION("NewWarpCreated.Embed.Description", ""),
     NEW_WARP_CREATED_EMBED_FIELDS("NewWarpCreated.Embed.Fields", "[]"),
-    NEW_WARP_CREATED_EMBED_IMAGEURL("NewWarpCreated.Embed.ImageUrl", "{inventoryImageUrl}"),
+    NEW_WARP_CREATED_EMBED_IMAGEURL("NewWarpCreated.Embed.ImageUrl", "{categoryImageUrl}"),
 
     // Footer settings
     NEW_WARP_CREATED_EMBED_FOOTER_TEXT("NewWarpCreated.Embed.Footer.Text", ""),
@@ -45,19 +46,19 @@ public enum PlayerWarpsDefaults implements EnumGeneral {
     TELEPORT_EMBED_COLOR("Teleport.Embed.Color", "#fcba03"),
 
     // Embed author settings
-    TELEPORT_EMBED_AUTHOR_IMAGEURL("Teleport.Embed.Author.ImageUrl", "{playerAvatarUrl}"),
-    TELEPORT_EMBED_AUTHOR_NAME("Teleport.Embed.Author.Name", "**Oops, looks like someone died!**"),
+    TELEPORT_EMBED_AUTHOR_IMAGEURL("Teleport.Embed.Author.ImageUrl", "{visitorAvatarUrl}"),
+    TELEPORT_EMBED_AUTHOR_NAME("Teleport.Embed.Author.Name", "{visitorName} is visiting {player}'s warp {warpname}!"),
     TELEPORT_EMBED_AUTHOR_URL("Teleport.Embed.Author.Url", ""),
 
     // Embed thumbnail settings
-    TELEPORT_EMBED_THUMBNAIL("Teleport.Embed.ThumbnailUrl", ""),
+    TELEPORT_EMBED_THUMBNAIL("Teleport.Embed.ThumbnailUrl", "{warpImageUrl}"),
     TELEPORT_EMBED_TITLE_TEXT("Teleport.Embed.Title.Text", ""),
     TELEPORT_TITLE_URL("Teleport.Embed.Title.Url", ""),
 
     // Embed description
-    TELEPORT_EMBED_DESCRIPTION("Teleport.Embed.Description", "{player}'s Angel Chest spawned!"),
+    TELEPORT_EMBED_DESCRIPTION("Teleport.Embed.Description", ""),
     TELEPORT_EMBED_FIELDS("Teleport.Embed.Fields", "[]"),
-    TELEPORT_EMBED_IMAGEURL("Teleport.Embed.ImageUrl", "{inventoryImageUrl}"),
+    TELEPORT_EMBED_IMAGEURL("Teleport.Embed.ImageUrl", "{categoryImageUrl}"),
 
     // Footer settings
     TELEPORT_EMBED_FOOTER_TEXT("Teleport.Embed.Footer.Text", ""),
@@ -76,18 +77,18 @@ public enum PlayerWarpsDefaults implements EnumGeneral {
 
     // Embed author settings
     WARP_REMOVED_EMBED_AUTHOR_IMAGEURL("WarpRemoved.Embed.Author.ImageUrl", "{playerAvatarUrl}"),
-    WARP_REMOVED_EMBED_AUTHOR_NAME("WarpRemoved.Embed.Author.Name", "**Oops, looks like someone died!**"),
+    WARP_REMOVED_EMBED_AUTHOR_NAME("WarpRemoved.Embed.Author.Name", "{player} deleted their warp called {warpname}!"),
     WARP_REMOVED_EMBED_AUTHOR_URL("WarpRemoved.Embed.Author.Url", ""),
 
     // Embed thumbnail settings
-    WARP_REMOVED_EMBED_THUMBNAIL("WarpRemoved.Embed.ThumbnailUrl", ""),
+    WARP_REMOVED_EMBED_THUMBNAIL("WarpRemoved.Embed.ThumbnailUrl", "{warpImageUrl}"),
     WARP_REMOVED_EMBED_TITLE_TEXT("WarpRemoved.Embed.Title.Text", ""),
     WARP_REMOVED_TITLE_URL("WarpRemoved.Embed.Title.Url", ""),
 
     // Embed description
-    WARP_REMOVED_EMBED_DESCRIPTION("WarpRemoved.Embed.Description", "{player}'s Angel Chest spawned!"),
+    WARP_REMOVED_EMBED_DESCRIPTION("WarpRemoved.Embed.Description", ""),
     WARP_REMOVED_EMBED_FIELDS("WarpRemoved.Embed.Fields", "[]"),
-    WARP_REMOVED_EMBED_IMAGEURL("WarpRemoved.Embed.ImageUrl", "{inventoryImageUrl}"),
+    WARP_REMOVED_EMBED_IMAGEURL("WarpRemoved.Embed.ImageUrl", "{categoryImageUrl}"),
 
     // Footer settings
     WARP_REMOVED_EMBED_FOOTER_TEXT("WarpRemoved.Embed.Footer.Text", ""),

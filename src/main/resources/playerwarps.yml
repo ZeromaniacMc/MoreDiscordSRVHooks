@@ -13,11 +13,15 @@
 # sent to discord, where color codes do not work like ingame. In addition, keep in mind that you need
 # to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
 
+# Keep in mind: When a warp is created, it does not yet contain a description and can not yet have
+# a rating. This is why I commented them out for warp creation. The same thing applies to the images
+# for the visitor: There is no visitor on warp creation or deletion, but you knew that already ;)
+
 # Supported placeholders in all image or Icon fields:
 # - {playerAvatarUrl} = The warp owner's flat head image.
 # - {playerHead3dUrl} = The warp owner's tilted 3D head image.
 # - {playerBodyUrl} = The warp owner's tilted full body image.
-# - {visitorAvatarUrl} = The visitor's flat head image.
+# - {visitorAvatarUrl} = The visitor's flat head image. 
 # - {visitorHead3dUrl} = The visitor's tilted 3D head image.
 # - {visitorBodyUrl} = The visitor's tilted full body image.
 # - {botAvatarUrl} = The bot avatar image.
@@ -30,123 +34,131 @@ ShortenPrices: true
 # Should prices be shortened? Example: 1000 would become 1.0k, 2500 2.5k and so on.
 
 NewWarpCreated:
- Embed:
-  Enabled: true
-  ChannelID: 
+  Embed:
+    Enabled: true
+    ChannelID: 
       - "0000000000"
       - "0000000000"
-  Color: "#fcba03"
-  Author:
-    ImageUrl: "{playerAvatarUrl}"
-    Name: "{player} has created a new warp!"
-    Url: ""
-  ThumbnailUrl: "{itemImageUrl}"
-  Title:
-    Text: "{type}: {item} for {singleItemPriceBeforeTax}€ in {chestWorld}"
-    Url: ""
-  Description: ""
-  Fields:
-    - "LocX:;{chestLocationX};true"
-    - "LocY:;{chestLocationY};true"
-    - "LocZ:;{chestLocationZ};true"
-  ImageUrl: "{loreImageUrl}"
-  Footer:
-    Text: ""
-    IconUrl: ""
-  Timestamp: true
-# Supported placeholders in text fields for NewShopCreated:
-# - {player} = The player who owns the shop.
-# - {item} = The item name featured in this shop.
-# - {type} = Returns either "Selling" or "Buying", based on type.
-# - {singleItemPriceBeforeTax} = The original price before taxes were deducted per item the owner of the shop set.
-# - {chestLocationX} = The X coordinate of the ChestShop position.
-# - {chestLocationY} = The Y coordinate of the ChestShop position.
-# - {chestLocationZ} = The Z coordinate of the ChestShop position.
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{playerAvatarUrl}"
+      Name: "{player} created a new warp called {warpname} for {price}€!"
+      Url: ""
+    ThumbnailUrl: "{warpImageUrl}"
+    Title:
+      Text: ""
+      Url: ""
+    Description: ""
+    Fields:
+      - "World:;{worldname};true"
+      - "At:;`X: {locationX}`\n`Y: {locationY}`\n`Z: {locationZ}`;true"
+      - "Category:;{category};true"
+      - "ID:;{id};true"
+      #- "Description:;{description};true"
+      #- "Rating:;{rating} ⭐;true"
+    ImageUrl: "{categoryImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: true
+# Supported placeholders in text fields for NewWarpCreated:
+# - {player} = The player who owns the warp.
+# - {warpname} = The name the owner specified for the warp.
+# - {price} = The price charged to create the warp.
+# - {teleportprice} = The price charged to teleport to the warp.
+# - {worldname} = The name of the world the warp is located in. 
+# - {locationX} = The X coordinate of the warp.
+# - {locationY} = The Y coordinate of the warp.
+# - {locationZ} = The Z coordinate of the warp.
+# - {category} = The name of the category the warp is in.
+# - {id} = The ID number of the warp.
+# - {description} = The description for the warp.
+# - {rating} - The rating of the warp in form of a number.
 
 Teleport:
- Embed:
-  Enabled: true
-  ChannelID: 
-      - "0000000000"
-      - "0000000000"
-  Color: "#fcba03"
-  Author:
-    ImageUrl: "{buyerAvatarUrl}"
-    Name: "𝕾𝖍𝖔𝖕 𝖙𝖗𝖆𝖓𝖘𝖆𝖈𝖙𝖎𝖔𝖓"
-    Url: ""
-  ThumbnailUrl: "{itemImageUrl}"
-  Title:
-    Text: "{buyer} {action} {amount} {item} {fromto} {player}'s shop"
-    Url: ""
-  Description: ""
-  Fields:
-    - "Total price without tax:;{incomeBeforeTax}€;true"
-    - "Price per item:;{singleItemPriceBeforeTax}€;true"
-    - "Tax rate:;{tax}%;true"
-    - "Income owner:;{incomeAfterTax}€;true"
-  ImageUrl: "{loreImageUrl}"
-  Footer:
-    Text: ""
-    IconUrl: ""
-  Timestamp: true
-# Supported placeholders in text fields for Purchase:
-# Even though the amount of placeholders offered here are quite... a lot, remember that making large embeds might spam your channel.
-# - {player} = The player who owns the shop.
-# - {buyer} = The player who bought from or sold to the shop. This can also be "seller" if the shop is buying items.
-# - {item} = The item name featured in this shop.
-# - {amount} = The amount of items that were sold to or bough from the shop.
-# - {type} = Returns either "Selling" or "Buying", based on type. Using this variable here might be confusing to players as it returns what type the shop is, not what the action performed was. This is why the next two listed placeholders were made ;).
-# - {action} = Returns "bought" or "sold" depending on if a player bought or sold to the shop.
-# - {fromto} = Returns "from" (for the buying action to create "bought from") or "to" (for the selling action to create "sold to") based on the action, so we don't get sentences like "Player sold from x shop" - that would be retarded, haha.
-# - {tax} = The tax rate defined in the QuickShop config.
-# - {singleItemPriceBeforeTax} = The original price before taxes were deducted per item the owner of the shop set.
-# - {incomeBeforeTax} = Original total price before taxes were deducted.
-# - {incomeAfterTax} = The total the owner of the shop made after taxes were deducted.
-# - {chestWorld} = Returns the world name the shop is located in.
-# - {chestLocationX} = The X coordinate of the ChestShop position.
-# - {chestLocationY} = The Y coordinate of the ChestShop position.
-# - {chestLocationZ} = The Z coordinate of the ChestShop position.
+  Embed:
+    Enabled: true
+    ChannelID: 
+    - "0000000000"
+    - "0000000000"
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{visitorAvatarUrl}"
+      Name: "{visitorName} is visiting {player}'s warp {warpname}!"
+      Url: ""
+    ThumbnailUrl: "{warpImageUrl}"
+    Title:
+      Text: ""
+      Url: ""
+    Description: ""
+    Fields:
+      - "World:;{worldname};true"
+      - "At:;`X: {locationX}`\n`Y: {locationY}`\n`Z: {locationZ}`;true"
+      - "Category:;{category};true"
+      - "ID:;{id};true"
+      - "Description:;{description};true"
+      - "Rating:;{rating}⭐;true"
+    ImageUrl: "{categoryImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: true
+# Supported placeholders in text fields for Teleport:
+# Keep in mind that this embed can be very spammy if you have a lot of players using warps.
+# - {player} = The player who owns the warp.
+# - {visitorName} = The name of the person visiting the warp.
+# - {warpname} = The name the owner specified for the warp.
+# - {price} = The price charged to create the warp.
+# - {teleportprice} = The price charged to teleport to the warp.
+# - {worldname} = The name of the world the warp is located in. 
+# - {locationX} = The X coordinate of the warp.
+# - {locationY} = The Y coordinate of the warp.
+# - {locationZ} = The Z coordinate of the warp.
+# - {category} = The name of the category the warp is in.
+# - {id} = The ID number of the warp.
+# - {description} = The description for the warp.
+# - {rating} - The rating of the warp in form of a number.
+
 
 WarpRemoved:
- Embed:
-  Enabled: true
-  ChannelID: 
+  Embed:
+    Enabled: true
+    ChannelID: 
       - "0000000000"
       - "0000000000"
-  Color: "#fcba03"
-  Author:
-    ImageUrl: "{buyerAvatarUrl}"
-    Name: "𝕾𝖍𝖔𝖕 𝖙𝖗𝖆𝖓𝖘𝖆𝖈𝖙𝖎𝖔𝖓"
-    Url: ""
-  ThumbnailUrl: "{itemImageUrl}"
-  Title:
-    Text: "{buyer} {action} {amount} {item} {fromto} {player}'s shop"
-    Url: ""
-  Description: ""
-  Fields:
-    - "Total price without tax:;{incomeBeforeTax}€;true"
-    - "Price per item:;{singleItemPriceBeforeTax}€;true"
-    - "Tax rate:;{tax}%;true"
-    - "Income owner:;{incomeAfterTax}€;true"
-  ImageUrl: "{loreImageUrl}"
-  Footer:
-    Text: ""
-    IconUrl: ""
-  Timestamp: true
-# Supported placeholders in text fields for Purchase:
-# Even though the amount of placeholders offered here are quite... a lot, remember that making large embeds might spam your channel.
-# - {player} = The player who owns the shop.
-# - {buyer} = The player who bought from or sold to the shop. This can also be "seller" if the shop is buying items.
-# - {item} = The item name featured in this shop.
-# - {amount} = The amount of items that were sold to or bough from the shop.
-# - {type} = Returns either "Selling" or "Buying", based on type. Using this variable here might be confusing to players as it returns what type the shop is, not what the action performed was. This is why the next two listed placeholders were made ;).
-# - {action} = Returns "bought" or "sold" depending on if a player bought or sold to the shop.
-# - {fromto} = Returns "from" (for the buying action to create "bought from") or "to" (for the selling action to create "sold to") based on the action, so we don't get sentences like "Player sold from x shop" - that would be retarded, haha.
-# - {tax} = The tax rate defined in the QuickShop config.
-# - {singleItemPriceBeforeTax} = The original price before taxes were deducted per item the owner of the shop set.
-# - {incomeBeforeTax} = Original total price before taxes were deducted.
-# - {incomeAfterTax} = The total the owner of the shop made after taxes were deducted.
-# - {chestWorld} = Returns the world name the shop is located in.
-# - {chestLocationX} = The X coordinate of the ChestShop position.
-# - {chestLocationY} = The Y coordinate of the ChestShop position.
-# - {chestLocationZ} = The Z coordinate of the ChestShop position.
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{playerAvatarUrl}"
+      Name: "{player} deleted their warp called {warpname}!"
+      Url: ""
+    ThumbnailUrl: "{warpImageUrl}"
+    Title:
+      Text: ""
+      Url: ""
+    Description: ""
+    Fields:
+      - "World:;{worldname};true"
+      - "At:;`X: {locationX}`\n`Y: {locationY}`\n`Z: {locationZ}`;true"
+      - "Category:;{category};true"
+      - "ID:;{id};true"
+      #- "Description:;{description};true"
+      #- "Rating:;{rating}⭐;true"
+    ImageUrl: "{categoryImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: true
+# Supported placeholders in text fields for WarpRemoved:
+# - {player} = The player who owns the warp.
+# - {warpname} = The name the owner specified for the warp.
+# - {price} = The price charged to create the warp.
+# - {teleportprice} = The price charged to teleport to the warp.
+# - {worldname} = The name of the world the warp is located in. 
+# - {locationX} = The X coordinate of the warp.
+# - {locationY} = The Y coordinate of the warp.
+# - {locationZ} = The Z coordinate of the warp.
+# - {category} = The name of the category the warp is in.
+# - {id} = The ID number of the warp.
+# - {description} = The description for the warp.
+# - {rating} - The rating of the warp in form of a number.
+
