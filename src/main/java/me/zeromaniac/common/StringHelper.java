@@ -66,4 +66,18 @@ public class StringHelper {
                         .format(formatter)
                 : stringInCaseTimeZero;
     }
+
+    public static String nameFormatter(String input) {
+
+        String[] splitName = input.split("_");
+        String capitalizeWords = "";
+
+        for (String words : splitName) {
+            String firstLetter = words.substring(0, 1);
+            String tailPart = words.substring(1);
+            capitalizeWords += firstLetter.toUpperCase() + tailPart.toLowerCase() + " ";
+
+        }
+        return capitalizeWords.trim();
+    }
 }

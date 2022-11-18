@@ -47,6 +47,7 @@ public class ItemHelper {
         return capitalizeWords.trim();
     }
 
+
     public static String priceShortener(double price, boolean format) {
         if (!format) {
             return String.valueOf(price);

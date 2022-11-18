@@ -101,7 +101,7 @@ public class PlayerWarpsListener implements Listener {
 
     public void ProcessEvent(PlayerWarpsEventType type, Double cost, long id, String warpName,
             String description, WIcon warpIcon, WPlayer wPlayer, String worldname, double locX,
-            double locY, double locZ, String categoryname, ItemStack categoryitem, double teleportprice,
+            double locY, double locZ, String categoryname, ItemStack categoryitem, Double teleportprice,
             double rating, Player visitor) {
 
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {

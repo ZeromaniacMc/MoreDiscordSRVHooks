@@ -1,5 +1,8 @@
 package me.zeromaniac.embed;
 
+import static me.zeromaniac.common.ImageHelper.getImage;
+import static me.zeromaniac.common.ImageHelper.getItemImage;
+import static me.zeromaniac.common.StringHelper.mapContainsValue;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import com.loohp.interactivechat.objectholders.ICPlayerFactory;
@@ -9,22 +12,20 @@ import com.olziedev.playerwarps.api.warp.WIcon;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import me.zeromaniac.common.ImageHelper;
 import me.zeromaniac.common.ItemHelper;
+import me.zeromaniac.common.StringHelper;
 import me.zeromaniac.config.enums.MainConfigDefaults;
 import me.zeromaniac.embed.enums.AvatarImages;
 import me.zeromaniac.embed.enums.Avatars;
+import me.zeromaniac.embed.enums.ImageNames;
 import me.zeromaniac.embed.enums.PlaceholdersEnum;
 import me.zeromaniac.handlers.ConfigHandler;
 import me.zeromaniac.listener.enums.PlayerWarpsEventType;
-import me.zeromaniac.embed.enums.ImageNames;
-import static me.zeromaniac.common.StringHelper.mapContainsValue;
-import static me.zeromaniac.common.ImageHelper.getItemImage;
-import static me.zeromaniac.common.ImageHelper.getImage;
 
 public class PlayerWarpsEmbed extends AbstractEmbed {
 
     public PlayerWarpsEmbed(PlayerWarpsEventType type, Double cost, long id, String warpName,
             String description, WIcon warpIcon, WPlayer wPlayer, String worldname, double locX,
-            double locY, double locZ, String categoryname, ItemStack categoryitem, double teleportprice,
+            double locY, double locZ, String categoryname, ItemStack categoryitem, Double teleportprice,
             double rating, Player visitor) {
         super();
 
@@ -38,7 +39,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), wPlayer.getName());
         replacer.put(PlaceholdersEnum.WARP_NAME.getValue(), warpName);
-        replacer.put(PlaceholdersEnum.CATEGORY_NAME.getValue(), categoryname);
+        replacer.put(PlaceholdersEnum.CATEGORY_NAME.getValue(), StringHelper.nameFormatter(categoryname));
         replacer.put(PlaceholdersEnum.DESCRIPTION.getValue(), ItemHelper.bukkitColorYeeter(description));
 
         if (visitor != null) {
@@ -46,21 +47,28 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         } else {
             replacer.put(PlaceholdersEnum.VISITOR.getValue(), "");
         }
-        
 
-        if (cost != null) {
+        if (cost == null || cost < 0) {
+            replacer.put(PlaceholdersEnum.PRICE.getValue(), "0.0");
+        }
+        else {
             replacer.put(PlaceholdersEnum.PRICE.getValue(), ItemHelper.priceShortener(cost, formatPrices));
-        } else {
-            replacer.put(PlaceholdersEnum.PRICE.getValue(), "0");
         }
 
+
         replacer.put(PlaceholdersEnum.ID.getValue(), String.valueOf(id));
-        replacer.put(PlaceholdersEnum.WORLD_NAME.getValue(), worldname);
+        replacer.put(PlaceholdersEnum.WORLD_NAME.getValue(), StringHelper.nameFormatter(worldname));
         replacer.put(PlaceholdersEnum.LOC_X.getValue(), String.valueOf(Math.round(locX)));
         replacer.put(PlaceholdersEnum.LOC_Y.getValue(), String.valueOf(Math.round(locY)));
         replacer.put(PlaceholdersEnum.LOC_Z.getValue(), String.valueOf(Math.round(locZ)));
-        replacer.put(PlaceholdersEnum.PRICE.getValue(),
-                String.valueOf(ItemHelper.priceShortener(teleportprice, formatPrices)));
+
+
+        if (teleportprice == null || teleportprice < 0) {
+            replacer.put(PlaceholdersEnum.TELEPORT_PRICE.getValue(), "0.0");
+        }
+        else {
+            replacer.put(PlaceholdersEnum.TELEPORT_PRICE.getValue(),String.valueOf(ItemHelper.priceShortener(teleportprice, formatPrices)));
+        }
 
         // {rating}
         replacer.put(PlaceholdersEnum.RATING.getValue(), String.valueOf(rating));
@@ -69,7 +77,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         for (AvatarImages avatar : Avatars.PLAYER.getAvatarImages()) {
             replacer.put(avatar.getValue(),
                     ImageHelper.constructAvatarUrl(wPlayer.getName(),
-                    wPlayer.getUUID(), avatar.getType()));
+                            wPlayer.getUUID(), avatar.getType()));
         }
 
         // {visitorAvatarUrl}, {visitorHead3dUrl}, {visitorBodyUrl}
@@ -80,42 +88,64 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
                                 visitor.getUniqueId(), avatar.getType()));
             }
         }
-        
 
         // {botAvatarUrl}
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
                 DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
 
-        setConfigValues(messageType);
-
-        // bug: need conditions per embed, in this case "teleporter == owner", maybe even commands for the really nuts people?
+        // bug: need conditions per embed, in this case "teleporter == owner", maybe
+        // even commands for the really nuts people?
         // todo: cleanup config as well and defaults for player warps.
-        // todo: change version minor.
+
+        boolean isIconSet = false;
+        ItemStack itemStackWarpIcon = null;
+        try {
+            itemStackWarpIcon = warpIcon.getWarpIcon();
+            isIconSet = true;
+        } catch (Exception e) {
+            // false
+        }
+
+        // {warpImageUrl}
+        if (isIconSet) {
+            replacer.put(PlaceholdersEnum.WARP_IMAGE_URL.getValue(), attachmentType + ImageNames.WARP_IMAGE.getValue());
+        } else {
+            if (Avatars.PLAYER.getAvatarImages().size() > 1) {
+                replacer.put(PlaceholdersEnum.WARP_IMAGE_URL.getValue(),
+                        ImageHelper.constructAvatarUrl(wPlayer.getName(),
+                                wPlayer.getUUID(), Avatars.PLAYER.getAvatarImages().get(2).getType()));
+            }
+        }
 
         // {categoryImageUrl}
         // todo: Improve image setting becasuse this is confusing
         replacer.put(PlaceholdersEnum.CATEGORY_IMAGE_URL.getValue(),
                 attachmentType + ImageNames.CATEGORY_IMAGE.getValue());
 
-        // {warpImageUrl}
-        replacer.put(PlaceholdersEnum.WARP_IMAGE_URL.getValue(), attachmentType + ImageNames.WARP_IMAGE.getValue());
+        setConfigValues(messageType);
 
-        if (mapContainsValue(textFieldsMap, ImageNames.CATEGORY_IMAGE.getValue()) && warpIcon != null) {
+        // {warpImageUrl}
+        if (mapContainsValue(textFieldsMap, ImageNames.WARP_IMAGE.getValue()) && itemStackWarpIcon != null) {
             try {
                 OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getPlayer().getUniqueId());
-                attachmentImages
-                        .add(getImage(ImageNames.CATEGORY_IMAGE.getValue(),
-                                getItemImage(warpIcon.getWarpIcon(), imagePlayer)));
+                attachmentImages.add(
+                        getImage(ImageNames.WARP_IMAGE.getValue(), getItemImage(itemStackWarpIcon, imagePlayer)));
             } catch (Throwable e) {
+                e.printStackTrace();
                 // empty
             }
         }
-        if (mapContainsValue(textFieldsMap, ImageNames.WARP_IMAGE.getValue()) && categoryitem != null) {
+
+        // {categoryImageUrl}
+        if (mapContainsValue(textFieldsMap, ImageNames.CATEGORY_IMAGE.getValue()) && categoryitem != null) {
             try {
+                System.out.println("categoryitem  is not null");
                 OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getPlayer().getUniqueId());
                 attachmentImages
-                        .add(getImage(ImageNames.WARP_IMAGE.getValue(), getItemImage(categoryitem, imagePlayer)));
+                        .add(getImage(ImageNames.CATEGORY_IMAGE.getValue(), getItemImage(categoryitem, imagePlayer)));
+                System.out.println("Category item -> " + categoryitem);
             } catch (Throwable e) {
+                e.printStackTrace();
                 // empty
             }
         }

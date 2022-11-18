@@ -21,6 +21,7 @@ public enum PlaceholdersEnum {
     DURATION("{duration}"),
     ID("{id}"),
     PRICE("{price}"),
+    TELEPORT_PRICE("{teleportprice}"),
     XP("{xp}"),
     TYPE_SELL_OR_BUY("{type}"),
     BOUGHT_OR_SOLD("{action}"),
