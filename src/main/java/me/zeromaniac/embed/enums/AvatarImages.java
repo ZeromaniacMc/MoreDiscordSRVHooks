@@ -7,6 +7,7 @@ public enum AvatarImages {
     REVOKER_AVATAR_URL("{revokerAvatarUrl}", AvatarType.HEAD),
     BUYER_AVATAR_URL("{buyerAvatarUrl}", AvatarType.HEAD),
     BIDDER_AVATAR_URL("{bidderAvatarUrl}", AvatarType.HEAD),
+    VISITOR_AVATAR_URL("{visitorAvatarUrl}", AvatarType.HEAD),
 
     PLAYER_HEAD_3D_URL("{playerHead3dUrl}", AvatarType.HEAD_3D),
     EXECUTOR_HEAD_3D_URL("{executorHead3dUrl}", AvatarType.HEAD_3D),
@@ -14,13 +15,15 @@ public enum AvatarImages {
     REVOKER_HEAD_3D_URL("{revokerHead3dUrl}", AvatarType.HEAD_3D),
     BUYER_HEAD_3D_URL("{buyerHead3dUrl}", AvatarType.HEAD_3D),
     BIDDER_HEAD_3D_URL("{bidderHead3dUrl}", AvatarType.HEAD_3D),
+    VISITOR_HEAD_3D_URL("{visitorHead3dUrl}", AvatarType.HEAD_3D),
 
     PLAYER_BODY_URL("{playerBodyUrl}", AvatarType.BODY),
     EXECUTOR_BODY_URL("{executorBodyUrl}", AvatarType.BODY),
     RECEIVER_BODY_URL("{receiverBodyUrl}", AvatarType.BODY),
     REVOKER_BODY_URL("{revokerBodyUrl}", AvatarType.BODY),
     BUYER_BODY_URL("{buyerBodyUrl}", AvatarType.BODY),
-    BIDDER_BODY_URL("{bidderBodyUrl}", AvatarType.BODY);
+    BIDDER_BODY_URL("{bidderBodyUrl}", AvatarType.BODY),
+    VISITOR_BODY_URL("{visitorBodyUrl}", AvatarType.BODY),;
 
     final String value;
     final AvatarType type;

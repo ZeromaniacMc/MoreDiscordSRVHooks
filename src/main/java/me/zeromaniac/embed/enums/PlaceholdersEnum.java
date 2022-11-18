@@ -4,7 +4,7 @@ public enum PlaceholdersEnum {
     PLAYER("{player}"),
     BIDDER("{bidder}"),
     BUYER("{buyer}"),
-    TELEPORTER("{visitorName}"),
+    VISITOR("{visitorName}"),
 
     QUANTITY("{quantity}"),
     ITEM("{item}"),

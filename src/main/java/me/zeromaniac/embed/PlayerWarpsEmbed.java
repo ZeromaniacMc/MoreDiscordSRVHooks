@@ -1,5 +1,6 @@
 package me.zeromaniac.embed;
 
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import com.loohp.interactivechat.objectholders.ICPlayerFactory;
 import com.loohp.interactivechat.objectholders.OfflineICPlayer;
@@ -24,7 +25,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
     public PlayerWarpsEmbed(PlayerWarpsEventType type, Double cost, long id, String warpName,
             String description, WIcon warpIcon, WPlayer wPlayer, String worldname, double locX,
             double locY, double locZ, String categoryname, ItemStack categoryitem, double teleportprice,
-            double rating, String teleporter) {
+            double rating, Player visitor) {
         super();
 
         boolean formatPrices = ConfigHandler.getPlayerWarpsConfig().getIsShortenPricesEnabled();
@@ -39,7 +40,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.WARP_NAME.getValue(), warpName);
         replacer.put(PlaceholdersEnum.CATEGORY_NAME.getValue(), categoryname);
         replacer.put(PlaceholdersEnum.DESCRIPTION.getValue(), ItemHelper.bukkitColorYeeter(description));
-        replacer.put(PlaceholdersEnum.TELEPORTER.getValue(), teleporter);
+        replacer.put(PlaceholdersEnum.VISITOR.getValue(), visitor.getName());
 
         if (cost != null) {
             replacer.put(PlaceholdersEnum.PRICE.getValue(), ItemHelper.priceShortener(cost, formatPrices));
@@ -62,7 +63,14 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         for (AvatarImages avatar : Avatars.PLAYER.getAvatarImages()) {
             replacer.put(avatar.getValue(),
                     ImageHelper.constructAvatarUrl(wPlayer.getName(),
-                            wPlayer.getUUID(), avatar.getType()));
+                    wPlayer.getUUID(), avatar.getType()));
+        }
+
+        // {visitorAvatarUrl}, {visitorHead3dUrl}, {visitorBodyUrl}
+        for (AvatarImages avatar : Avatars.VISITOR.getAvatarImages()) {
+            replacer.put(avatar.getValue(),
+                    ImageHelper.constructAvatarUrl(visitor.getName(),
+                            visitor.getUniqueId(), avatar.getType()));
         }
 
         // {botAvatarUrl}
@@ -71,7 +79,9 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
         setConfigValues(messageType);
 
-        // bug: visitor images for body, head, and 3d heads!
+        // bug: need conditions per embed, in this case "teleporter == owner"
+        // todo: cleanup config as well and defaults for player warps.
+        // todo: change version minor.
 
         // {categoryImageUrl}
         // todo: Improve image setting becasuse this is confusing

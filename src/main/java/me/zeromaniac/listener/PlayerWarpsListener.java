@@ -1,6 +1,7 @@
 package me.zeromaniac.listener;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -51,7 +52,7 @@ public class PlayerWarpsListener implements Listener {
                 event.getPlayerWarp().getWarpCategory().getIcon(),
                 event.getPlayerWarp().getWarpCategory().getTeleportPrice(),
                 0,
-                "");
+                null);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -73,7 +74,7 @@ public class PlayerWarpsListener implements Listener {
                 event.getPlayerWarp().getWarpCategory().getIcon(),
                 event.getPlayerWarp().getWarpCategory().getTeleportPrice(),
                 event.getPlayerWarp().getWarpRate().getRateAverage(),
-                event.getTeleporter().getName());
+                event.getTeleporter());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -95,18 +96,18 @@ public class PlayerWarpsListener implements Listener {
                 event.getPlayerWarp().getWarpCategory().getIcon(),
                 event.getPlayerWarp().getWarpCategory().getTeleportPrice(),
                 0,
-                "");
+                null);
     }
 
     public void ProcessEvent(PlayerWarpsEventType type, Double cost, long id, String warpName,
             String description, WIcon warpIcon, WPlayer wPlayer, String worldname, double locX,
             double locY, double locZ, String categoryname, ItemStack categoryitem, double teleportprice,
-            double rating, String teleporter) {
+            double rating, Player visitor) {
 
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             AbstractEmbed embed = new PlayerWarpsEmbed(type, cost, id, warpName, description,
                     warpIcon, wPlayer, worldname, locX, locY, locZ,
-                    categoryname, categoryitem, teleportprice, rating, teleporter);
+                    categoryname, categoryitem, teleportprice, rating, visitor);
 
             embed.sendEmbed();
         });
