@@ -40,7 +40,13 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.WARP_NAME.getValue(), warpName);
         replacer.put(PlaceholdersEnum.CATEGORY_NAME.getValue(), categoryname);
         replacer.put(PlaceholdersEnum.DESCRIPTION.getValue(), ItemHelper.bukkitColorYeeter(description));
-        replacer.put(PlaceholdersEnum.VISITOR.getValue(), visitor.getName());
+
+        if (visitor != null) {
+            replacer.put(PlaceholdersEnum.VISITOR.getValue(), visitor.getName());
+        } else {
+            replacer.put(PlaceholdersEnum.VISITOR.getValue(), "");
+        }
+        
 
         if (cost != null) {
             replacer.put(PlaceholdersEnum.PRICE.getValue(), ItemHelper.priceShortener(cost, formatPrices));
@@ -67,11 +73,14 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         }
 
         // {visitorAvatarUrl}, {visitorHead3dUrl}, {visitorBodyUrl}
-        for (AvatarImages avatar : Avatars.VISITOR.getAvatarImages()) {
-            replacer.put(avatar.getValue(),
-                    ImageHelper.constructAvatarUrl(visitor.getName(),
-                            visitor.getUniqueId(), avatar.getType()));
+        if (visitor != null) {
+            for (AvatarImages avatar : Avatars.VISITOR.getAvatarImages()) {
+                replacer.put(avatar.getValue(),
+                        ImageHelper.constructAvatarUrl(visitor.getName(),
+                                visitor.getUniqueId(), avatar.getType()));
+            }
         }
+        
 
         // {botAvatarUrl}
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
@@ -79,7 +88,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
         setConfigValues(messageType);
 
-        // bug: need conditions per embed, in this case "teleporter == owner"
+        // bug: need conditions per embed, in this case "teleporter == owner", maybe even commands for the really nuts people?
         // todo: cleanup config as well and defaults for player warps.
         // todo: change version minor.
 

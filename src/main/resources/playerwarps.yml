@@ -14,15 +14,15 @@
 # to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
 
 # Supported placeholders in all image or Icon fields:
-# - {playerAvatarUrl} = The shop owner's flat head image.
-# - {playerHead3dUrl} = The shop owner's tilted 3D head image.
-# - {playerBodyUrl} = The shop owner's tilted full body image.
-# - {buyerAvatarUrl} = The buyer's flat head image.
-# - {buyerHead3dUrl} = The buyer's tilted 3D head image.
-# - {buyerBodyUrl} = The buyer's tilted full body image.
+# - {playerAvatarUrl} = The warp owner's flat head image.
+# - {playerHead3dUrl} = The warp owner's tilted 3D head image.
+# - {playerBodyUrl} = The warp owner's tilted full body image.
+# - {visitorAvatarUrl} = The visitor's flat head image.
+# - {visitorHead3dUrl} = The visitor's tilted 3D head image.
+# - {visitorBodyUrl} = The visitor's tilted full body image.
 # - {botAvatarUrl} = The bot avatar image.
-# - {itemImageUrl} = The item image being sold or bought in the shop.
-# - {loreImageUrl} = The lore image of the item being sold or bought.
+# - {categoryImageUrl} = The item image of the category the warp is in.
+# - {warpImageUrl} = The item image of the warp itself.
 # Footer image not showing? The footer must contain text - thanks to discord.
 # Fields are dynamic! You can add as many as you like to stretch out your embed!
 
@@ -38,7 +38,7 @@ NewWarpCreated:
   Color: "#fcba03"
   Author:
     ImageUrl: "{playerAvatarUrl}"
-    Name: "{player} 𝖈𝖗𝖊𝖆𝖙𝖊𝖉 𝖆 𝖈𝖍𝖊𝖘𝖙 𝖘𝖍𝖔𝖕"
+    Name: "{player} has created a new warp!"
     Url: ""
   ThumbnailUrl: "{itemImageUrl}"
   Title:
