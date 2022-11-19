@@ -36,4 +36,54 @@ Hooks:
 # Not sure? Look here: https://docs.oracle.com/cd/E84527_01/wcs/tag-ref/MISC/TimeZones.html
 
 
+############################################################
+#                                                          #
+#                  MoreDiscordSRVHooks                     #
+#                 Conditions explanation                   #
+#                                                          #
+############################################################
+
+# Above the first condition, you must have the word "Conditions:" present, which
+# should be at the same indentation level as "Timestamp" as shown in the many examples in each config.
+# The use of conditions is entirely optional - deleting them will not throw any errors, unless you leave bits and pieces.
+# If you do not use conditions, but enable the embed, it will always send the embed whenever the event for it is triggered.
+
+# Each condition is identified by a name of your choice and 4 condition variables.
+# What you name your conditions is up to you. Conditions are dynamic, you can add as many as you need, even multiple ones using the same Type.
+# Generally, all conditions are parsed for the person triggering the event we listen to.
+
+# Condition variables are "Type", "Input", "Operator" and "Compare".
+# In "Type", you must specify what data type you are going to compare. 
+# "Type" can take "string", "hasPermission" and "number". 
+# All of these variables do different things, for example you can not do math operations on a name, such as "{name} < 50". 
+
+# Type: "string" 
+# When using "string" as Type, you can use the following logical operators in the "Operator" field:
+# "==" or "equals", where the "Input" must match the "Compare" field for the condition to be true. Ignores case.
+# "!=" or "!equals", where the "Input" must not match the "Compare" field for the condition to be true. Ignores case.
+# "contains", where the "Input" must contain the "Compare" field for the condition to be true. Ignores case.
+# "!contains", where the "Input" must not contain the "Compare" field for the condition to be true. Ignores case.
+# The string Type is really useful if you want to exempt certain named players from triggering an embed for example.
+# The limit is your imagination!
+
+# Type: "hasPermission" 
+# When using "hasPermission" as Type, you can use the following logical operators in the "Operator" field:
+# "or", where either one of the permissions in the "Input" field must return the value set in the "Compare" field for the condition to be true.
+# "and", where all of the permissions in the "Input" field must return the value set in the "Compare" field for the condition to be true.
+# The permission in the list does NOT have to be an 'official' permission from a plugin! 
+# You can just make one up if that helps you keep order in your permission manager. Remember that in LuckPerms for example, group memberships are also
+# nothing other than permissions like "group.<groupname>". This would be useful to exempt your staff members from triggering an embed for example
+# or allows you to use the embeds as little VIP rank addition - you pick!
+# Caution: This one can be a real brain twister!
+
+# Type: "number" 
+# When using "number" as Type, you can use the following logical operators in the "Operator" field:
+# "<" or "smallerThan", where the "Input" must be smaller or less than what is defined in the "Compare" field for the condition to be true.
+# "<=" or "smallerOrEqual", where the "Input" must be smaller or equal to what is defined in the "Compare" field for the condition to be true.
+# ">" or "biggerThan", where the "Input" must be bigger or more than what is defined in the "Compare" field for the condition to be true.
+# ">=" or "biggerOrEqual", where the "Input" must be bigger or equal to what is defined in the "Compare" field for the condition to be true.
+# "==" or "equals", where the "Input" must be the same as what is defined in the "Compare" field for the condition to be true.
+# Here, the "Compare" field can also be a placeholder rather than a defined number. This is useful if you want to show certain
+# embeds only for rich players or players who have a certain amount of levels. You decide :D
+
 Version: ${project.version}

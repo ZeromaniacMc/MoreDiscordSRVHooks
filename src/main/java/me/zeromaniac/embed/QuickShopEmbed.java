@@ -27,11 +27,13 @@ public class QuickShopEmbed extends AbstractEmbed {
             int amount, double incomeAfterTax, double tax, double incomeBeforeTax, UUID buyer, String world) {
         super();
         boolean formatPrices = ConfigHandler.getQuickShopConfig().getIsShortenPricesEnabled();
-        String messageType = type.getValue();
+        messageType = type.getValue();
 
         if (!isEnabled(messageType)) {
             return;
         }
+
+        this.player = Bukkit.getPlayer(owner);
 
         if (item.getItemMeta().hasDisplayName()) {
             String newName = ItemHelper.convertHexToBukkit(item.getItemMeta().getDisplayName());
@@ -40,11 +42,14 @@ public class QuickShopEmbed extends AbstractEmbed {
             replacer.put(PlaceholdersEnum.ITEM.getValue(), ItemHelper.nameFormatter(item));
         }
 
-        replacer.put(PlaceholdersEnum.AMOUNT.getValue(), String.valueOf(amount)); 
-        replacer.put(PlaceholdersEnum.TAX.getValue(), String.valueOf(tax)); 
-        replacer.put(PlaceholdersEnum.INCOME_AFTER_TAX.getValue(), ItemHelper.priceShortener(incomeAfterTax, formatPrices));
-        replacer.put(PlaceholdersEnum.INCOME_BEFORE_TAX.getValue(), ItemHelper.priceShortener(incomeBeforeTax, formatPrices)); 
-        replacer.put(PlaceholdersEnum.SINGLETON_PRICE_BEFORE_TAX.getValue(), ItemHelper.priceShortener(singleItemPriceBeforeTax, formatPrices));
+        replacer.put(PlaceholdersEnum.AMOUNT.getValue(), String.valueOf(amount));
+        replacer.put(PlaceholdersEnum.TAX.getValue(), String.valueOf(tax));
+        replacer.put(PlaceholdersEnum.INCOME_AFTER_TAX.getValue(),
+                ItemHelper.priceShortener(incomeAfterTax, formatPrices));
+        replacer.put(PlaceholdersEnum.INCOME_BEFORE_TAX.getValue(),
+                ItemHelper.priceShortener(incomeBeforeTax, formatPrices));
+        replacer.put(PlaceholdersEnum.SINGLETON_PRICE_BEFORE_TAX.getValue(),
+                ItemHelper.priceShortener(singleItemPriceBeforeTax, formatPrices));
 
         replacer.put(PlaceholdersEnum.CHEST_WORLD.getValue(), String.valueOf(world));
         replacer.put(PlaceholdersEnum.CHEST_LOC_X.getValue(), String.valueOf(locationX));
@@ -78,24 +83,27 @@ public class QuickShopEmbed extends AbstractEmbed {
         } else {
             replacer.put(PlaceholdersEnum.FROM_TO.getValue(), boughtFrom);
         }
-        
+
         replacer.put(PlaceholdersEnum.ITEM_IMAGE_URL.getValue(), attachmentType + ImageNames.ITEM_IMAGE.getValue());
         replacer.put(PlaceholdersEnum.LORE_IMAGE_URL.getValue(), attachmentType + ImageNames.LORE_IMAGE.getValue());
-        replacer.put(PlaceholdersEnum.INVENTORY_IMAGE_URL.getValue(), attachmentType + ImageNames.INVENTORY_IMAGE.getValue());
-        replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(), DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
+        replacer.put(PlaceholdersEnum.INVENTORY_IMAGE_URL.getValue(),
+                attachmentType + ImageNames.INVENTORY_IMAGE.getValue());
+        replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
+                DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
 
         for (AvatarImages avatar : Avatars.PLAYER.getAvatarImages()) {
-            replacer.put(avatar.getValue(), ImageHelper.constructAvatarUrl(Bukkit.getOfflinePlayer(owner).getName(), owner, avatar.getType()));
+            replacer.put(avatar.getValue(),
+                    ImageHelper.constructAvatarUrl(Bukkit.getOfflinePlayer(owner).getName(), owner, avatar.getType()));
         }
 
         if (buyer != null) {
             for (AvatarImages avatar : Avatars.BUYER.getAvatarImages()) {
                 replacer.put(avatar.getValue(),
-                        ImageHelper.constructAvatarUrl(Bukkit.getOfflinePlayer(buyer).getName(), buyer, avatar.getType()));
+                        ImageHelper.constructAvatarUrl(Bukkit.getOfflinePlayer(buyer).getName(), buyer,
+                                avatar.getType()));
             }
             replacer.put(PlaceholdersEnum.BUYER.getValue(), Bukkit.getOfflinePlayer(buyer).getName());
         }
-
 
         setConfigValues(messageType);
 

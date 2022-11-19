@@ -45,7 +45,7 @@ public abstract class ConfigLoader {
     }
 
     public void reloadConfig() {
-        if (!configFile.exists()){
+        if (!configFile.exists()) {
             saveResource(configName, false);
         }
 
@@ -57,6 +57,12 @@ public abstract class ConfigLoader {
 
         config.setDefaults(YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream, Charsets.UTF_8)));
         loadMyConfig();
+
+        try {
+            config.save(configFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getPluginName() {
@@ -64,7 +70,8 @@ public abstract class ConfigLoader {
     }
 
     public abstract void loadMyConfig();
-    public boolean configContainsKey(String configKey){
+
+    public boolean configContainsKey(String configKey) {
         if (config.contains(configKey, true)) {
             return true;
         }
@@ -96,7 +103,8 @@ public abstract class ConfigLoader {
         resourcePath = resourcePath.replace('\\', '/');
         InputStream in = getResource(resourcePath);
         if (in == null) {
-            throw new IllegalArgumentException("The embedded resource '" + resourcePath + "' cannot be found in " + PLUGIN_NAME);
+            throw new IllegalArgumentException(
+                    "The embedded resource '" + resourcePath + "' cannot be found in " + PLUGIN_NAME);
         }
 
         File outFile = new File(dataFolder, resourcePath);
@@ -117,7 +125,8 @@ public abstract class ConfigLoader {
                 out.close();
                 in.close();
             } else {
-                // Bukkit.getLogger().log(Level.WARNING, "Could not save " + outFile.getName() + " to " + outFile + " because " + outFile.getName() + " already exists.");
+                // Bukkit.getLogger().log(Level.WARNING, "Could not save " + outFile.getName() +
+                // " to " + outFile + " because " + outFile.getName() + " already exists.");
                 SystemHelper.consoleMessage("&bFile &3" + outFile.getName() + " &balready exists. Skipping creation.");
             }
         } catch (IOException ex) {

@@ -61,6 +61,25 @@ NewWarpCreated:
       Text: ""
       IconUrl: ""
     Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{visitorName}"
+#        Operator: "!="
+#        Compare: "{player}"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for NewWarpCreated:
 # - {player} = The player who owns the warp.
 # - {warpname} = The name the owner specified for the warp.
@@ -103,6 +122,25 @@ Teleport:
       Text: ""
       IconUrl: ""
     Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{description}"
+#        Operator: "contains"
+#        Compare: "awesome"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "and"
+#        Compare: false
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Teleport:
 # Keep in mind that this embed can be very spammy if you have a lot of players using warps.
 # - {player} = The player who owns the warp.
@@ -118,7 +156,6 @@ Teleport:
 # - {id} = The ID number of the warp.
 # - {description} = The description for the warp.
 # - {rating} - The rating of the warp in form of a number.
-
 
 WarpRemoved:
   Embed:
@@ -148,6 +185,25 @@ WarpRemoved:
       Text: ""
       IconUrl: ""
     Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{player}"
+#        Operator: "!="
+#        Compare: "MyAdminName"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "and"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for WarpRemoved:
 # - {player} = The player who owns the warp.
 # - {warpname} = The name the owner specified for the warp.

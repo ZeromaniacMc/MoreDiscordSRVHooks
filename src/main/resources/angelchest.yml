@@ -28,39 +28,60 @@
 # Fields are dynamic! You can add as many as you like to stretch out your embed!
 
 AngelChestSpawned:
- Embed:
-  Enabled: true
-  ChannelID: 
-    - "0000000000"
-    - "0000000000"
-  Color: "#fcba03"
-  Author:
-    ImageUrl: "{playerAvatarUrl}"
-    Name: "**Oops, looks like someone died!**"
-    Url: ""
-  ThumbnailUrl: ""
-  Title:
-    Text: ""
-    Url: ""
-  Description: "{player}'s Angel Chest spawned!"
-  Fields:
-    - " ; ;true"
-    - "Angel Chest; ;true"
-    - " ; ;true"
-    - "IsProtected:;{isProtected};true"
-    - "Unlocks:;{unlockTime};true"
-    - "Expiry:;{expiry};true"
-    - "Experience:;{xp};true"
-    - "ItemCount:;{itemCount};true"
-    - " ; ;true"
-    - " ;Chest: {chestWorld} X: `{chestLocationX}` Y: `{chestLocationY}` Z: `{chestLocationZ}`;false"
-    - " ; ;true"
-    - "Player Location;World: {playerWorld} X: `{deathLocationX}` Y: `{deathLocationY}` Z: `{deathLocationZ}`;false"
-  ImageUrl: "{inventoryImageUrl}"
-  Footer:
-    Text: ""
-    IconUrl: ""
-  Timestamp: true
+  Embed:
+    Enabled: true
+    ChannelID: 
+      - "0000000000"
+      - "0000000000"
+    Color: "#fcba03"
+    Author:
+      ImageUrl: "{playerAvatarUrl}"
+      Name: "**Oops, looks like someone died!**"
+      Url: ""
+    ThumbnailUrl: ""
+    Title:
+      Text: ""
+      Url: ""
+    Description: "{player}'s Angel Chest spawned!"
+    Fields:
+      - " ; ;true"
+      - "Angel Chest; ;true"
+      - " ; ;true"
+      - "IsProtected:;{isProtected};true"
+      - "Unlocks:;{unlockTime};true"
+      - "Expiry:;{expiry};true"
+      - "Experience:;{xp};true"
+      - "ItemCount:;{itemCount};true"
+      - " ; ;true"
+      - " ;Chest: {chestWorld} X: `{chestLocationX}` Y: `{chestLocationY}` Z: `{chestLocationZ}`;false"
+      - " ; ;true"
+      - "Player Location;World: {playerWorld} X: `{deathLocationX}` Y: `{deathLocationY}` Z: `{deathLocationZ}`;false"
+    ImageUrl: "{inventoryImageUrl}"
+    Footer:
+      Text: ""
+      IconUrl: ""
+    Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{player}"
+#        Operator: "!="
+#        Compare: "TheServerOwner"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - group.helper
+#          - group.moderator
+#          - group.admin
+#          - group.owner
+#        Operator: "or"
+#        Compare: false
+#      condition3:
+#        Type: "number"
+#        Input: "{itemCount}"
+#        Operator: ">"
+#        Compare: 100
+
 # Supported placeholders in text fields for AngelChestSpawned:
 # - {player} = The player who died.
 # - {xp} = The experience stored in the Angel Chest.
@@ -77,6 +98,3 @@ AngelChestSpawned:
 # - {expiry} = The time until the Angel Chest expires and drops it's contents.
 # - {itemCount} = The item count of the Angel Chest. Here, items are counted, not stacks, meaning 2 stacks of some item
 # will show up as 128.
-
-
-

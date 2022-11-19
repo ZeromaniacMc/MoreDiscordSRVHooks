@@ -31,11 +31,12 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
         boolean formatPrices = ConfigHandler.getPlayerWarpsConfig().getIsShortenPricesEnabled();
 
-        String messageType = type.getValue();
+        messageType = type.getValue();
 
         if (!isEnabled(messageType)) {
             return;
         }
+        this.player = wPlayer.getPlayer();
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), wPlayer.getName());
         replacer.put(PlaceholdersEnum.WARP_NAME.getValue(), warpName);
@@ -50,8 +51,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
         if (cost == null || cost < 0) {
             replacer.put(PlaceholdersEnum.PRICE.getValue(), "0.0");
-        }
-        else {
+        } else {
             replacer.put(PlaceholdersEnum.PRICE.getValue(), ItemHelper.priceShortener(cost, formatPrices));
         }
 
@@ -63,9 +63,9 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
         if (teleportprice == null || teleportprice < 0) {
             replacer.put(PlaceholdersEnum.TELEPORT_PRICE.getValue(), "0.0");
-        }
-        else {
-            replacer.put(PlaceholdersEnum.TELEPORT_PRICE.getValue(),String.valueOf(ItemHelper.priceShortener(teleportprice, formatPrices)));
+        } else {
+            replacer.put(PlaceholdersEnum.TELEPORT_PRICE.getValue(),
+                    String.valueOf(ItemHelper.priceShortener(teleportprice, formatPrices)));
         }
 
         // {rating}
@@ -91,7 +91,6 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
                 DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
 
-        // bug: need conditions per embed, in this case "teleporter == owner", maybe even commands for the really nuts people?
 
         boolean isIconSet = false;
         ItemStack itemStackWarpIcon = null;

@@ -11,6 +11,7 @@ import me.zeromaniac.embed.enums.PlaceholdersEnum;
 import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import com.loohp.interactivechat.objectholders.ICPlayerFactory;
 import com.loohp.interactivechat.objectholders.OfflineICPlayer;
@@ -28,18 +29,21 @@ public class AuctionGuiPlusEmbed extends AbstractEmbed {
         boolean formatPrices = ConfigHandler.getAuctionGuiPlusConfig().getIsShortenPricesEnabled();
 
         String auctionType = type.getValue();
+        messageType = auctionType;
 
         if (!isEnabled(auctionType)) {
             return;
         }
 
+        this.player = (Player) player;
+
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());
         replacer.put(PlaceholdersEnum.QUANTITY.getValue(), String.valueOf(stack.getAmount()));
-        
+
         if (stack.getItemMeta().hasDisplayName()) {
             String newName = ItemHelper.convertHexToBukkit(stack.getItemMeta().getDisplayName());
-            replacer.put(PlaceholdersEnum.ITEM.getValue(),ItemHelper.bukkitColorYeeter(newName));
-                    
+            replacer.put(PlaceholdersEnum.ITEM.getValue(), ItemHelper.bukkitColorYeeter(newName));
+
         } else {
             replacer.put(PlaceholdersEnum.ITEM.getValue(), ItemHelper.nameFormatter(stack));
         }
@@ -47,13 +51,13 @@ public class AuctionGuiPlusEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.AMOUNT.getValue(), String.valueOf(amount));
         replacer.put(PlaceholdersEnum.DURATION.getValue(), duration);
 
-        //prices
+        // prices
         replacer.put(PlaceholdersEnum.INCREMENT.getValue(), ItemHelper.priceShortener(increment, formatPrices));
-        replacer.put(PlaceholdersEnum.STARTING_PRICE.getValue(), ItemHelper.priceShortener(startingPrice, formatPrices));
+        replacer.put(PlaceholdersEnum.STARTING_PRICE.getValue(),
+                ItemHelper.priceShortener(startingPrice, formatPrices));
         replacer.put(PlaceholdersEnum.PRICE.getValue(), (ItemHelper.priceShortener(price, formatPrices)));
 
         replacer.put(PlaceholdersEnum.ID.getValue(), String.valueOf(id));
-
 
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
                 DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());

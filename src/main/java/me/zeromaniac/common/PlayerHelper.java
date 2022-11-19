@@ -37,6 +37,6 @@ public class PlayerHelper {
 
     public static String CONFIGS_RELOADED = "&bConfigs successfully reloaded!";
 
-    public static String NO_PERMISSION = "&bYou do not have permission to use this.";
+    public static String NO_PERMISSION = "&cYou do not have permission to use this.";
 
 }

@@ -11,6 +11,7 @@ import me.zeromaniac.embed.enums.PlaceholdersEnum;
 import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import com.loohp.interactivechat.objectholders.ICPlayerFactory;
 import com.loohp.interactivechat.objectholders.OfflineICPlayer;
@@ -27,10 +28,13 @@ public class PlayerShopGuiPlusEmbed extends AbstractEmbed {
         boolean formatPrices = ConfigHandler.getPlayerShopGuiPlusConfig().getIsShortenPricesEnabled();
 
         String auctionType = type.getValue();
+        messageType = auctionType;
 
         if (!isEnabled(auctionType)) {
             return;
         }
+
+        this.player = (Player) player;
 
         replacer.put(PlaceholdersEnum.DURATION.getValue(), duration);
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());

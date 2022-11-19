@@ -27,11 +27,13 @@ public class LiteBansEmbed extends AbstractEmbed {
             String originServer, String effectScope) {
         super();
 
-        String messageType = type.getValue();
+        messageType  = type.getValue();
 
         if (!isEnabled(messageType)) {
             return;
         }
+        
+        this.player = Bukkit.getPlayer(executorUUID);
 
         replacer.put(PlaceholdersEnum.ID.getValue(), String.valueOf(punishmentID));
         replacer.put(PlaceholdersEnum.RECEIVER_UUID.getValue(), receiverUUID);

@@ -54,6 +54,25 @@ NewShopCreated:
     Text: ""
     IconUrl: ""
   Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{item}"
+#        Operator: "!contains"
+#        Compare: "bedrock"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for NewShopCreated:
 # - {player} = The player who owns the shop.
 # - {item} = The item name featured in this shop.
@@ -89,6 +108,25 @@ Purchase:
     Text: ""
     IconUrl: ""
   Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{buyer}"
+#        Operator: "!="
+#        Compare: "{player}"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Purchase:
 # Even though the amount of placeholders offered here are quite... a lot, remember that making large embeds might spam your channel.
 # - {player} = The player who owns the shop.

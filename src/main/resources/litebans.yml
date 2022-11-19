@@ -65,6 +65,25 @@ PermanentBan:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "!="
+#        Compare: "Zeromaniac"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for PermanentBan:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -109,6 +128,25 @@ TemporaryBan:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "!="
+#        Compare: "Zeromaniac"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for TemporaryBan:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -153,6 +191,25 @@ PermanentIPBan:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "=="
+#        Compare: "Zeromaniac"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for PermanentIPBan:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -197,6 +254,25 @@ TemporaryIPBan:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "!contains"
+#        Compare: "zero"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for TemporaryIPBan:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -239,6 +315,25 @@ Unban:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "contains"
+#        Compare: "zeromaniac"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Unban:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -286,6 +381,25 @@ PermanentMute:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "!equals"
+#        Compare: "{receiverName}"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for PermanentMute:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -330,6 +444,24 @@ TemporaryMute:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "!="
+#        Compare: "{receiverName}"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - group.owner
+#        Operator: "and"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for TemporaryMute:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -374,6 +506,25 @@ PermanentIPMute:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{punishReason}"
+#        Operator: "!contains"
+#        Compare: "hammer"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for PermanentIPMute:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -418,6 +569,25 @@ TemporaryIPMute:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{punishReason}"
+#        Operator: "!contains"
+#        Compare: "hammer"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for TemporaryIPMute:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -460,6 +630,25 @@ Unmute:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{revokeReason}"
+#        Operator: "contains"
+#        Compare: "sorry"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Unmute:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -504,6 +693,25 @@ Kick:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{receiverName}"
+#        Operator: "contains"
+#        Compare: "o"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Kick:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -545,6 +753,25 @@ Warn:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{receiverName}"
+#        Operator: "!contains"
+#        Compare: "o"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Warn:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.
@@ -587,6 +814,25 @@ Unwarn:
       Text: "Zero-Bit Network"
       IconUrl: "{botAvatarUrl}"
     Timestamp: false
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{executorName}"
+#        Operator: "!="
+#        Compare: "TheServerOwner"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for Unwarn:
 # - {id} = The ID of the entry.
 # - {receiverUUID} = The UUID of the player who is subject to the action.

@@ -60,6 +60,25 @@ NewSale:
       Text: ""
       IconUrl: ""
     Timestamp: "{server_time}"
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{item}"
+#        Operator: "!contains"
+#        Compare: "bedrock"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
 # Supported placeholders in text fields for NewSale:
 # - {player} = The player who started the auction.
 # - {quantity} = The number of items that were listed.
@@ -90,6 +109,25 @@ SaleEndBought:
       Text: ""
       IconUrl: ""
     Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{item}"
+#        Operator: "!contains"
+#        Compare: "bedrock"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "and"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "{price}"
+#        Operator: ">"
+#        Compare: 10000
+
 # Supported placeholders in text fields for SaleEndBought:
 # - {player} = The owner of the auction.
 # - {buyer} = The player who bought the item.
@@ -119,6 +157,24 @@ SaleEndExpired:
       Text: ""
       IconUrl: ""
     Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{item}"
+#        Operator: "!contains"
+#        Compare: "bedrock"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: false
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
 # Supported placeholders in text fields for SaleEndExpired:
 # - {player} = The player who started the auction.
 # - {quantity} = The number of items that were listed.

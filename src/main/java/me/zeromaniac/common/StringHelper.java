@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Map;
 import java.util.regex.Pattern;
+import org.bukkit.entity.Player;
 
 public class StringHelper {
     protected static boolean isPlaceholderAPIInstalled = ThirdPartyChecker.isPluginInstalled("PlaceholderAPI");
@@ -37,6 +38,10 @@ public class StringHelper {
     }
 
     public static String parsePlaceholders(String text, Map<String, String> replacer) {
+        return parsePlaceholders(text, replacer, null);
+    }
+
+    public static String parsePlaceholders(String text, Map<String, String> replacer, Player player) {
         if (text == null) {
             return "";
         }
@@ -44,7 +49,7 @@ public class StringHelper {
             text = text.replace(entry.getKey(), entry.getValue());
         }
         if (isPlaceholderAPIInstalled) {
-            return PlaceholderAPI.setPlaceholders(null, text);
+            return PlaceholderAPI.setPlaceholders(player, text);
         }
         return text;
     }

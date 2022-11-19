@@ -12,6 +12,7 @@ import me.zeromaniac.embed.enums.PlaceholdersEnum;
 import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import static me.zeromaniac.common.StringHelper.mapContainsValue;
@@ -29,11 +30,12 @@ public class AngelChestEmbed extends AbstractEmbed {
             String unlockIn, boolean isProtected, ItemStack mainHandItem, ItemStack offHandItem, String timeLeft,
             String itemCount, int deathPositionX, int deathPositionY, int deathPositionZ, String playerDeathWorld) {
         super();
-        String messageType = type.getValue();
+        messageType = type.getValue();
 
         if (!isEnabled(messageType)) {
             return;
         }
+        this.player = (Player) player;
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());
         replacer.put(PlaceholdersEnum.XP.getValue(), String.valueOf(experience));
