@@ -21,6 +21,7 @@ import static me.zeromaniac.common.ImageHelper.getLoreImage;
 import static me.zeromaniac.common.ImageHelper.getImage;
 
 public class AuctionGuiPlusEmbed extends AbstractEmbed {
+    ItemStack stack;
 
     public AuctionGuiPlusEmbed(OfflinePlayer player, OfflinePlayer bidder, OfflinePlayer buyer, ItemStack stack,
             int id, String duration, double price, double startingPrice, double increment, double amount,
@@ -34,6 +35,8 @@ public class AuctionGuiPlusEmbed extends AbstractEmbed {
         if (!isEnabled(auctionType)) {
             return;
         }
+
+        this.stack = stack;
 
         this.player = (Player) player;
 
@@ -83,8 +86,13 @@ public class AuctionGuiPlusEmbed extends AbstractEmbed {
             replacer.put(PlaceholdersEnum.BUYER.getValue(), buyer.getName());
         }
 
-        setConfigValues(auctionType);
+        this.afterConstructor();
+    }
 
+    
+    @Override
+    protected void handleImages() {
+        
         if (mapContainsValue(textFieldsMap, ImageNames.ITEM_IMAGE.getValue())) {
             try {
                 OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());

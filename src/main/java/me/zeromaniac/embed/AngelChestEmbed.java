@@ -15,6 +15,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
 import static me.zeromaniac.common.StringHelper.mapContainsValue;
 import static me.zeromaniac.common.ImageHelper.getPlayerInventory;
 import static me.zeromaniac.common.ImageHelper.getItemImage;
@@ -22,6 +23,10 @@ import static me.zeromaniac.common.ImageHelper.getLoreImage;
 import static me.zeromaniac.common.ImageHelper.getImage;
 
 public class AngelChestEmbed extends AbstractEmbed {
+
+    Inventory angelChestContents;
+    ItemStack mainHandItem, offHandItem;
+
 
     public AngelChestEmbed(AngelChestEventType type, OfflinePlayer player, Inventory angelChestContents,
             int chestPositionX,
@@ -35,6 +40,11 @@ public class AngelChestEmbed extends AbstractEmbed {
         if (!isEnabled(messageType)) {
             return;
         }
+
+        this.angelChestContents = angelChestContents;
+        this.mainHandItem = mainHandItem;
+        this.offHandItem = offHandItem;
+
         this.player = (Player) player;
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());
@@ -70,8 +80,12 @@ public class AngelChestEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
                 DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
 
-        setConfigValues(messageType);
+        this.afterConstructor();
+    }
 
+    @Override
+    protected void handleImages() {
+        
         if (mapContainsValue(textFieldsMap, ImageNames.INVENTORY_IMAGE.getValue())) {
             try {
                 attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(),

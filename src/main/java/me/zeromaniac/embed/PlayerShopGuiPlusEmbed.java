@@ -22,9 +22,12 @@ import static me.zeromaniac.common.ImageHelper.getImage;
 
 public class PlayerShopGuiPlusEmbed extends AbstractEmbed {
 
+    ItemStack stack;
+
     public PlayerShopGuiPlusEmbed(OfflinePlayer player, OfflinePlayer buyer, ItemStack stack, double price,
             int quantity, PlayerShopEventType type, String duration) {
         super();
+
         boolean formatPrices = ConfigHandler.getPlayerShopGuiPlusConfig().getIsShortenPricesEnabled();
 
         String auctionType = type.getValue();
@@ -33,6 +36,7 @@ public class PlayerShopGuiPlusEmbed extends AbstractEmbed {
         if (!isEnabled(auctionType)) {
             return;
         }
+        this.stack = stack;
 
         this.player = (Player) player;
 
@@ -70,9 +74,12 @@ public class PlayerShopGuiPlusEmbed extends AbstractEmbed {
             }
             replacer.put(PlaceholdersEnum.BUYER.getValue(), buyer.getName());
         }
-
-        setConfigValues(auctionType);
-
+        
+        this.afterConstructor();
+    }
+        
+    @Override
+    protected void handleImages() {
         if (mapContainsValue(textFieldsMap, ImageNames.ITEM_IMAGE.getValue())) {
             try {
                 OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());

@@ -21,6 +21,8 @@ import static me.zeromaniac.common.ImageHelper.getLoreImage;
 import static me.zeromaniac.common.ImageHelper.getImage;
 
 public class QuickShopEmbed extends AbstractEmbed {
+    UUID owner;
+    ItemStack item;
 
     public QuickShopEmbed(QuickShopEventType type, UUID owner, ItemStack item,
             double locationX, double locationY, double locationZ, int shoptype, double singleItemPriceBeforeTax,
@@ -34,6 +36,8 @@ public class QuickShopEmbed extends AbstractEmbed {
         }
 
         this.player = Bukkit.getPlayer(owner);
+        this.owner = owner;
+        this.item = item;
 
         if (item.getItemMeta().hasDisplayName()) {
             String newName = ItemHelper.convertHexToBukkit(item.getItemMeta().getDisplayName());
@@ -105,8 +109,11 @@ public class QuickShopEmbed extends AbstractEmbed {
             replacer.put(PlaceholdersEnum.BUYER.getValue(), Bukkit.getOfflinePlayer(buyer).getName());
         }
 
-        setConfigValues(messageType);
-
+        this.afterConstructor();
+    }
+    
+    @Override
+    protected void handleImages() {
         if (mapContainsValue(textFieldsMap, ImageNames.ITEM_IMAGE.getValue())) {
             try {
                 OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(owner);
@@ -119,7 +126,6 @@ public class QuickShopEmbed extends AbstractEmbed {
         if (mapContainsValue(textFieldsMap, ImageNames.LORE_IMAGE.getValue())) {
             attachmentImages.add(getImage(ImageNames.LORE_IMAGE.getValue(), getLoreImage(item)));
         }
-
     }
 
     @Override

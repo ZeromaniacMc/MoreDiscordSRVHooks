@@ -22,6 +22,9 @@ import me.zeromaniac.handlers.ConfigHandler;
 import me.zeromaniac.listener.enums.PlayerWarpsEventType;
 
 public class PlayerWarpsEmbed extends AbstractEmbed {
+    WPlayer wPlayer;
+    ItemStack categoryitem;
+    ItemStack itemStackWarpIcon;
 
     public PlayerWarpsEmbed(PlayerWarpsEventType type, Double cost, long id, String warpName,
             String description, WIcon warpIcon, WPlayer wPlayer, String worldname, double locX,
@@ -37,6 +40,8 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
             return;
         }
         this.player = wPlayer.getPlayer();
+        this.wPlayer = wPlayer;
+        this.categoryitem =categoryitem;
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), wPlayer.getName());
         replacer.put(PlaceholdersEnum.WARP_NAME.getValue(), warpName);
@@ -93,7 +98,6 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
 
 
         boolean isIconSet = false;
-        ItemStack itemStackWarpIcon = null;
         try {
             itemStackWarpIcon = warpIcon.getWarpIcon();
             isIconSet = true;
@@ -116,8 +120,11 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.CATEGORY_IMAGE_URL.getValue(),
                 attachmentType + ImageNames.CATEGORY_IMAGE.getValue());
 
-        setConfigValues(messageType);
-
+        this.afterConstructor();
+    }
+    
+    @Override
+    protected void handleImages() {
         // {warpImageUrl}
         if (mapContainsValue(textFieldsMap, ImageNames.WARP_IMAGE.getValue()) && itemStackWarpIcon != null) {
             try {

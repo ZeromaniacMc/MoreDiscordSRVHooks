@@ -20,6 +20,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class LiteBansEmbed extends AbstractEmbed {
+    
+    String receiverUUID;
+
     public LiteBansEmbed(LiteBansEventType type, long punishmentID, String receiverUUID,
             String receiverName, String receiverIP, String punishReason, String executorUUID,
             String executorName, String dateStart, String dateEnd, String duration,
@@ -33,6 +36,7 @@ public class LiteBansEmbed extends AbstractEmbed {
             return;
         }
         
+        this.receiverUUID = receiverUUID;
         this.player = Bukkit.getPlayer(executorUUID);
 
         replacer.put(PlaceholdersEnum.ID.getValue(), String.valueOf(punishmentID));
@@ -79,9 +83,12 @@ public class LiteBansEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.BOT_AVATAR_URL.getValue(),
                 DiscordUtil.getJda().getSelfUser().getEffectiveAvatarUrl());
 
-        setConfigValues(messageType);
+        this.afterConstructor();
+    }
 
-        
+    
+    @Override
+    protected void handleImages() {
         if (mapContainsValue(textFieldsMap, ImageNames.INVENTORY_IMAGE.getValue()) && validateUUID(receiverUUID)) {
             try {
                 try {
@@ -100,7 +107,6 @@ public class LiteBansEmbed extends AbstractEmbed {
                 Debug.log("ERROR ", debug);
                 Debug.log(e.getMessage(), debug);
             }
-
         }
     }
 

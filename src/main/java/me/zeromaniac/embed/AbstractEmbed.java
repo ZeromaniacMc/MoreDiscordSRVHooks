@@ -271,4 +271,11 @@ public abstract class AbstractEmbed {
     protected abstract boolean isEnabled(String type);
     protected abstract void initConfig();
     protected abstract void initDebug();
+
+    protected abstract void handleImages();
+
+    protected  void afterConstructor() {
+        setConfigValues(messageType);
+        handleImages();
+    }
 }
