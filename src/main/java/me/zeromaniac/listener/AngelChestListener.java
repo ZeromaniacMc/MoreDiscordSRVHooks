@@ -72,25 +72,6 @@ public class AngelChestListener implements Listener {
                 lastDeathLocation.getWorld().getName());
     }
 
-    /**
-     * @param type = Enum of event type
-     * @param angelChestContents = Array of Itemstack for main inventory contents
-     * @param chestPositionX = int of location X of the container
-     * @param chestPositionY = int of location Y of the container
-     * @param chestPositionZ = int of location Z of the container
-     * @param player = Player who died
-     * @param experience = int of experience stored
-     * @param world = world of container, modified
-     * @param unlockIn = int of time until chest is accessible by other players, modified
-     * @param isProtected = boolean of protection state
-     * @param offHandItem = Itemstack offHandItem
-     * @param timeLeft = String of modified time left until container explodes
-     * @param deathPositionX = int of location X of the player death
-     * @param deathPositionY = int of location Y of the player death
-     * @param deathPositionZ = int of location Z of the player death
-     * @param armor = Array of Itemstack, 4 slots
-     * @param playerDeathWorld = world of death, modified
-     */
     public void ProcessEvent(AngelChestEventType type, ItemStack[] angelChestContents, int chestPositionX,
             int chestPositionY, int chestPositionZ, OfflinePlayer player, int experience, String world,
             int unlockIn, boolean isProtected, ItemStack mainHandItem, ItemStack offHandItem, int timeLeft, int deathPositionX,

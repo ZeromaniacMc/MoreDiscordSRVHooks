@@ -6,7 +6,6 @@ import java.util.logging.Level;
 
 public class SystemHelper {
 
-    // note: Crucial system messages
 
     public static void consoleMessage(String message) {
         Bukkit.getServer().getLogger().log(Level.INFO, colorizer(PLUGIN_PREFIX + message));

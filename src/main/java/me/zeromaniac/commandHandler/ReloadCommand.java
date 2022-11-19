@@ -27,7 +27,6 @@ public class ReloadCommand implements CommandHandler {
         return Arrays.stream(new String[]{"reload", "info"}).toList();
     }
 
-    // note: The command sender is a player, check for permissions
     @Override
     public boolean executeCommandAsPlayer(Player sender, Command command, String label, String[] args) {
         Player player = sender;
@@ -59,7 +58,6 @@ public class ReloadCommand implements CommandHandler {
         return true;
     }
 
-    // note: The command sender is console, no permission checks necessary
     @Override
     public boolean executeCommandAsConsole(ConsoleCommandSender sender, Command command, String label, String[] args) {
         if (args.length != 1) {

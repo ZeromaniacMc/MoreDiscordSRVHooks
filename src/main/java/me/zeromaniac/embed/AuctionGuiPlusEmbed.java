@@ -51,7 +51,6 @@ public class AuctionGuiPlusEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.AMOUNT.getValue(), String.valueOf(amount));
         replacer.put(PlaceholdersEnum.DURATION.getValue(), duration);
 
-        // prices
         replacer.put(PlaceholdersEnum.INCREMENT.getValue(), ItemHelper.priceShortener(increment, formatPrices));
         replacer.put(PlaceholdersEnum.STARTING_PRICE.getValue(),
                 ItemHelper.priceShortener(startingPrice, formatPrices));

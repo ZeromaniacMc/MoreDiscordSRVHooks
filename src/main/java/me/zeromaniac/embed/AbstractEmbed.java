@@ -131,8 +131,6 @@ public abstract class AbstractEmbed {
     }
 
     public void sendEmbed() {
-        // Run comparator and set enabled state based on the output
-        // If no comparator fileds are present then it returns true
         try {
             if (enabled) {
                 enabled = comparator(messageType);
@@ -271,8 +269,6 @@ public abstract class AbstractEmbed {
     }
 
     protected abstract boolean isEnabled(String type);
-
     protected abstract void initConfig();
-
     protected abstract void initDebug();
 }

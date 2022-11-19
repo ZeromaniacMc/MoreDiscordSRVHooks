@@ -6,11 +6,8 @@ import me.zeromaniac.config.enums.PlayerWarpsDefaults;
 public class PlayerWarpsConfigHandler extends ConfigLoader {
 
     private boolean isNewWarpCreatedEmbedEnabled;
-
     private boolean isTeleportEmbedEnabled;
-
     private boolean isWarpRemodedEmbedEnabled;
-
     private boolean isShortenPricesEnabled;
 
     public PlayerWarpsConfigHandler(String configName, String pluginName) {

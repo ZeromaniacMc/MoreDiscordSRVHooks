@@ -62,7 +62,7 @@ public class ConfigHandler {
                 QUICK_SHOP_PLUGIN_NAME);
 
         PLAYER_WARPS_CONFIG = new PlayerWarpsConfigHandler(PLAYER_WARPS_CONFIG_NAME, 
-                PLAYER_SHOP_GUI_PLUS_PLUGIN_NAME);
+                PLAYER_WARPS_PLUGIN_NAME);
 
         configsLoaded = true;
     }

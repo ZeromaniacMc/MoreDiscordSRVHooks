@@ -6,9 +6,7 @@ import me.zeromaniac.config.enums.QuickShopDefaults;
 public class QuickShopConfigHandler extends ConfigLoader {
 
     private boolean isNewShopCreatedEmbedEnabled;
-
     private boolean isPurchaseEmbedEnabled;
-
     private boolean isShortenPricesEnabled;
 
 

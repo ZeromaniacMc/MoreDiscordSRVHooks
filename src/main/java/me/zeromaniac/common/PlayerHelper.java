@@ -6,8 +6,6 @@ import org.bukkit.entity.Player;
 
 public class PlayerHelper {
 
-    // note: crucial player messages
-
     public static String playerMessage(Player p, String message) {
         p.sendMessage(colorizer(PLUGIN_PREFIX + message));
         return message;
@@ -30,13 +28,9 @@ public class PlayerHelper {
     public static String MY_PLUGIN_SOFTDEPENDS = Bukkit.getPluginManager().getPlugin("MoreDiscordSRVHooks").getDescription().getSoftDepend().toString();
 
     private static String PLUGIN_PREFIX = "&3[&bMoreDiscordSRVHooks&3]&r ";
-
     private static String SHORT_PREFIX = "&3[&bMDH&3]&r ";
-
     public static String INVALID_COMMAND_PLAYER = "&bInvalid command. Did you mean /mdh reload?";
-
     public static String CONFIGS_RELOADED = "&bConfigs successfully reloaded!";
-
     public static String NO_PERMISSION = "&cYou do not have permission to use this.";
 
 }

@@ -113,7 +113,6 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         }
 
         // {categoryImageUrl}
-        // todo: Improve image setting becasuse this is confusing
         replacer.put(PlaceholdersEnum.CATEGORY_IMAGE_URL.getValue(),
                 attachmentType + ImageNames.CATEGORY_IMAGE.getValue());
 

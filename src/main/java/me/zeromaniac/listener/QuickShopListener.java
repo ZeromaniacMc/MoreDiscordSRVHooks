@@ -65,16 +65,6 @@ public class QuickShopListener implements Listener {
         event.getShop().getLocation().getWorld().getName());
     }
 
-    /**
-     * @param type = Enum of event type
-     * @param owner = UUID of owner of the shop
-     * @param item = Itemstack of item sold/bought in the shop
-     * @param locationX = int of location X of the shop container
-     * @param locationY = int of location Y of the shop container
-     * @param locationZ = int of location Z of the shop container
-     * @param shoptype = int from quickshop 0 for selling, 1 for buying identifier
-     * @param price = double of price for shop item buying/selling
-     */
     public void ProcessEvent(QuickShopEventType type, UUID owner , ItemStack item,
         double locationX, double locationY, double locationZ, int shoptype, double singleItemPriceBeforeTax, int amount,
         double incomeAfterTax, double tax, double incomeBeforeTax, UUID buyer, String world) {

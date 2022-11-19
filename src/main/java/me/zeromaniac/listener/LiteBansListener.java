@@ -165,26 +165,6 @@ public class LiteBansListener implements Listener {
         });
     }
 
-    /*
-     * @param type - Enum of Event type
-     * @param punishmentID - Long of ID
-     * @param receiverUUID - String of punishment receiver UUID
-     * @param receiverName - String of receiver by Name
-     * @param receiverIP - String of receiver IP
-     * @param reason - String of punsihment reason
-     * @param executorUUID - String of executor UUID
-     * @param executorName - String of executor by name
-     * @param dateStart - long of effective start time (milliseconds unixtime)
-     * @param dateEnd - long of effective expiry time (milliseconds unixtime)
-     * @param duration - preformatted String of effective time
-     * @param isIpBan - sub-boolean of ban type
-     * @param silent - boolean of silent flag used
-     * @param revokerUUID - String of player UUID undoing a punishment
-     * @param revokerName - String of player name undoing a punishment
-     * @param revokeReason - String of revoke reason of punishment
-     * @param originServer - String of server name where executed
-     * @param effectiveScope - String of servers punishment is effective on
-     */
     public void ProcessEvent(LiteBansEventType type, long punishmentID, String receiverUUID, String receiverName,
             String receiverIP,
             String punishReason, String executorUUID, String executorName, long dateStart, long dateEnd,

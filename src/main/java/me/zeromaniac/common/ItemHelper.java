@@ -103,7 +103,6 @@ public class ItemHelper {
     }
 
     public static String bukkitColorYeeter(String input) {
-        // input example = §x§A§A§B§B§C§C
         return ChatColor.stripColor(BUKKI_HEX_COLOR.matcher(input).replaceAll(""));
     }
 
