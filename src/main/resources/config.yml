@@ -60,9 +60,13 @@ Hooks:
 # Type: "string" 
 # When using "string" as Type, you can use the following logical operators in the "Operator" field:
 # "==" or "equals", where the "Input" must match the "Compare" field for the condition to be true. Ignores case.
+# "===" or "equalsExact", where the "Input" must match the "Compare" field for the condition to be true. Respects case.
 # "!=" or "!equals", where the "Input" must not match the "Compare" field for the condition to be true. Ignores case.
+# "!==" or "!equalsExact", where the "Input" must not match the "Compare" field for the condition to be true. Respects case.
 # "contains", where the "Input" must contain the "Compare" field for the condition to be true. Ignores case.
+# "containsExact", where the "Input" must contain the "Compare" field for the condition to be true. Respects case.
 # "!contains", where the "Input" must not contain the "Compare" field for the condition to be true. Ignores case.
+# "!containsExact", where the "Input" must not contain the "Compare" field for the condition to be true. Respects case.
 # The string Type is really useful if you want to exempt certain named players from triggering an embed for example.
 # The limit is your imagination!
 
