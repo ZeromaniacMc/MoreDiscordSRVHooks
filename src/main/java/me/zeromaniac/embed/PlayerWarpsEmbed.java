@@ -128,7 +128,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         // {warpImageUrl}
         if (mapContainsValue(textFieldsMap, ImageNames.WARP_IMAGE.getValue()) && itemStackWarpIcon != null) {
             try {
-                OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getPlayer().getUniqueId());
+                OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getUUID());
                 attachmentImages.add(
                         getImage(ImageNames.WARP_IMAGE.getValue(), getItemImage(itemStackWarpIcon, imagePlayer)));
             } catch (Throwable e) {
@@ -140,7 +140,7 @@ public class PlayerWarpsEmbed extends AbstractEmbed {
         // {categoryImageUrl}
         if (mapContainsValue(textFieldsMap, ImageNames.CATEGORY_IMAGE.getValue()) && categoryitem != null) {
             try {
-                OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getPlayer().getUniqueId());
+                OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(wPlayer.getUUID());
                 attachmentImages
                         .add(getImage(ImageNames.CATEGORY_IMAGE.getValue(), getItemImage(categoryitem, imagePlayer)));
             } catch (Throwable e) {
