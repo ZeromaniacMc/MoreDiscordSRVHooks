@@ -15,13 +15,13 @@ public class ItemHelper {
 
     public static final Pattern BUKKI_HEX_COLOR = Pattern.compile(
             "(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")x(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-                    ")([0-9a-fA-F])");
+            ")x(?:&|" + BUKKIT_COLOR_CHAR +
+            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+            ")([0-9a-fA-F])");
 
     public static String stripColor(String itemDisplayName) {
         return itemDisplayName.replaceAll("\u00a7[0-9A-Fa-fk-orx]", "");

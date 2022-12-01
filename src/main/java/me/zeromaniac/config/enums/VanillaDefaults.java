@@ -36,31 +36,31 @@ public enum VanillaDefaults implements EnumGeneral {
      * FIRST JOIN
      */
 
-    IS_PLAYER_FIRST_JOIN_EMBED_ENABLED("Player_Join.Embed.Enabled", true),
+    IS_PLAYER_FIRST_JOIN_EMBED_ENABLED("Player_First_Join.Embed.Enabled", true),
 
     // Main embed settings
-    PLAYER_FIRST_JOIN_EMBED_CHANNEL_ID("Player_Join.Embed.ChannelID", "[]"),
-    PLAYER_FIRST_JOIN_EMBED_COLOR("Player_Join.Embed.Color","#00e64e"),
+    PLAYER_FIRST_JOIN_EMBED_CHANNEL_ID("Player_First_Join.Embed.ChannelID", "[]"),
+    PLAYER_FIRST_JOIN_EMBED_COLOR("Player_First_Join.Embed.Color","#00e64e"),
 
     // Embed author settings
-    PLAYER_FIRST_JOIN_EMBED_AUTHOR_IMAGEURL("Player_Join.Embed.Author.ImageUrl","{playerAvatarUrl}"),
-    PLAYER_FIRST_JOIN_EMBED_AUTHOR_NAME("Player_Join.Embed.Author.Name","{player} joined for the first time!"),
-    PLAYER_FIRST_JOIN_EMBED_AUTHOR_URL("Player_Join.Embed.Author.Url",""),
+    PLAYER_FIRST_JOIN_EMBED_AUTHOR_IMAGEURL("Player_First_Join.Embed.Author.ImageUrl","{playerAvatarUrl}"),
+    PLAYER_FIRST_JOIN_EMBED_AUTHOR_NAME("Player_First_Join.Embed.Author.Name","{player} joined for the first time!"),
+    PLAYER_FIRST_JOIN_EMBED_AUTHOR_URL("Player_First_Join.Embed.Author.Url",""),
 
     // Embed thumbnail settings
-    PLAYER_FIRST_JOIN_EMBED_THUMBNAIL("Player_Join.Embed.ThumbnailUrl",""),
-    PLAYER_FIRST_JOIN_EMBED_TITLE_TEXT("Player_Join.Embed.Title.Text",""),
-    PLAYER_FIRST_JOIN_TITLE_URL("Player_Join.Embed.Title.Url",""),
+    PLAYER_FIRST_JOIN_EMBED_THUMBNAIL("Player_First_Join.Embed.ThumbnailUrl",""),
+    PLAYER_FIRST_JOIN_EMBED_TITLE_TEXT("Player_First_Join.Embed.Title.Text",""),
+    PLAYER_FIRST_JOIN_TITLE_URL("Player_First_Join.Embed.Title.Url",""),
 
     // Embed description
-    PLAYER_FIRST_JOIN_EMBED_DESCRIPTION("Player_Join.Embed.Description",""),
-    PLAYER_FIRST_JOIN_EMBED_FIELDS("Player_Join.Embed.Fields","[]"),
-    PLAYER_FIRST_JOIN_EMBED_IMAGEURL("Player_Join.Embed.ImageUrl","{playerBodyUrl}"),
+    PLAYER_FIRST_JOIN_EMBED_DESCRIPTION("Player_First_Join.Embed.Description",""),
+    PLAYER_FIRST_JOIN_EMBED_FIELDS("Player_First_Join.Embed.Fields","[]"),
+    PLAYER_FIRST_JOIN_EMBED_IMAGEURL("Player_First_Join.Embed.ImageUrl","{playerBodyUrl}"),
 
     // Footer settings
-    PLAYER_FIRST_JOIN_EMBED_FOOTER_TEXT("Player_Join.Embed.Footer.Text",""),
-    PLAYER_FIRST_JOIN_EMBED_FOOTER_ICONURL("Player_Join.Embed.Footer.IconUrl",""),
-    PLAYER_FIRST_JOIN_EMBED_TIMESTAMP("Player_Join.Embed.Timestamp",true);
+    PLAYER_FIRST_JOIN_EMBED_FOOTER_TEXT("Player_First_Join.Embed.Footer.Text",""),
+    PLAYER_FIRST_JOIN_EMBED_FOOTER_ICONURL("Player_First_Join.Embed.Footer.IconUrl",""),
+    PLAYER_FIRST_JOIN_EMBED_TIMESTAMP("Player_First_Join.Embed.Timestamp",true);
 
 
 
