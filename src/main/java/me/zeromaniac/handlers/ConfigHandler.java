@@ -6,6 +6,9 @@ public class ConfigHandler {
     private static final String MAIN_CONFIG_NAME = "config.yml";
     private static MainConfigHandler MAIN_CONFIG;
 
+    private static final String VANILLA_CONFIG_NAME = "vanilla.yml";
+    private static VanillaConfigHandler VANILLA_CONFIG;
+
     private static final String AUCTION_GUI_PLUS_CONFIG_NAME = "auctionguiplus.yml";
     private static AuctionGUIPlusConfigHandler AUCTION_GUI_PLUS_CONFIG;
     public static String AUCTION_GUI_PLUS_PLUGIN_NAME = "AuctionGUIPlus";
@@ -46,8 +49,10 @@ public class ConfigHandler {
         }
         MAIN_CONFIG = new MainConfigHandler(MAIN_CONFIG_NAME);
 
+        VANILLA_CONFIG = new VanillaConfigHandler(VANILLA_CONFIG_NAME);
+
         ANGEL_CHEST_CONFIG = new AngelChestConfigHandler(ANGEL_CHEST_CONFIG_NAME, 
-                ANGEL_CHEST_PLUGIN_NAME);
+                ANGEL_CHEST_PLUGIN_NAME );
 
         AUCTION_GUI_PLUS_CONFIG = new AuctionGUIPlusConfigHandler(AUCTION_GUI_PLUS_CONFIG_NAME,
                 AUCTION_GUI_PLUS_PLUGIN_NAME);
@@ -70,6 +75,8 @@ public class ConfigHandler {
     public static void reloadAllConfigs() {
         MAIN_CONFIG.reloadConfig();
 
+        VANILLA_CONFIG.reloadConfig();
+
         ANGEL_CHEST_CONFIG.reloadConfig();
 
         AUCTION_GUI_PLUS_CONFIG.reloadConfig();
@@ -85,6 +92,10 @@ public class ConfigHandler {
 
     public static MainConfigHandler getMainConfig() {
         return MAIN_CONFIG;
+    }
+
+    public static VanillaConfigHandler getVanillaConfig() {
+        return VANILLA_CONFIG;
     }
 
     public static AngelChestConfigHandler getAngelChestConfig() {

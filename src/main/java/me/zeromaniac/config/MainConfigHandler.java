@@ -13,6 +13,7 @@ public class MainConfigHandler extends ConfigLoader {
     private boolean isIgnoreSilentBans;
     private boolean isQuickShopEnabled;
     private boolean isPlayerWarpsEnabled;
+    private boolean isVanillaEnabled;
     private String timezone;
 
     public MainConfigHandler(String configName) {
@@ -39,6 +40,7 @@ public class MainConfigHandler extends ConfigLoader {
         this.timezone = config.getString(MainConfigDefaults.TIME_ZONE.getPath());
         this.isIgnoreSilentBans = config.getBoolean(MainConfigDefaults.IS_LITEBANS_IGNORE_SILENT.getPath());
         this.isPlayerWarpsEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_WARPS_ENABLED.getPath());
+        this.isVanillaEnabled = config.getBoolean(MainConfigDefaults.IS_VANILLA_ENABLED.getPath());
     }
 
     public String getVersion() {
@@ -71,6 +73,10 @@ public class MainConfigHandler extends ConfigLoader {
 
     public boolean getIsPlayerWarpsEnabled() {
         return this.isPlayerWarpsEnabled;
+    }
+
+    public boolean getIsVanillaEnabled() {
+        return this.isVanillaEnabled;
     }
 
     public String getTimezone() {

@@ -22,6 +22,9 @@ public enum MainConfigDefaults implements EnumGeneral {
     IS_PLAYER_WARPS_ENABLED("Hooks.PlayerWarps.Enabled", true),
     IS_PLAYER_WARPS_DEBUG("Hooks.PlayerWarps.Debug", false),
 
+    IS_VANILLA_ENABLED("Hooks.Vanilla.Enabled", true),
+    IS_VANILLA_DEBUG("Hooks.Vanilla.Debug", false),
+
     TIME_ZONE("Timezone", "Europe/Berlin");
 
     public String path;

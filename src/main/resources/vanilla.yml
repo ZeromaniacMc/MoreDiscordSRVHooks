@@ -1,0 +1,115 @@
+############################################################
+#                                                          #
+#                  MoreDiscordSRVHooks                     #
+#              By Zeromaniac & MidnightCore                #
+#                                                          #
+#                   ☆ Vanilla Hook ☆                      #
+#                                                          #
+############################################################
+
+# Foreword: PlaceholderAPI is supported, however we encourage you to use our placeholders, which all
+# have curly braces '{}' around them - our placeholders parse data straight from the vanilla event to make
+# sure the data displayed is correct. Also, please do not worry about color codes here. These are embeds
+# sent to discord, where color codes do not work like ingame. In addition, keep in mind that you need
+# to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
+
+# Supported placeholders in all image or Icon fields:
+# - {playerAvatarUrl} = The player's flat head image.
+# - {playerHead3dUrl} = The player's tilted 3D head image.
+# - {playerBodyUrl} = The player's tilted full body image.
+# - {botAvatarUrl} = The bot avatar image.
+# - {itemImageUrl} = The image of the item being held in the player's main hand.
+# - {loreImageUrl} = The lore image of the item being held in the player's main hand.
+# - {offHandItemUrl} = The image of the item being held in the player's offhand.
+# - {offHandItemLoreImageUrl} = The lore image of the item being held in the player's offhand.
+# - {inventoryImageUrl} = The image of the player's entire inventory.
+# Footer image not showing? The footer must contain text - thanks to discord.
+# Fields are dynamic! You can add as many as you like to stretch out your embed!
+
+Player_Join:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} came back!"
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: ""
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{item}"
+#        Operator: "!contains"
+#        Compare: "bedrock"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for Player_Join:
+# - {player} = The player's name who triggered the embed.
+
+Player_First_Join:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} joined for the first time!"
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: ""
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{item}"
+#        Operator: "!contains"
+#        Compare: "bedrock"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for Player_First_Join:
+# - {player} = The player's name who triggered the embed.

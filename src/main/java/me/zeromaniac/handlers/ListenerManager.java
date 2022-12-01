@@ -8,6 +8,8 @@ import me.zeromaniac.listener.LiteBansListener;
 import me.zeromaniac.listener.PlayerShopGUIPlusListener;
 import me.zeromaniac.listener.PlayerWarpsListener;
 import me.zeromaniac.listener.QuickShopListener;
+import me.zeromaniac.listener.VanillaListener;
+
 import org.bukkit.Bukkit;
 
 public class ListenerManager {
@@ -36,5 +38,6 @@ public class ListenerManager {
         if (ThirdPartyChecker.isPluginInstalled("PlayerWarps")) {
             Bukkit.getServer().getPluginManager().registerEvents(new PlayerWarpsListener(plugin), plugin);
         }
+        Bukkit.getServer().getPluginManager().registerEvents(new VanillaListener(plugin), plugin);
     }
 }

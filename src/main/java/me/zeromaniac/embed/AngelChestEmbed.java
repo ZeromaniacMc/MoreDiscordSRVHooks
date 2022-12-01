@@ -15,7 +15,6 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
 import static me.zeromaniac.common.StringHelper.mapContainsValue;
 import static me.zeromaniac.common.ImageHelper.getPlayerInventory;
 import static me.zeromaniac.common.ImageHelper.getItemImage;
