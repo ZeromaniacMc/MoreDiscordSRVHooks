@@ -26,7 +26,7 @@
 # Footer image not showing? The footer must contain text - thanks to discord.
 # Fields are dynamic! You can add as many as you like to stretch out your embed!
 
-Player_Join:
+PlayerJoin:
  Embed:
   Enabled: true
   ChannelID: 
@@ -51,9 +51,9 @@ Player_Join:
 #    Conditions:
 #      condition1:
 #        Type: "string"
-#        Input: "{item}"
-#        Operator: "!contains"
-#        Compare: "bedrock"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
 #      condition2:
 #        Type: "hasPermission"
 #        Input: 
@@ -67,10 +67,12 @@ Player_Join:
 #        Operator: ">="
 #        Compare: 100
 
-# Supported placeholders in text fields for Player_Join:
+# Supported placeholders in text fields for PlayerJoin:
 # - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
 
-Player_First_Join:
+PlayerFirstJoin:
  Embed:
   Enabled: true
   ChannelID: 
@@ -95,9 +97,9 @@ Player_First_Join:
 #    Conditions:
 #      condition1:
 #        Type: "string"
-#        Input: "{item}"
-#        Operator: "!contains"
-#        Compare: "bedrock"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
 #      condition2:
 #        Type: "hasPermission"
 #        Input: 
@@ -111,5 +113,152 @@ Player_First_Join:
 #        Operator: ">="
 #        Compare: 100
 
-# Supported placeholders in text fields for Player_First_Join:
+# Supported placeholders in text fields for PlayerFirstJoin:
 # - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+
+PlayerQuit:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} left."
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: ""
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for PlayerQuit:
+# - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+
+PlayerDeathByEntity:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{deathMessage}"
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: ""
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for PlayerDeathByEntity:
+# This embed only gets triggered if the 'killer' is either another player or a monster.
+# - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+# - {killer} = The name of the killer player or mob if applicable.
+# - {deathMessage} = The death message seen ingame. This includes the player's name already.
+# - {killerIsPlayer} = True if the killer is a player, false if the killer is a mob.
+
+
+PlayerDeathByEnvironment:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{deathMessage}"
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: ""
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for PlayerDeathByEnvironment:
+# This embed gets triggered only if a killer is not available, such as when a player dies from fire, drowning etc.
+# - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+# - {deathMessage} = The death message seen ingame. This includes the player's name already.

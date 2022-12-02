@@ -11,6 +11,8 @@ import me.zeromaniac.embed.enums.ImageNames;
 import me.zeromaniac.embed.enums.PlaceholdersEnum;
 import me.zeromaniac.handlers.ConfigHandler;
 import me.zeromaniac.listener.enums.VanillaEventType;
+import org.bukkit.GameMode;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -24,7 +26,9 @@ public class VanillaEmbed extends AbstractEmbed {
     ItemStack mainHandItem;
     ItemStack offHandItem;
 
-    public VanillaEmbed(VanillaEventType type, Player player, ItemStack mainHandItem, ItemStack offHandItem, boolean hasPlayedBefore) {
+    public VanillaEmbed(VanillaEventType type, Player player, ItemStack mainHandItem, ItemStack offHandItem,
+            boolean hasPlayedBefore,
+            GameMode gameMode, boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer) {
         super();
         messageType = type.getValue();
 
@@ -32,13 +36,24 @@ public class VanillaEmbed extends AbstractEmbed {
             return;
         }
 
-
         this.mainHandItem = mainHandItem;
         this.offHandItem = offHandItem;
-        this.player = player; 
+        this.player = player;
 
         replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());
 
+        replacer.put(PlaceholdersEnum.GAMEMODE.getValue(), String.valueOf(gameMode));
+
+        replacer.put(PlaceholdersEnum.IS_OP.getValue(), String.valueOf(isOp));
+
+        replacer.put(PlaceholdersEnum.DEATHMSG.getValue(), deathMessage);
+
+
+        if (killer != null) {
+            replacer.put(PlaceholdersEnum.KILLER.getValue(), killer.getName());
+            replacer.put(PlaceholdersEnum.KILLER_IS_PLAYER.getValue(), String.valueOf(killerIsPlayer));
+        }
+        
         replacer.put(PlaceholdersEnum.ITEM_IMAGE_URL.getValue(),
                 attachmentType + ImageNames.ITEM_IMAGE.getValue());
 
@@ -46,7 +61,7 @@ public class VanillaEmbed extends AbstractEmbed {
                 attachmentType + ImageNames.LORE_IMAGE.getValue());
 
         replacer.put(PlaceholdersEnum.OFFHAND_ITEM_URL.getValue(),
-                attachmentType + ImageNames.OFFHAND_ITEM_IMAGE.getValue()); 
+                attachmentType + ImageNames.OFFHAND_ITEM_IMAGE.getValue());
 
         replacer.put(PlaceholdersEnum.OFFHAND_ITEM_LORE_URL.getValue(),
                 attachmentType + ImageNames.OFFHAND_LORE_IMAGE.getValue());

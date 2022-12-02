@@ -26,6 +26,13 @@ public enum PlaceholdersEnum {
     TYPE_SELL_OR_BUY("{type}"),
     BOUGHT_OR_SOLD("{action}"),
     FROM_TO("{fromto}"),
+    GAMEMODE("{gamemode}"),
+    IS_OP("{isOp}"),
+    KILLER("{killer}"),
+    DEATHMSG("{deathMessage}"),
+    KILLER_IS_PLAYER("{killerIsPlayer}"),
+    ACHIEVEMENT("{achievementMessage}"),
+
 
     CHEST_LOC_X("{chestLocationX}"),
     CHEST_LOC_Y("{chestLocationY}"),

@@ -1,8 +1,12 @@
 package me.zeromaniac.listener.enums;
 
 public enum VanillaEventType {
-    JOIN("Player_Join"),
-    FIRST_JOIN("Player_First_Join");
+    JOIN("PlayerJoin"),
+    FIRST_JOIN("PlayerFirstJoin"),
+    LEAVE("PlayerQuit"),
+    DEATH("PlayerDeathByEntity"),
+    DEATH_ENV("PlayerDeathByEnvironment"),
+    ACHIEVEMENT("Achievement");
 
     final String value;
 
