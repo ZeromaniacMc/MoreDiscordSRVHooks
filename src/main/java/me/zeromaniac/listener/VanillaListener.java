@@ -1,5 +1,6 @@
 package me.zeromaniac.listener;
 
+import java.util.Collection;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Entity;
@@ -11,9 +12,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerCommandSendEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
+
+import alexh.Fluent.HashMap;
 import me.zeromaniac.MoreDiscordSRVHooks;
 import me.zeromaniac.common.Debug;
 import me.zeromaniac.config.enums.MainConfigDefaults;
@@ -47,7 +52,8 @@ public class VanillaListener implements Listener {
                     event.getPlayer().isOp(),
                     null,
                     "",
-                    false);
+                    false,
+                    null);
         } else {
             ProcessEvent(VanillaEventType.FIRST_JOIN,
                     event.getPlayer(),
@@ -58,7 +64,8 @@ public class VanillaListener implements Listener {
                     event.getPlayer().isOp(),
                     null,
                     "",
-                    false);
+                    false,
+                    null);
         }
     }
 
@@ -74,7 +81,8 @@ public class VanillaListener implements Listener {
                 event.getPlayer().isOp(),
                 null,
                 "",
-                false);
+                false,
+                null);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -102,7 +110,8 @@ public class VanillaListener implements Listener {
                     player.isOp(), 
                     killerPlayer,
                     deathCauseString,
-                    true);
+                    true,
+                    null);
                 }
                 else {
                     if (entity instanceof Monster == false) {
@@ -119,7 +128,8 @@ public class VanillaListener implements Listener {
                     player.isOp(), 
                     monster,
                     deathCauseString,
-                    false);
+                    false,
+                    null);
                     // player was killed by killerMob, do whatever
                 }
             } else {
@@ -133,20 +143,40 @@ public class VanillaListener implements Listener {
                     player.isOp(), 
                     null,
                     deathCauseString,
-                    false);
+                    false,
+                    null);
             }
         } else {
             // damaged thing is not player
         }
     }
 
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onCommand(PlayerCommandPreprocessEvent event) {
+
+        Debug.log("Detected Vanilla Event firing, Type: " + event.getEventName(), debug);
+        ProcessEvent(VanillaEventType.COMMAND, 
+        event.getPlayer(), 
+        event.getPlayer().getInventory().getItemInMainHand(), 
+        event.getPlayer().getInventory().getItemInOffHand(),
+        true,
+        event.getPlayer().getGameMode(), 
+        event.getPlayer().isOp(), 
+        null, 
+        "",
+        false,
+        event.getMessage());
+
+    }
+
     private void ProcessEvent(VanillaEventType type, Player player, ItemStack mainHandItem, ItemStack offHandItem,
             boolean hasPlayedBefore, GameMode gameMode,
-            boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer) {
+            boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer, String command) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
 
             AbstractEmbed embed = new VanillaEmbed(type, player, mainHandItem, offHandItem, hasPlayedBefore, gameMode,
-                    isOp, killer, deathMessage, killerIsPlayer);
+                    isOp, killer, deathMessage, killerIsPlayer, command);
             embed.sendEmbed();
         });
     }

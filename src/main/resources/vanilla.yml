@@ -262,3 +262,52 @@ PlayerDeathByEnvironment:
 # - {gamemode} = The player's gamemode.
 # - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
 # - {deathMessage} = The death message seen ingame. This includes the player's name already.
+
+PlayerCommand:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} sent a command."
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: "{command}"
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for PlayerQuit:
+# - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+# - {command} = Returns the entire command, including the slash at the front.
+# - {commandLength} = The total length of the command, the slash and every space inclkuded.
+# - {argsAmount} = The total amount of arguments, starting at 0.

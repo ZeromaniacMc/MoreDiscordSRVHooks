@@ -6,7 +6,7 @@ public enum VanillaEventType {
     LEAVE("PlayerQuit"),
     DEATH("PlayerDeathByEntity"),
     DEATH_ENV("PlayerDeathByEnvironment"),
-    ACHIEVEMENT("Achievement");
+    COMMAND("PlayerCommand");
 
     final String value;
 

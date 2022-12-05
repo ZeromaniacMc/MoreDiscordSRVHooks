@@ -151,7 +151,37 @@ public enum VanillaDefaults implements EnumGeneral {
     // Footer settings
     PLAYER_DEATH_ENV_EMBED_FOOTER_TEXT("PlayerDeathByEnvironment.Embed.Footer.Text",""),
     PLAYER_DEATH_ENV_EMBED_FOOTER_ICONURL("PlayerDeathByEnvironment.Embed.Footer.IconUrl",""),
-    PLAYER_DEATH_ENV_EMBED_TIMESTAMP("PlayerDeathByEnvironment.Embed.Timestamp",true);
+    PLAYER_DEATH_ENV_EMBED_TIMESTAMP("PlayerDeathByEnvironment.Embed.Timestamp",true),
+
+    /*
+     * COMMAND
+     */
+
+    IS_PLAYER_COMMAND_EMBED_ENABLED("PlayerCommand.Embed.Enabled", true),
+
+    // Main embed settings
+    PLAYER_COMMAND_EMBED_CHANNEL_ID("PlayerCommand.Embed.ChannelID", "[]"),
+    PLAYER_COMMAND_EMBED_COLOR("PlayerCommand.Embed.Color","#00e64e"),
+
+    // Embed author settings
+    PLAYER_COMMAND_EMBED_AUTHOR_IMAGEURL("PlayerCommand.Embed.Author.ImageUrl","{playerAvatarUrl}"),
+    PLAYER_COMMAND_EMBED_AUTHOR_NAME("PlayerCommand.Embed.Author.Name","{player} sent a command."),
+    PLAYER_COMMAND_EMBED_AUTHOR_URL("PlayerCommand.Embed.Author.Url",""),
+
+    // Embed thumbnail settings
+    PLAYER_COMMAND_EMBED_THUMBNAIL("PlayerCommand.Embed.ThumbnailUrl",""),
+    PLAYER_COMMAND_EMBED_TITLE_TEXT("PlayerCommand.Embed.Title.Text",""),
+    PLAYER_COMMAND_TITLE_URL("PlayerCommand.Embed.Title.Url",""),
+
+    // Embed description
+    PLAYER_COMMAND_EMBED_DESCRIPTION("PlayerCommand.Embed.Description",""),
+    PLAYER_COMMAND_EMBED_FIELDS("PlayerCommand.Embed.Fields","[]"),
+    PLAYER_COMMAND_EMBED_IMAGEURL("PlayerCommand.Embed.ImageUrl","{playerBodyUrl}"),
+
+    // Footer settings
+    PLAYER_COMMAND_EMBED_FOOTER_TEXT("PlayerCommand.Embed.Footer.Text",""),
+    PLAYER_COMMAND_EMBED_FOOTER_ICONURL("PlayerCommand.Embed.Footer.IconUrl",""),
+    PLAYER_COMMAND_EMBED_TIMESTAMP("PlayerCommand.Embed.Timestamp",true);
 
 
     public String path;
