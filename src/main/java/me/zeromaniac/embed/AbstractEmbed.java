@@ -221,8 +221,6 @@ public abstract class AbstractEmbed {
     protected void setConfigValues(String type) {
         type = type + ".";
 
-        parseSettings(type);
-
         String embedAuthorName = textFieldsMap.get(ConfigFields.AUTHOR_NAME.getValue());
         String embedAuthorUrl = config.getString(type + ConfigFields.AUTHOR_URL.getValue());
         String embedAuthorImageUrl = textFieldsMap.get(ConfigFields.AUTHOR_IMAGE_URL.getValue());
@@ -269,12 +267,16 @@ public abstract class AbstractEmbed {
     }
 
     protected abstract boolean isEnabled(String type);
+
     protected abstract void initConfig();
+
     protected abstract void initDebug();
 
     protected abstract void handleImages();
 
-    protected  void afterConstructor() {
+    protected void afterConstructor() {
+        parseSettings(messageType + ".");
+
         setConfigValues(messageType);
         handleImages();
     }

@@ -311,6 +311,11 @@ PlayerCommand:
 # - {command} = Returns the entire command, including the slash at the front.
 # - {commandLength} = The total length of the command, the slash and every space inclkuded.
 # - {argsAmount} = The total amount of arguments, starting at 0.
+# - {arg0} = The first argument of the command, including the slash, so for example "/invsee".
+# Only comparing against "invsee" without the slash on the first argument will result in a 
+# false/not met condition. The arguments placeholder is dynamic, you can use them like so:
+# {arg1}, {arg2}, {arg3} etc. If an argument is not applicable, it will return the placeholder
+# itself.
 
 LevelUp:
  Embed:
