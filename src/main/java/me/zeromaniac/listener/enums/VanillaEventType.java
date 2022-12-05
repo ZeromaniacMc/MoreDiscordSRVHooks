@@ -7,7 +7,8 @@ public enum VanillaEventType {
     DEATH("PlayerDeathByEntity"),
     DEATH_ENV("PlayerDeathByEnvironment"),
     COMMAND("PlayerCommand"),
-    LEVELUP("LevelUp");
+    LEVELUP("LevelUp"),
+    WORLD_CHANGE("WorldChange");
 
     final String value;
 

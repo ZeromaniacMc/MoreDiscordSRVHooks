@@ -77,9 +77,13 @@ public class StringHelper {
         String[] splitName = input.split("_");
         String capitalizeWords = "";
 
-        for (String words : splitName) {
-            String firstLetter = words.substring(0, 1);
-            String tailPart = words.substring(1);
+        for (String word : splitName) {
+            if (word.isEmpty()) {
+                continue;
+            }
+
+            String firstLetter = word.substring(0, 1);
+            String tailPart = word.substring(1);
             capitalizeWords += firstLetter.toUpperCase() + tailPart.toLowerCase() + " ";
 
         }

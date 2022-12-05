@@ -359,3 +359,51 @@ LevelUp:
 # - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
 # - {oldLevel} = Returns the old level before level-up of the player who triggered the embed.
 # - {newLevel} = Returns the new level after the level-up of the player who triggered the embed.
+
+WorldChange:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} switched worlds!"
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: "From {worldFrom} to {worldTo}"
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for LevelUp:
+# - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+# - {worldFrom} = The world the player changed from, their origin position.
+# - {worldTo} = The world the player went into, their destination.

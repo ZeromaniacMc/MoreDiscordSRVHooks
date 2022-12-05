@@ -211,7 +211,38 @@ public enum VanillaDefaults implements EnumGeneral {
     // Footer settings
     PLAYER_LEVEL_CHANGE_EMBED_FOOTER_TEXT("LevelUp.Embed.Footer.Text",""),
     PLAYER_LEVEL_CHANGE_EMBED_FOOTER_ICONURL("LevelUp.Embed.Footer.IconUrl",""),
-    PLAYER_LEVEL_CHANGE_EMBED_TIMESTAMP("LevelUp.Embed.Timestamp",true);
+    PLAYER_LEVEL_CHANGE_EMBED_TIMESTAMP("LevelUp.Embed.Timestamp",true),
+
+    /*
+     * WORLD CHANGE
+     */
+
+    IS_PLAYER_WORLD_CHANGE_EMBED_ENABLED("WorldChange.Embed.Enabled", true),
+
+    // Main embed settings
+    PLAYER_WORLD_CHANGE_EMBED_CHANNEL_ID("WorldChange.Embed.ChannelID", "[]"),
+    PLAYER_WORLD_CHANGE_EMBED_COLOR("WorldChange.Embed.Color","#00e64e"),
+
+    // Embed author settings
+    PLAYER_WORLD_CHANGE_EMBED_AUTHOR_IMAGEURL("WorldChange.Embed.Author.ImageUrl","{playerAvatarUrl}"),
+    PLAYER_WORLD_CHANGE_EMBED_AUTHOR_NAME("WorldChange.Embed.Author.Name","{player} switched worlds!"),
+    PLAYER_WORLD_CHANGE_EMBED_AUTHOR_URL("WorldChange.Embed.Author.Url",""),
+
+    // Embed thumbnail settings
+    PLAYER_WORLD_CHANGE_EMBED_THUMBNAIL("WorldChange.Embed.ThumbnailUrl",""),
+    PLAYER_WORLD_CHANGE_EMBED_TITLE_TEXT("WorldChange.Embed.Title.Text",""),
+    PLAYER_WORLD_CHANGE_TITLE_URL("WorldChange.Embed.Title.Url",""),
+
+    // Embed description
+    PLAYER_WORLD_CHANGE_EMBED_DESCRIPTION("WorldChange.Embed.Description","From {worldFrom} to {worldTo}"),
+    PLAYER_WORLD_CHANGE_EMBED_FIELDS("WorldChange.Embed.Fields","[]"),
+    PLAYER_WORLD_CHANGE_EMBED_IMAGEURL("WorldChange.Embed.ImageUrl","{playerBodyUrl}"),
+
+    // Footer settings
+    PLAYER_WORLD_CHANGE_EMBED_FOOTER_TEXT("WorldChange.Embed.Footer.Text",""),
+    PLAYER_WORLD_CHANGE_EMBED_FOOTER_ICONURL("WorldChange.Embed.Footer.IconUrl",""),
+    PLAYER_WORLD_CHANGE_EMBED_TIMESTAMP("WorldChange.Embed.Timestamp",true);
+
 
 
     public String path;

@@ -36,6 +36,7 @@ public enum PlaceholdersEnum {
     NEW_LEVEL("{newLevel}"),
 
 
+
     COMMAND("{command}"),
     COMMAND_LENGTH("{commandLength}"),
     COMMAND_ARGS_AMOUNT("{argsAmount}"),
@@ -81,6 +82,8 @@ public enum PlaceholdersEnum {
     CONTAINER_WORLD("{containerWorld}"),
     PLAYER_WORLD("{playerWorld}"),
     WORLD_NAME("{worldname}"),
+    WORLD_FROM("{worldFrom}"),
+    WORLD_TO("{worldTo}"),
     RATING("{rating}"),
 
     EXPIRY("{expiry}"),

@@ -29,7 +29,7 @@ public class VanillaEmbed extends AbstractEmbed {
     public VanillaEmbed(VanillaEventType type, Player player, ItemStack mainHandItem, ItemStack offHandItem,
             boolean hasPlayedBefore,
             GameMode gameMode, boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer,
-            String command, int oldLevel, int newLevel) {
+            String command, int oldLevel, int newLevel, String worldFrom, String worldTo) {
         super();
         messageType = type.getValue();
 
@@ -51,6 +51,9 @@ public class VanillaEmbed extends AbstractEmbed {
 
         replacer.put(PlaceholdersEnum.NEW_LEVEL.getValue(), String.valueOf(newLevel));
         replacer.put(PlaceholdersEnum.OLD_LEVEL.getValue(), String.valueOf(oldLevel));
+
+        replacer.put(PlaceholdersEnum.WORLD_FROM.getValue(), worldFrom);
+        replacer.put(PlaceholdersEnum.WORLD_TO.getValue(), worldTo);
 
         if (command != null) {
             String[] asArray = command.split(" ");
