@@ -1,6 +1,5 @@
 package me.zeromaniac.listener;
 
-import java.util.Collection;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Entity;
@@ -13,12 +12,10 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerCommandSendEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLevelChangeEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
-
-import alexh.Fluent.HashMap;
 import me.zeromaniac.MoreDiscordSRVHooks;
 import me.zeromaniac.common.Debug;
 import me.zeromaniac.config.enums.MainConfigDefaults;
@@ -53,7 +50,9 @@ public class VanillaListener implements Listener {
                     null,
                     "",
                     false,
-                    null);
+                    null,
+                    0,
+                    0);
         } else {
             ProcessEvent(VanillaEventType.FIRST_JOIN,
                     event.getPlayer(),
@@ -65,7 +64,9 @@ public class VanillaListener implements Listener {
                     null,
                     "",
                     false,
-                    null);
+                    null,
+                    0,
+                    0);
         }
     }
 
@@ -82,7 +83,9 @@ public class VanillaListener implements Listener {
                 null,
                 "",
                 false,
-                null);
+                null,
+                0,
+                0);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -111,7 +114,9 @@ public class VanillaListener implements Listener {
                     killerPlayer,
                     deathCauseString,
                     true,
-                    null);
+                    null,
+                    0,
+                    0);
                 }
                 else {
                     if (entity instanceof Monster == false) {
@@ -129,7 +134,9 @@ public class VanillaListener implements Listener {
                     monster,
                     deathCauseString,
                     false,
-                    null);
+                    null,
+                    0,
+                    0);
                     // player was killed by killerMob, do whatever
                 }
             } else {
@@ -144,7 +151,9 @@ public class VanillaListener implements Listener {
                     null,
                     deathCauseString,
                     false,
-                    null);
+                    null,
+                    0,
+                    0);
             }
         } else {
             // damaged thing is not player
@@ -166,17 +175,36 @@ public class VanillaListener implements Listener {
         null, 
         "",
         false,
-        event.getMessage());
+        event.getMessage(),
+        0,
+        0);
+    }
 
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onLevelChange(PlayerLevelChangeEvent event) {
+        Debug.log("Detected Vanilla Event firing, Type: " + event.getEventName(), debug);
+        ProcessEvent(VanillaEventType.LEVELUP, 
+        event.getPlayer(), 
+        event.getPlayer().getInventory().getItemInMainHand(), 
+        event.getPlayer().getInventory().getItemInOffHand(), 
+        true, 
+        event.getPlayer().getGameMode(), 
+        event.getPlayer().isOp(), 
+        null, 
+        "", 
+        false,
+        null,
+        event.getOldLevel(),
+        event.getNewLevel());
     }
 
     private void ProcessEvent(VanillaEventType type, Player player, ItemStack mainHandItem, ItemStack offHandItem,
             boolean hasPlayedBefore, GameMode gameMode,
-            boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer, String command) {
+            boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer, String command, int oldLevel, int newLevel) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
 
             AbstractEmbed embed = new VanillaEmbed(type, player, mainHandItem, offHandItem, hasPlayedBefore, gameMode,
-                    isOp, killer, deathMessage, killerIsPlayer, command);
+                    isOp, killer, deathMessage, killerIsPlayer, command, oldLevel, newLevel);
             embed.sendEmbed();
         });
     }

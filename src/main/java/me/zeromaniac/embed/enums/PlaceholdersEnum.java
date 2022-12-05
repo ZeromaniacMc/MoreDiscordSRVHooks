@@ -32,6 +32,9 @@ public enum PlaceholdersEnum {
     DEATHMSG("{deathMessage}"),
     KILLER_IS_PLAYER("{killerIsPlayer}"),
     ACHIEVEMENT("{achievementMessage}"),
+    OLD_LEVEL("{oldLevel}"),
+    NEW_LEVEL("{newLevel}"),
+
 
     COMMAND("{command}"),
     COMMAND_LENGTH("{commandLength}"),

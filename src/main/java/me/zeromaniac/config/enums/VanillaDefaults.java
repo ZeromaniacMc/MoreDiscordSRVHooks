@@ -181,7 +181,37 @@ public enum VanillaDefaults implements EnumGeneral {
     // Footer settings
     PLAYER_COMMAND_EMBED_FOOTER_TEXT("PlayerCommand.Embed.Footer.Text",""),
     PLAYER_COMMAND_EMBED_FOOTER_ICONURL("PlayerCommand.Embed.Footer.IconUrl",""),
-    PLAYER_COMMAND_EMBED_TIMESTAMP("PlayerCommand.Embed.Timestamp",true);
+    PLAYER_COMMAND_EMBED_TIMESTAMP("PlayerCommand.Embed.Timestamp",true),
+
+    /*
+     * LEVEL CHANGE
+     */
+
+    IS_PLAYER_LEVEL_CHANGE_EMBED_ENABLED("LevelUp.Embed.Enabled", true),
+
+    // Main embed settings
+    PLAYER_LEVEL_CHANGE_EMBED_CHANNEL_ID("LevelUp.Embed.ChannelID", "[]"),
+    PLAYER_LEVEL_CHANGE_EMBED_COLOR("LevelUp.Embed.Color","#00e64e"),
+
+    // Embed author settings
+    PLAYER_LEVEL_CHANGE_EMBED_AUTHOR_IMAGEURL("LevelUp.Embed.Author.ImageUrl","{playerAvatarUrl}"),
+    PLAYER_LEVEL_CHANGE_EMBED_AUTHOR_NAME("LevelUp.Embed.Author.Name","{player} sent a command."),
+    PLAYER_LEVEL_CHANGE_EMBED_AUTHOR_URL("LevelUp.Embed.Author.Url",""),
+
+    // Embed thumbnail settings
+    PLAYER_LEVEL_CHANGE_EMBED_THUMBNAIL("LevelUp.Embed.ThumbnailUrl",""),
+    PLAYER_LEVEL_CHANGE_EMBED_TITLE_TEXT("LevelUp.Embed.Title.Text",""),
+    PLAYER_LEVEL_CHANGE_TITLE_URL("LevelUp.Embed.Title.Url",""),
+
+    // Embed description
+    PLAYER_LEVEL_CHANGE_EMBED_DESCRIPTION("LevelUp.Embed.Description",""),
+    PLAYER_LEVEL_CHANGE_EMBED_FIELDS("LevelUp.Embed.Fields","[]"),
+    PLAYER_LEVEL_CHANGE_EMBED_IMAGEURL("LevelUp.Embed.ImageUrl","{playerBodyUrl}"),
+
+    // Footer settings
+    PLAYER_LEVEL_CHANGE_EMBED_FOOTER_TEXT("LevelUp.Embed.Footer.Text",""),
+    PLAYER_LEVEL_CHANGE_EMBED_FOOTER_ICONURL("LevelUp.Embed.Footer.IconUrl",""),
+    PLAYER_LEVEL_CHANGE_EMBED_TIMESTAMP("LevelUp.Embed.Timestamp",true);
 
 
     public String path;

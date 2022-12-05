@@ -17,10 +17,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import static me.zeromaniac.common.StringHelper.mapContainsValue;
-
-import java.lang.reflect.Array;
-import java.text.BreakIterator;
-
 import static me.zeromaniac.common.ImageHelper.getItemImage;
 import static me.zeromaniac.common.ImageHelper.getLoreImage;
 import static me.zeromaniac.common.ImageHelper.getImage;
@@ -33,7 +29,7 @@ public class VanillaEmbed extends AbstractEmbed {
     public VanillaEmbed(VanillaEventType type, Player player, ItemStack mainHandItem, ItemStack offHandItem,
             boolean hasPlayedBefore,
             GameMode gameMode, boolean isOp, Entity killer, String deathMessage, boolean killerIsPlayer,
-            String command) {
+            String command, int oldLevel, int newLevel) {
         super();
         messageType = type.getValue();
 
@@ -53,12 +49,19 @@ public class VanillaEmbed extends AbstractEmbed {
 
         replacer.put(PlaceholdersEnum.DEATHMSG.getValue(), deathMessage);
 
+        replacer.put(PlaceholdersEnum.NEW_LEVEL.getValue(), String.valueOf(newLevel));
+        replacer.put(PlaceholdersEnum.OLD_LEVEL.getValue(), String.valueOf(oldLevel));
+
         if (command != null) {
             String[] asArray = command.split(" ");
+
 
             replacer.put(PlaceholdersEnum.COMMAND.getValue(), command);
             replacer.put(PlaceholdersEnum.COMMAND_ARGS_AMOUNT.getValue(), String.valueOf(asArray.length - 1));
             replacer.put(PlaceholdersEnum.COMMAND_LENGTH.getValue(), String.valueOf(command.length()));
+
+            // todo: assign arguments
+            //replacer.put(PlaceholdersEnum.COMMAND_ARG_0.getValue(), asArray[0]);
         }
 
         if (killer != null) {

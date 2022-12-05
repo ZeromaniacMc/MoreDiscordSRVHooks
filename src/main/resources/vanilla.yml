@@ -304,10 +304,58 @@ PlayerCommand:
 #        Operator: ">="
 #        Compare: 100
 
-# Supported placeholders in text fields for PlayerQuit:
+# Supported placeholders in text fields for PlayerCommand:
 # - {player} = The player's name who triggered the embed.
 # - {gamemode} = The player's gamemode.
 # - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
 # - {command} = Returns the entire command, including the slash at the front.
 # - {commandLength} = The total length of the command, the slash and every space inclkuded.
 # - {argsAmount} = The total amount of arguments, starting at 0.
+
+LevelUp:
+ Embed:
+  Enabled: true
+  ChannelID: 
+      - "0000000000"
+      - "0000000000"
+  Color: "#00e64e"
+  Author:
+    ImageUrl: "{playerAvatarUrl}"
+    Name: "{player} leveled up!"
+    Url: ""
+  ThumbnailUrl: "{playerBodyUrl}"
+  Title:
+    Text: ""
+    Url: ""
+  Description: "From {oldLevel} to {newLevel}"
+  Fields: []
+  ImageUrl: ""
+  Footer:
+    Text: ""
+    IconUrl: ""
+  Timestamp: true
+#    Conditions:
+#      condition1:
+#        Type: "string"
+#        Input: "{gamemode}"
+#        Operator: "!="
+#        Compare: "creative"
+#      condition2:
+#        Type: "hasPermission"
+#        Input: 
+#          - some.permission
+#          - some.other.permission
+#        Operator: "or"
+#        Compare: true
+#      condition3:
+#        Type: "number"
+#        Input: "%vault_eco_balance%"
+#        Operator: ">="
+#        Compare: 100
+
+# Supported placeholders in text fields for LevelUp:
+# - {player} = The player's name who triggered the embed.
+# - {gamemode} = The player's gamemode.
+# - {isOP} = Returns true if the player who triggered the embed is OP, false if they aren't.
+# - {oldLevel} = Returns the old level before level-up of the player who triggered the embed.
+# - {newLevel} = Returns the new level after the level-up of the player who triggered the embed.
