@@ -6,7 +6,7 @@
 
     <groupId>me.zeromaniac</groupId>
     <artifactId>MoreDiscordSRVHooks</artifactId>
-    <version>3.1.0-BETA</version>
+    <version>3.1.2-BETA</version>
     <packaging>jar</packaging>
 
     <name>MoreDiscordSRVHooks</name>

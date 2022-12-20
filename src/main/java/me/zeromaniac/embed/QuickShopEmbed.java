@@ -64,28 +64,28 @@ public class QuickShopEmbed extends AbstractEmbed {
 
         // SELLING(0)
         // BUYING(1)
-        final String isSellShop = "Selling";
-        final String isBuyShop = "Buying";
+        // final String isSellShop = "Selling";
+        // final String isBuyShop = "Buying";
         if (shoptype == 0) {
-            replacer.put(PlaceholdersEnum.TYPE_SELL_OR_BUY.getValue(), isSellShop);
+            replacer.put(PlaceholdersEnum.TYPE_SELL_OR_BUY.getValue(), ConfigHandler.getQuickShopConfig().getTypeSellingString());
         } else {
-            replacer.put(PlaceholdersEnum.TYPE_SELL_OR_BUY.getValue(), isBuyShop);
+            replacer.put(PlaceholdersEnum.TYPE_SELL_OR_BUY.getValue(), ConfigHandler.getQuickShopConfig().getTypeBuyingString());
         }
 
-        final String actionEqualsSelling = "sold";
-        final String actionEqualsBuying = "bought";
+        // final String actionEqualsSelling = "sold";
+        // final String actionEqualsBuying = "bought";
         if (shoptype == 1) {
-            replacer.put(PlaceholdersEnum.BOUGHT_OR_SOLD.getValue(), actionEqualsSelling);
+            replacer.put(PlaceholdersEnum.BOUGHT_OR_SOLD.getValue(), ConfigHandler.getQuickShopConfig().getActionSoldString());
         } else {
-            replacer.put(PlaceholdersEnum.BOUGHT_OR_SOLD.getValue(), actionEqualsBuying);
+            replacer.put(PlaceholdersEnum.BOUGHT_OR_SOLD.getValue(), ConfigHandler.getQuickShopConfig().getActionBoughtString());
         }
 
-        final String soldTo = "to";
-        final String boughtFrom = "from";
+        // final String soldTo = "to";
+        // final String boughtFrom = "from";
         if (shoptype == 1) {
-            replacer.put(PlaceholdersEnum.FROM_TO.getValue(), soldTo);
+            replacer.put(PlaceholdersEnum.FROM_TO.getValue(), ConfigHandler.getQuickShopConfig().getDirectionToString());
         } else {
-            replacer.put(PlaceholdersEnum.FROM_TO.getValue(), boughtFrom);
+            replacer.put(PlaceholdersEnum.FROM_TO.getValue(), ConfigHandler.getQuickShopConfig().getDirectionFromString());
         }
 
         replacer.put(PlaceholdersEnum.ITEM_IMAGE_URL.getValue(), attachmentType + ImageNames.ITEM_IMAGE.getValue());

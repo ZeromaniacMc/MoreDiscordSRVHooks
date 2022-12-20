@@ -62,7 +62,6 @@ public class VanillaEmbed extends AbstractEmbed {
             replacer.put(PlaceholdersEnum.COMMAND_ARGS_AMOUNT.getValue(), String.valueOf(asArray.length - 1));
             replacer.put(PlaceholdersEnum.COMMAND_LENGTH.getValue(), String.valueOf(command.length()));
 
-            // todo: assign arguments
             for (int i = 0; i < asArray.length; i++) {
                 replacer.put("{arg" + i + "}", asArray[i]);
             }

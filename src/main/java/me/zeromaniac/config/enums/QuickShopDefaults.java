@@ -4,6 +4,12 @@ public enum QuickShopDefaults implements EnumGeneral{
 
 
     SHORTEN_PRICES("ShortenPrices" ,"false"),
+    TYPE_BUYING("Type.Buying","Buying"),
+    TYPE_SELLING("Type.Selling","Selling"),
+    ACTION_BOUGHT("Action.Bought","bough"),
+    ACTION_SOLD("Action.Sold","sold"),
+    DIRECTION_TO("Direction.To","to"),
+    DIRECTION_FROM("Direction.From","from"),
     
     /*
      * NEW SHOP CREATED
@@ -17,18 +23,18 @@ public enum QuickShopDefaults implements EnumGeneral{
 
     // Embed author settings
     NEW_SHOP_CREATED_EMBED_AUTHOR_IMAGEURL("NewShopCreated.Embed.Author.ImageUrl","{playerAvatarUrl}"),
-    NEW_SHOP_CREATED_EMBED_AUTHOR_NAME("NewShopCreated.Embed.Author.Name","**Oops, looks like someone died!**"),
+    NEW_SHOP_CREATED_EMBED_AUTHOR_NAME("NewShopCreated.Embed.Author.Name","{player} 𝖈𝖗𝖊𝖆𝖙𝖊𝖉 𝖆 𝖈𝖍𝖊𝖘𝖙 𝖘𝖍𝖔𝖕"),
     NEW_SHOP_CREATED_EMBED_AUTHOR_URL("NewShopCreated.Embed.Author.Url",""),
 
     // Embed thumbnail settings
-    NEW_SHOP_CREATED_EMBED_THUMBNAIL("NewShopCreated.Embed.ThumbnailUrl",""),
-    NEW_SHOP_CREATED_EMBED_TITLE_TEXT("NewShopCreated.Embed.Title.Text",""),
+    NEW_SHOP_CREATED_EMBED_THUMBNAIL("NewShopCreated.Embed.ThumbnailUrl","{itemImageUrl}"),
+    NEW_SHOP_CREATED_EMBED_TITLE_TEXT("NewShopCreated.Embed.Title.Text","{type}: {item} for {singleItemPriceBeforeTax}€ in {chestWorld}"),
     NEW_SHOP_CREATED_EMBED_TITLE_URL("NewShopCreated.Embed.Title.Url",""),
 
     // Embed description
-    NEW_SHOP_CREATED_EMBED_DESCRIPTION("NewShopCreated.Embed.Description","{player}'s Angel Chest spawned!"),
+    NEW_SHOP_CREATED_EMBED_DESCRIPTION("NewShopCreated.Embed.Description",""),
     NEW_SHOP_CREATED_EMBED_FIELDS("NewShopCreated.Embed.Fields","[]"),
-    NEW_SHOP_CREATED_EMBED_IMAGEURL("NewShopCreated.Embed.ImageUrl","{inventoryImageUrl}"),
+    NEW_SHOP_CREATED_EMBED_IMAGEURL("NewShopCreated.Embed.ImageUrl",""),
 
     // Footer settings
     NEW_SHOP_CREATED_EMBED_FOOTER_TEXT("NewShopCreated.Embed.Footer.Text",""),
@@ -46,19 +52,19 @@ public enum QuickShopDefaults implements EnumGeneral{
     PURCHASE_EMBED_COLOR("Purchase.Embed.Color","#fcba03"),
 
     // Embed author settings
-    PURCHASE_EMBED_AUTHOR_IMAGEURL("Purchase.Embed.Author.ImageUrl","{playerAvatarUrl}"),
-    PURCHASE_EMBED_AUTHOR_NAME("Purchase.Embed.Author.Name","**Oops, looks like someone died!**"),
+    PURCHASE_EMBED_AUTHOR_IMAGEURL("Purchase.Embed.Author.ImageUrl","{buyerAvatarUrl}"),
+    PURCHASE_EMBED_AUTHOR_NAME("Purchase.Embed.Author.Name","𝕾𝖍𝖔𝖕 𝖙𝖗𝖆𝖓𝖘𝖆𝖈𝖙𝖎𝖔𝖓"),
     PURCHASE_EMBED_AUTHOR_URL("Purchase.Embed.Author.Url",""),
 
     // Embed thumbnail settings
-    PURCHASE_EMBED_THUMBNAIL("Purchase.Embed.ThumbnailUrl",""),
-    PURCHASE_EMBED_TITLE_TEXT("Purchase.Embed.Title.Text",""),
+    PURCHASE_EMBED_THUMBNAIL("Purchase.Embed.ThumbnailUrl","{itemImageUrl}"),
+    PURCHASE_EMBED_TITLE_TEXT("Purchase.Embed.Title.Text","{buyer} {action} {amount} {item} {fromto} {player}''s shop"),
     PURCHASE_EMBED_TITLE_URL("Purchase.Embed.Title.Url",""),
 
     // Embed description
-    PURCHASE_EMBED_DESCRIPTION("Purchase.Embed.Description","{player}'s Angel Chest spawned!"),
+    PURCHASE_EMBED_DESCRIPTION("Purchase.Embed.Description",""),
     PURCHASE_EMBED_FIELDS("Purchase.Embed.Fields","[]"),
-    PURCHASE_EMBED_IMAGEURL("Purchase.Embed.ImageUrl","{inventoryImageUrl}"),
+    PURCHASE_EMBED_IMAGEURL("Purchase.Embed.ImageUrl","{loreImageUrl}"),
 
     // Footer settings
     PURCHASE_EMBED_FOOTER_TEXT("Purchase.Embed.Footer.Text",""),

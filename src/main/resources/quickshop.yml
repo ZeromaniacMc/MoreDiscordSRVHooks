@@ -29,6 +29,21 @@
 ShortenPrices: true
 # Should prices be shortened? Example: 1000 would become 1.0k, 2500 2.5k and so on.
 
+Type:
+  Buying: "Buying"
+  Selling: "Selling"
+# These two settings allow you to control what comes out when using the {type} placeholder.
+
+Action:
+  Bought: "bought"
+  Sold: "sold"
+# These two settings allow you to control what comes out when using the {action} placeholder.
+
+Direction:
+  To: "to"
+  From: "from"
+# These two settings allow you to control what comes out when using the {fromto} placeholder.
+
 NewShopCreated:
  Embed:
   Enabled: true
@@ -76,7 +91,7 @@ NewShopCreated:
 # Supported placeholders in text fields for NewShopCreated:
 # - {player} = The player who owns the shop.
 # - {item} = The item name featured in this shop.
-# - {type} = Returns either "Selling" or "Buying", based on type.
+# - {type} = Returns the type string from the top of this config. If missing, it will default to "Selling" and "Buying".
 # - {singleItemPriceBeforeTax} = The original price before taxes were deducted per item the owner of the shop set.
 # - {chestLocationX} = The X coordinate of the ChestShop position.
 # - {chestLocationY} = The Y coordinate of the ChestShop position.
@@ -133,9 +148,9 @@ Purchase:
 # - {buyer} = The player who bought from or sold to the shop. This can also be "seller" if the shop is buying items.
 # - {item} = The item name featured in this shop.
 # - {amount} = The amount of items that were sold to or bough from the shop.
-# - {type} = Returns either "Selling" or "Buying", based on type. Using this variable here might be confusing to players as it returns what type the shop is, not what the action performed was. This is why the next two listed placeholders were made ;).
-# - {action} = Returns "bought" or "sold" depending on if a player bought or sold to the shop.
-# - {fromto} = Returns "from" (for the buying action to create "bought from") or "to" (for the selling action to create "sold to") based on the action, so we don't get sentences like "Player sold from x shop" - that would be retarded, haha.
+# - {type} = Returns the type string from the top of this config. If missing, it will default to "Selling" and "Buying".
+# - {action} = Returns the action string from the top of this config. If missing, it will default to "sold" and "bought".
+# - {fromto} = Returns the direction string from the top of this config. If missing, it will default to "from" and "to".
 # - {tax} = The tax rate defined in the QuickShop config.
 # - {singleItemPriceBeforeTax} = The original price before taxes were deducted per item the owner of the shop set.
 # - {incomeBeforeTax} = Original total price before taxes were deducted.
