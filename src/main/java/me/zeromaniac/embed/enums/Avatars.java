@@ -16,7 +16,9 @@ public enum Avatars {
             AvatarImages.BUYER_HEAD_3D_URL })),
     BIDDER(Arrays.asList(new AvatarImages[] { AvatarImages.BIDDER_AVATAR_URL, AvatarImages.BIDDER_BODY_URL,
             AvatarImages.BIDDER_HEAD_3D_URL })),
-   VISITOR(Arrays.asList(new AvatarImages[] { AvatarImages.VISITOR_AVATAR_URL, AvatarImages.VISITOR_BODY_URL,
+    SELLER(Arrays.asList(new AvatarImages[] { AvatarImages.SELLER_AVATAR_URL, AvatarImages.SELLER_BODY_URL,
+            AvatarImages.SELLER_HEAD_3D_URL })),
+    VISITOR(Arrays.asList(new AvatarImages[] { AvatarImages.VISITOR_AVATAR_URL, AvatarImages.VISITOR_BODY_URL,
            AvatarImages.VISITOR_HEAD_3D_URL }));
 
     private List<AvatarImages> avatars;

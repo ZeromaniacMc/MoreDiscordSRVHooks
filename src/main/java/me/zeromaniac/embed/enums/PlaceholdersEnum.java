@@ -2,6 +2,7 @@ package me.zeromaniac.embed.enums;
 
 public enum PlaceholdersEnum {
     PLAYER("{player}"),
+    SELLER("{seller}"),
     BIDDER("{bidder}"),
     BUYER("{buyer}"),
     VISITOR("{visitorName}"),
