@@ -114,6 +114,13 @@
             <systemPath>${project.basedir}/libraries/AuctionGUIPlus-1.25.1.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>com.spawnchunks.auctionhouse</groupId>
+            <artifactId>auction-house</artifactId>
+            <version>3.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libraries/AuctionHouse-1.19-3.3.2.jar</systemPath>
+        </dependency>
 
         <dependency>
             <groupId>com.github.brcdev-minecraft</groupId>

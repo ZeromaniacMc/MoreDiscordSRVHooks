@@ -85,7 +85,6 @@ NewAuction:
 # - {player} = The player who started the auction.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.
-# - {duration} = The duration of the auction.
 
 AuctionSold:
   Embed:
