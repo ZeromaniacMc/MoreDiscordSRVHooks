@@ -17,6 +17,9 @@
 # - {playerAvatarUrl} = The owner's flat head image.
 # - {playerHead3dUrl} = The owner's tilted 3D head image.
 # - {playerBodyUrl} = The owner's tilted full body image.
+# - {bidderAvatarUrl} = The bidder's flat head image.
+# - {bidderHead3dUrl} = The bidder's tilted 3D head image.
+# - {bidderBodyUrl} = The bidder's tilted full body image.
 # - {buyerAvatarUrl} = The buyer's flat head image.
 # - {buyerHead3dUrl} = The buyer's tilted 3D head image.
 # - {buyerBodyUrl} = The buyer's tilted full body image.
@@ -85,7 +88,7 @@ NewAuction:
 # - {player} = The player who started the auction.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.
-# - {duration} = The duration of the auction.
+# - {price} = The price the item is listed.
 
 AuctionSold:
   Embed:
@@ -133,7 +136,8 @@ AuctionSold:
 # - {buyer} = The player who bought the item.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.
-# - {price} = The bid the item was sold with.
+# - {price} = The price the item is listed.
+# - {amount} = The price the item is sold with.
 
 AuctionExpired:
   Embed:
@@ -180,3 +184,4 @@ AuctionExpired:
 # - {player} = The player who started the auction.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.
+# - {price} = The price the item is listed.

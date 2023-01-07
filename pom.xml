@@ -6,7 +6,7 @@
 
     <groupId>me.zeromaniac</groupId>
     <artifactId>MoreDiscordSRVHooks</artifactId>
-    <version>3.1.3-BETA</version>
+    <version>3.2.0-BETA</version>
     <packaging>jar</packaging>
 
     <name>MoreDiscordSRVHooks</name>
@@ -102,7 +102,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19.3-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         
@@ -114,6 +114,13 @@
             <systemPath>${project.basedir}/libraries/AuctionGUIPlus-1.25.1.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>com.spawnchunks.auctionhouse</groupId>
+            <artifactId>auction-house</artifactId>
+            <version>3.3.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libraries/AuctionHouse-1.19-3.3.2.jar</systemPath>
+        </dependency>
 
         <dependency>
             <groupId>com.github.brcdev-minecraft</groupId>
@@ -126,21 +133,21 @@
         <dependency>
             <groupId>com.discordsrv</groupId>
             <artifactId>discordsrv</artifactId>
-            <version>1.25.1</version>
+            <version>1.26.0</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.loohp</groupId>
             <artifactId>InteractiveChatDiscordSrvAddon</artifactId>
-            <version>4.2.3.13</version>
+            <version>4.2.5.3</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.loohp</groupId>
             <artifactId>InteractiveChat</artifactId>
-            <version>4.2.3.13</version>
+            <version>4.2.5.3</version>
             <scope>provided</scope>
         </dependency>
 
