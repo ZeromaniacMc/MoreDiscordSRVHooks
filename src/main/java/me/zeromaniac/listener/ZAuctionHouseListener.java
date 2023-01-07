@@ -44,7 +44,7 @@ public class ZAuctionHouseListener implements Listener {
         Debug.log("Detected ZAuctionHouse Event firing, Type: " + event.getEventName(), debug);
         if (event.isCancelled())
             return;
-        ProcessEvent(AuctionEventType.BID, event.getAuctionItem(), event.getPlayer());
+        ProcessEvent(AuctionEventType.BID, event.getAuctionItem(), null);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
