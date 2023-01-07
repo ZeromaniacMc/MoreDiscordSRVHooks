@@ -4,6 +4,7 @@ import me.zeromaniac.MoreDiscordSRVHooks;
 import me.zeromaniac.common.ThirdPartyChecker;
 import me.zeromaniac.listener.AngelChestListener;
 import me.zeromaniac.listener.AuctionGUIPlusListener;
+import me.zeromaniac.listener.AuctionHouseListener;
 import me.zeromaniac.listener.LiteBansListener;
 import me.zeromaniac.listener.PlayerShopGUIPlusListener;
 import me.zeromaniac.listener.PlayerWarpsListener;
@@ -37,6 +38,9 @@ public class ListenerManager {
         }
         if (ThirdPartyChecker.isPluginInstalled("PlayerWarps")) {
             Bukkit.getServer().getPluginManager().registerEvents(new PlayerWarpsListener(plugin), plugin);
+        }
+        if (ThirdPartyChecker.isPluginInstalled("AuctionHouse")) {
+            Bukkit.getServer().getPluginManager().registerEvents(new AuctionHouseListener(plugin), plugin);
         }
         Bukkit.getServer().getPluginManager().registerEvents(new VanillaListener(plugin), plugin);
     }

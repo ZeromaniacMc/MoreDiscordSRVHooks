@@ -15,16 +15,28 @@ public class ItemHelper {
 
     public static final Pattern BUKKIT_HEX_COLOR = Pattern.compile(
             "(?:&|" + BUKKIT_COLOR_CHAR +
-            ")x(?:&|" + BUKKIT_COLOR_CHAR +
-            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-            ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
-            ")([0-9a-fA-F])");
+                    ")x(?:&|" + BUKKIT_COLOR_CHAR +
+                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+                    ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
+                    ")([0-9a-fA-F])");
 
     public static String stripColor(String itemDisplayName) {
-        return itemDisplayName.replaceAll("\u00a7[0-9A-Fa-fk-orx]", "");
+        // System.out.println(itemDisplayName);
+        if (itemDisplayName != null) {
+            return itemDisplayName.replaceAll("\u00a7[0-9A-Fa-fk-orx]", ""); 
+        }
+        return itemDisplayName;
+    }
+
+    public static String stripColorAnd(String itemDisplayName) {
+        // System.out.println(itemDisplayName);
+        if (itemDisplayName != null) {
+            return itemDisplayName.replaceAll("&[0-9A-Fa-fk-orx]", ""); 
+        }
+        return itemDisplayName;
     }
 
     public static String stripHex(String itemDisplayName) {
@@ -46,7 +58,6 @@ public class ItemHelper {
         }
         return capitalizeWords.trim();
     }
-
 
     public static String priceShortener(double price, boolean format) {
         if (!format) {

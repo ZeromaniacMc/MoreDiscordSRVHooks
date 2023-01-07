@@ -5,7 +5,8 @@ public enum AuctionEventType {
     START("NewAuction"),
     BID("AuctionBid"),
     END_NO_BIDS("AuctionEndNoBids"),
-    END_SOLD("AuctionEnd");
+    END_SOLD("AuctionEnd"),
+    END_EXPIRED("AuctionExpired");
     
 
     final String value;

@@ -25,6 +25,9 @@ public enum MainConfigDefaults implements EnumGeneral {
     IS_VANILLA_ENABLED("Hooks.Vanilla.Enabled", true),
     IS_VANILLA_DEBUG("Hooks.Vanilla.Debug", false),
 
+    IS_AUCTION_HOUSE_ENABLED("Hooks.AuctionHouse.Enabled", true),
+    IS_AUCTION_HOUSE_DEBUG("Hooks.AuctionHouse.Debug", false),
+
     TIME_ZONE("Timezone", "Europe/Berlin");
 
     public String path;

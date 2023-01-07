@@ -33,6 +33,10 @@ public class ConfigHandler {
     private static PlayerWarpsConfigHandler PLAYER_WARPS_CONFIG;
     public static String PLAYER_WARPS_PLUGIN_NAME = "PlayerWarps";
 
+    private static final String AUCTION_HOUSE_CONFIG_NAME = "auctionhouse.yml";
+    private static AuctionHouseConfigHandler AUCTION_HOUSE_CONFIG;
+    public static String AUCTION_HOUSE_PLUGIN_NAME = "AuctionHouse";
+
     private static boolean configsLoaded = false;
 
     static {
@@ -69,6 +73,9 @@ public class ConfigHandler {
         PLAYER_WARPS_CONFIG = new PlayerWarpsConfigHandler(PLAYER_WARPS_CONFIG_NAME, 
                 PLAYER_WARPS_PLUGIN_NAME);
 
+        AUCTION_HOUSE_CONFIG = new AuctionHouseConfigHandler(AUCTION_HOUSE_CONFIG_NAME,
+                AUCTION_HOUSE_PLUGIN_NAME);
+
         configsLoaded = true;
     }
 
@@ -88,6 +95,8 @@ public class ConfigHandler {
         QUICK_SHOP_CONFIG.reloadConfig();
 
         PLAYER_WARPS_CONFIG.reloadConfig();
+
+        AUCTION_HOUSE_CONFIG.reloadConfig();
     }
 
     public static MainConfigHandler getMainConfig() {
@@ -120,6 +129,10 @@ public class ConfigHandler {
 
     public static PlayerWarpsConfigHandler getPlayerWarpsConfig() {
         return PLAYER_WARPS_CONFIG;
+    }
+
+    public static AuctionHouseConfigHandler getAuctionHouseConfig() {
+        return AUCTION_HOUSE_CONFIG;
     }
 
 }

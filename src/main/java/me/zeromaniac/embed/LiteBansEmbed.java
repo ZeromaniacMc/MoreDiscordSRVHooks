@@ -3,6 +3,7 @@ package me.zeromaniac.embed;
 import github.scarsz.discordsrv.util.DiscordUtil;
 import me.zeromaniac.common.Debug;
 import me.zeromaniac.common.ImageHelper;
+import me.zeromaniac.common.ItemHelper;
 import me.zeromaniac.config.enums.MainConfigDefaults;
 import me.zeromaniac.embed.enums.AvatarImages;
 import me.zeromaniac.embed.enums.Avatars;
@@ -20,7 +21,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class LiteBansEmbed extends AbstractEmbed {
-    
+
     String receiverUUID;
 
     public LiteBansEmbed(LiteBansEventType type, long punishmentID, String receiverUUID,
@@ -30,7 +31,7 @@ public class LiteBansEmbed extends AbstractEmbed {
             String originServer, String effectScope) {
         super();
 
-        messageType  = type.getValue();
+        messageType = type.getValue();
 
         if (!isEnabled(messageType)) {
             return;
@@ -43,7 +44,7 @@ public class LiteBansEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.RECEIVER_UUID.getValue(), receiverUUID);
         replacer.put(PlaceholdersEnum.RECEIVER_NAME.getValue(), receiverName);
         replacer.put(PlaceholdersEnum.RECEIVER_IP.getValue(), receiverIP);
-        replacer.put(PlaceholdersEnum.PUNISH_REASON.getValue(), punishReason);
+        replacer.put(PlaceholdersEnum.PUNISH_REASON.getValue(), ItemHelper.bukkitColorYeeter(ItemHelper.stripColorAnd(punishReason)));
         replacer.put(PlaceholdersEnum.EXECUTOR_UUID.getValue(), executorUUID);
         replacer.put(PlaceholdersEnum.EXECUTOR_NAME.getValue(), executorName);
         replacer.put(PlaceholdersEnum.DATE_START.getValue(), dateStart);
@@ -52,7 +53,7 @@ public class LiteBansEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.SILENT.getValue(), String.valueOf(silent));
         replacer.put(PlaceholdersEnum.REVOKER_UUID.getValue(), revokerUUID);
         replacer.put(PlaceholdersEnum.REVOKER_NAME.getValue(), revokerName);
-        replacer.put(PlaceholdersEnum.REVOKE_REASON.getValue(), revokeReason);
+        replacer.put(PlaceholdersEnum.REVOKE_REASON.getValue(), ItemHelper.bukkitColorYeeter(ItemHelper.stripColorAnd(revokeReason)));
         replacer.put(PlaceholdersEnum.ORIGIN_SERVER.getValue(), originServer);
         replacer.put(PlaceholdersEnum.EFFECT_SCOPE.getValue(), effectScope);
 
@@ -86,7 +87,6 @@ public class LiteBansEmbed extends AbstractEmbed {
         this.afterConstructor();
     }
 
-    
     @Override
     protected void handleImages() {
         if (mapContainsValue(textFieldsMap, ImageNames.INVENTORY_IMAGE.getValue()) && validateUUID(receiverUUID)) {
@@ -101,7 +101,8 @@ public class LiteBansEmbed extends AbstractEmbed {
                 Player player = Bukkit.getPlayer(UUID.fromString(receiverUUID));
 
                 if (player != null && player.getInventory() != null) {
-                    attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(), getPlayerInventory(player.getInventory(), player)));
+                    attachmentImages.add(getImage(ImageNames.INVENTORY_IMAGE.getValue(),
+                            getPlayerInventory(player.getInventory(), player)));
                 }
             } catch (Throwable e) {
                 Debug.log("ERROR ", debug);

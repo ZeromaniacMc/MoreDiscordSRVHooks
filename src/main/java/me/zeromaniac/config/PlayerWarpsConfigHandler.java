@@ -7,7 +7,7 @@ public class PlayerWarpsConfigHandler extends ConfigLoader {
 
     private boolean isNewWarpCreatedEmbedEnabled;
     private boolean isTeleportEmbedEnabled;
-    private boolean isWarpRemodedEmbedEnabled;
+    private boolean isWarpRemovedEmbedEnabled;
     private boolean isShortenPricesEnabled;
 
     public PlayerWarpsConfigHandler(String configName, String pluginName) {
@@ -26,7 +26,7 @@ public class PlayerWarpsConfigHandler extends ConfigLoader {
         }
         this.isNewWarpCreatedEmbedEnabled = config.getBoolean(PlayerWarpsDefaults.NEW_WARP_CREATED_EMBED_ENABLED.getPath());
         this.isTeleportEmbedEnabled = config.getBoolean(PlayerWarpsDefaults.TELEPORT_EMBED_ENABLED.getPath());
-        this.isWarpRemodedEmbedEnabled = config.getBoolean(PlayerWarpsDefaults.WARP_REMOVED_EMBED_ENABLED.getPath());
+        this.isWarpRemovedEmbedEnabled = config.getBoolean(PlayerWarpsDefaults.WARP_REMOVED_EMBED_ENABLED.getPath());
         this.isShortenPricesEnabled = config.getBoolean(PlayerWarpsDefaults.SHORTEN_PRICES.getPath());
     }
 
@@ -41,8 +41,8 @@ public class PlayerWarpsConfigHandler extends ConfigLoader {
         return this.isTeleportEmbedEnabled;
     }
 
-    public boolean isWarpRemodedEmbedEnabled() {
-        return this.isWarpRemodedEmbedEnabled;
+    public boolean isWarpRemovedEmbedEnabled() {
+        return this.isWarpRemovedEmbedEnabled;
     }
 
     public boolean getIsShortenPricesEnabled() {

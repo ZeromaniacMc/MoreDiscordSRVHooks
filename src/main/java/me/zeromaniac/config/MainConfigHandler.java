@@ -14,6 +14,7 @@ public class MainConfigHandler extends ConfigLoader {
     private boolean isQuickShopEnabled;
     private boolean isPlayerWarpsEnabled;
     private boolean isVanillaEnabled;
+    private boolean isAuctionHouseEnabled;
     private String timezone;
 
     public MainConfigHandler(String configName) {
@@ -41,6 +42,7 @@ public class MainConfigHandler extends ConfigLoader {
         this.isIgnoreSilentBans = config.getBoolean(MainConfigDefaults.IS_LITEBANS_IGNORE_SILENT.getPath());
         this.isPlayerWarpsEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_WARPS_ENABLED.getPath());
         this.isVanillaEnabled = config.getBoolean(MainConfigDefaults.IS_VANILLA_ENABLED.getPath());
+        this.isAuctionHouseEnabled = config.getBoolean(MainConfigDefaults.IS_AUCTION_HOUSE_ENABLED.getPath());
     }
 
     public String getVersion() {
@@ -79,6 +81,9 @@ public class MainConfigHandler extends ConfigLoader {
         return this.isVanillaEnabled;
     }
 
+    public boolean getIsAuctionHouseEnabled() {
+        return this.isAuctionHouseEnabled;
+    }
     public String getTimezone() {
         return this.timezone;
     }
