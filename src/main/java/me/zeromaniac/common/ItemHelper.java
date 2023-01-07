@@ -13,7 +13,7 @@ public class ItemHelper {
 
     public static final char BUKKIT_COLOR_CHAR = '\u00a7';
 
-    public static final Pattern BUKKI_HEX_COLOR = Pattern.compile(
+    public static final Pattern BUKKIT_HEX_COLOR = Pattern.compile(
             "(?:&|" + BUKKIT_COLOR_CHAR +
             ")x(?:&|" + BUKKIT_COLOR_CHAR +
             ")([0-9a-fA-F])(?:&|" + BUKKIT_COLOR_CHAR +
@@ -103,7 +103,7 @@ public class ItemHelper {
     }
 
     public static String bukkitColorYeeter(String input) {
-        return ChatColor.stripColor(BUKKI_HEX_COLOR.matcher(input).replaceAll(""));
+        return ChatColor.stripColor(BUKKIT_HEX_COLOR.matcher(input).replaceAll(""));
     }
 
 }
