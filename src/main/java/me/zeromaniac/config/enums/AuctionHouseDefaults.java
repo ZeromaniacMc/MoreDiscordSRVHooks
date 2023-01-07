@@ -37,61 +37,61 @@ public enum AuctionHouseDefaults implements EnumGeneral {
      * AUCTION SOLD
      */
 
-    SALE_END_EXPIRED_EMBED_ENABLED("SaleEndExpired.Embed.Enabled", true),
+    SALE_END_EXPIRED_EMBED_ENABLED("AuctionSold.Embed.Enabled", true),
 
     // Main embed settings
-    SALE_END_EXPIRED_EMBED_CHANNEL_ID("SaleEndExpired.Embed.ChannelID","[]"),
-    SALE_END_EXPIRED_EMBED_COLOR("SaleEndExpired.Embed.Color","#fcba03"),
+    SALE_END_EXPIRED_EMBED_CHANNEL_ID("AuctionSold.Embed.ChannelID","[]"),
+    SALE_END_EXPIRED_EMBED_COLOR("AuctionSold.Embed.Color","#fcba03"),
 
     // Embed author settings
-    SALE_END_EXPIRED_EMBED_AUTHOR_IMAGEURL("SaleEndExpired.Embed.Author.ImageUrl","{buyerAvatarUrl}"),
-    SALE_END_EXPIRED_EMBED_AUTHOR_NAME("SaleEndExpired.Embed.Author.Name","**[ Sale ended! ]**"),
-    SALE_END_EXPIRED_EMBED_AUTHOR_URL("SaleEndExpired.Embed.Author.Url",""),
+    SALE_END_EXPIRED_EMBED_AUTHOR_IMAGEURL("AuctionSold.Embed.Author.ImageUrl","{buyerAvatarUrl}"),
+    SALE_END_EXPIRED_EMBED_AUTHOR_NAME("AuctionSold.Embed.Author.Name","**[ Sale ended! ]**"),
+    SALE_END_EXPIRED_EMBED_AUTHOR_URL("AuctionSold.Embed.Author.Url",""),
 
     // Embed thumbnail settings
-    SALE_END_EXPIRED_EMBED_THUMBNAIL("SaleEndExpired.Embed.ThumbnailUrl","{itemImageUrl}"),
-    SALE_END_EXPIRED_EMBED_TITLE_TEXT("SaleEndExpired.Embed.Title.Text",""),
-    SALE_END_EXPIRED_EMBED_TITLE_URL("SaleEndExpired.Embed.Title.Url",""),
+    SALE_END_EXPIRED_EMBED_THUMBNAIL("AuctionSold.Embed.ThumbnailUrl","{itemImageUrl}"),
+    SALE_END_EXPIRED_EMBED_TITLE_TEXT("AuctionSold.Embed.Title.Text",""),
+    SALE_END_EXPIRED_EMBED_TITLE_URL("AuctionSold.Embed.Title.Url",""),
 
     // Embed description
-    SALE_END_EXPIRED_EMBED_DESCRIPTION("SaleEndExpired.Embed.Description","{buyer} bought {quantity} x {item} for ${price}."),
-    SALE_END_EXPIRED_EMBED_FIELDS("SaleEndExpired.Embed.Fields","[]"),
-    SALE_END_EXPIRED_EMBED_IMAGEURL("SaleEndExpired.Embed.ImageUrl","{loreImageUrl}"),
+    SALE_END_EXPIRED_EMBED_DESCRIPTION("AuctionSold.Embed.Description","{buyer} bought {quantity} x {item} for ${price}."),
+    SALE_END_EXPIRED_EMBED_FIELDS("AuctionSold.Embed.Fields","[]"),
+    SALE_END_EXPIRED_EMBED_IMAGEURL("AuctionSold.Embed.ImageUrl","{loreImageUrl}"),
 
     // Footer settings
-    SALE_END_EXPIRED_EMBED_FOOTER_TEXT("SaleEndExpired.Embed.Footer.Text",""),
-    SALE_END_EXPIRED_EMBED_FOOTER_ICONURL("SaleEndExpired.Embed.Footer.IconUrl",""),
-    SALE_END_EXPIRED_EMBED_TIMESTAMP("SaleEndExpired.Embed.Timestamp",true),
+    SALE_END_EXPIRED_EMBED_FOOTER_TEXT("AuctionSold.Embed.Footer.Text",""),
+    SALE_END_EXPIRED_EMBED_FOOTER_ICONURL("AuctionSold.Embed.Footer.IconUrl",""),
+    SALE_END_EXPIRED_EMBED_TIMESTAMP("AuctionSold.Embed.Timestamp",true),
 
     /*
      * SALE EXPIRED
      */
 
-    SALE_END_BOUGHT_EMBED_ENABLED("SaleEndBought.Embed.Enabled", true),
+    SALE_END_BOUGHT_EMBED_ENABLED("AuctionExpired.Embed.Enabled", true),
 
     // Main embed settings
-    SALE_END_BOUGHT_EMBED_CHANNEL_ID("SaleEndBought.Embed.ChannelID","[]"),
-    SALE_END_BOUGHT_EMBED_COLOR("SaleEndBought.Embed.Color","#fcba03"),
+    SALE_END_BOUGHT_EMBED_CHANNEL_ID("AuctionExpired.Embed.ChannelID","[]"),
+    SALE_END_BOUGHT_EMBED_COLOR("AuctionExpired.Embed.Color","#fcba03"),
 
     // Embed author settings
-    SALE_END_BOUGHT_EMBED_AUTHOR_IMAGEURL("SaleEndBought.Embed.Author.ImageUrl","{playerAvatarUrl}"),
-    SALE_END_BOUGHT_EMBED_AUTHOR_NAME("SaleEndBought.Embed.Author.Name","**[ Sale Expired! ]**"),
-    SALE_END_BOUGHT_EMBED_AUTHOR_URL("SaleEndBought.Embed.Author.Url",""),
+    SALE_END_BOUGHT_EMBED_AUTHOR_IMAGEURL("AuctionExpired.Embed.Author.ImageUrl","{playerAvatarUrl}"),
+    SALE_END_BOUGHT_EMBED_AUTHOR_NAME("AuctionExpired.Embed.Author.Name","**[ Sale Expired! ]**"),
+    SALE_END_BOUGHT_EMBED_AUTHOR_URL("AuctionExpired.Embed.Author.Url",""),
 
     // Embed thumbnail settings
-    SALE_END_BOUGHT_EMBED_THUMBNAIL("SaleEndBought.Embed.ThumbnailUrl","{itemImageUrl}"),
-    SALE_END_BOUGHT_EMBED_TITLE_TEXT("SaleEndBought.Embed.Title.Text",""),
-    SALE_END_BOUGHT_EMBED_TITLE_URL("SaleEndBought.Embed.Title.Url",""),
+    SALE_END_BOUGHT_EMBED_THUMBNAIL("AuctionExpired.Embed.ThumbnailUrl","{itemImageUrl}"),
+    SALE_END_BOUGHT_EMBED_TITLE_TEXT("AuctionExpired.Embed.Title.Text",""),
+    SALE_END_BOUGHT_EMBED_TITLE_URL("AuctionExpired.Embed.Title.Url",""),
 
     // Embed description
-    SALE_END_BOUGHT_EMBED_DESCRIPTION("SaleEndBought.Embed.Description","{player}'s auction of {quantity} x {item} expired."),
-    SALE_END_BOUGHT_EMBED_FIELDS("SaleEndBought.Embed.Fields","[]"),
-    SALE_END_BOUGHT_EMBED_IMAGEURL("SaleEndBought.Embed.ImageUrl","{loreImageUrl}"),
+    SALE_END_BOUGHT_EMBED_DESCRIPTION("AuctionExpired.Embed.Description","{player}'s auction of {quantity} x {item} expired."),
+    SALE_END_BOUGHT_EMBED_FIELDS("AuctionExpired.Embed.Fields","[]"),
+    SALE_END_BOUGHT_EMBED_IMAGEURL("AuctionExpired.Embed.ImageUrl","{loreImageUrl}"),
 
     // Footer settings
-    SALE_END_BOUGHT_EMBED_FOOTER_TEXT("SaleEndBought.Embed.Footer.Text",""),
-    SALE_END_BOUGHT_EMBED_FOOTER_ICONURL("SaleEndBought.Embed.Footer.IconUrl",""),
-    SALE_END_BOUGHT_EMBED_TIMESTAMP("SaleEndBought.Embed.Timestamp",true);
+    SALE_END_BOUGHT_EMBED_FOOTER_TEXT("AuctionExpired.Embed.Footer.Text",""),
+    SALE_END_BOUGHT_EMBED_FOOTER_ICONURL("AuctionExpired.Embed.Footer.IconUrl",""),
+    SALE_END_BOUGHT_EMBED_TIMESTAMP("AuctionExpired.Embed.Timestamp",true);
 
     public String path;
     public Object value;
