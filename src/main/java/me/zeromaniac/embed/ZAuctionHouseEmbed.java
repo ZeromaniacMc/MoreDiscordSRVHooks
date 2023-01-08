@@ -30,7 +30,7 @@ public class ZAuctionHouseEmbed extends AbstractEmbed {
     public ZAuctionHouseEmbed(OfflinePlayer player, OfflinePlayer buyer, ItemStack stack, UUID id, String duration,
                               double price, AuctionEventType type) {
         super();
-        boolean formatPrices = ConfigHandler.getAuctionGuiPlusConfig().getIsShortenPricesEnabled();
+        boolean formatPrices = ConfigHandler.getZAuctionHouseConfig().getIsShortenPricesEnabled();
 
         String auctionType = type.getValue();
         messageType = auctionType;
@@ -105,7 +105,7 @@ public class ZAuctionHouseEmbed extends AbstractEmbed {
 
     @Override
     protected void initConfig() {
-        config = ConfigHandler.getAuctionGuiPlusConfig().getConfig();
+        config = ConfigHandler.getZAuctionHouseConfig().getConfig();
     }
 
     @Override

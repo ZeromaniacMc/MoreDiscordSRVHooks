@@ -14,6 +14,9 @@
 # to have PlaceholderAPI and the responsible expansion installed in order to use PAPI placeholders.
 
 # Supported placeholders in all image or Icon fields:
+# - {playerAvatarUrl} = The owner's flat head image.
+# - {playerHead3dUrl} = The owner's tilted 3D head image.
+# - {playerBodyUrl} = The owner's tilted full body image.
 # - {bidderAvatarUrl} = The bidder's flat head image.
 # - {bidderHead3dUrl} = The bidder's tilted 3D head image.
 # - {bidderBodyUrl} = The bidder's tilted full body image.
@@ -53,7 +56,7 @@ NewAuction:
     Title:
       Text: ""
       Url: ""
-    Description: "{player} put up {quantity} x {item} for an auction #{id}! Starting price: ${startingprice}, bid increment: ${increment}, duration: {duration}"
+    Description: "{player} put up {quantity} x {item} for an auction! Starting price: ${startingprice}, bid increment: ${increment}, duration: {duration}"
     Fields:
       - "Item:;{item};true"
       - "Quantity;{quantity};true"

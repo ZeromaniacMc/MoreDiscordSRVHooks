@@ -37,6 +37,10 @@ public class ConfigHandler {
     private static AuctionHouseConfigHandler AUCTION_HOUSE_CONFIG;
     public static String AUCTION_HOUSE_PLUGIN_NAME = "AuctionHouse";
 
+    private static final String ZAUCTION_HOUSE_CONFIG_NAME = "zauctionhouse.yml";
+    private static ZAuctionHouseConfigHandler ZAUCTION_HOUSE_CONFIG;
+    public static String ZAUCTION_HOUSE_PLUGIN_NAME = "ZAuctionHouse";
+
     private static boolean configsLoaded = false;
 
     static {
@@ -76,6 +80,9 @@ public class ConfigHandler {
         AUCTION_HOUSE_CONFIG = new AuctionHouseConfigHandler(AUCTION_HOUSE_CONFIG_NAME,
                 AUCTION_HOUSE_PLUGIN_NAME);
 
+        ZAUCTION_HOUSE_CONFIG = new ZAuctionHouseConfigHandler(ZAUCTION_HOUSE_CONFIG_NAME,
+                ZAUCTION_HOUSE_PLUGIN_NAME);
+
         configsLoaded = true;
     }
 
@@ -97,6 +104,8 @@ public class ConfigHandler {
         PLAYER_WARPS_CONFIG.reloadConfig();
 
         AUCTION_HOUSE_CONFIG.reloadConfig();
+
+        ZAUCTION_HOUSE_CONFIG.reloadConfig();
     }
 
     public static MainConfigHandler getMainConfig() {
@@ -133,6 +142,10 @@ public class ConfigHandler {
 
     public static AuctionHouseConfigHandler getAuctionHouseConfig() {
         return AUCTION_HOUSE_CONFIG;
+    }
+
+    public static ZAuctionHouseConfigHandler getZAuctionHouseConfig() {
+        return ZAUCTION_HOUSE_CONFIG;
     }
 
 }
