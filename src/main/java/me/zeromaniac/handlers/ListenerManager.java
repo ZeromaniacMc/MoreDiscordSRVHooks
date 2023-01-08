@@ -2,14 +2,7 @@ package me.zeromaniac.handlers;
 
 import me.zeromaniac.MoreDiscordSRVHooks;
 import me.zeromaniac.common.ThirdPartyChecker;
-import me.zeromaniac.listener.AngelChestListener;
-import me.zeromaniac.listener.AuctionGUIPlusListener;
-import me.zeromaniac.listener.AuctionHouseListener;
-import me.zeromaniac.listener.LiteBansListener;
-import me.zeromaniac.listener.PlayerShopGUIPlusListener;
-import me.zeromaniac.listener.PlayerWarpsListener;
-import me.zeromaniac.listener.QuickShopListener;
-import me.zeromaniac.listener.VanillaListener;
+import me.zeromaniac.listener.*;
 
 import org.bukkit.Bukkit;
 
@@ -41,6 +34,9 @@ public class ListenerManager {
         }
         if (ThirdPartyChecker.isPluginInstalled("AuctionHouse")) {
             Bukkit.getServer().getPluginManager().registerEvents(new AuctionHouseListener(plugin), plugin);
+        }
+        if (ThirdPartyChecker.isPluginInstalled("zAuctionHouse")) {
+            Bukkit.getServer().getPluginManager().registerEvents(new ZAuctionHouseListener(plugin), plugin);
         }
         Bukkit.getServer().getPluginManager().registerEvents(new VanillaListener(plugin), plugin);
     }
