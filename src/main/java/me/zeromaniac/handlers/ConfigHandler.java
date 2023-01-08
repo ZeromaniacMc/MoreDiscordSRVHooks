@@ -39,7 +39,7 @@ public class ConfigHandler {
 
     private static final String ZAUCTION_HOUSE_CONFIG_NAME = "zauctionhouse.yml";
     private static ZAuctionHouseConfigHandler ZAUCTION_HOUSE_CONFIG;
-    public static String ZAUCTION_HOUSE_PLUGIN_NAME = "zAuctionHouse";
+    public static String ZAUCTION_HOUSE_PLUGIN_NAME = "zAuctionHouseV3";
 
     private static boolean configsLoaded = false;
 
