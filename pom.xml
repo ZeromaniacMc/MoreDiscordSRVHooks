@@ -87,6 +87,7 @@
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+
         <repository>
             <id>quickshop-repo</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
@@ -128,6 +129,13 @@
             <version>1.26.2</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/libraries/PlayerShopGUIPlus-1.26.2.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.Maxlego08</groupId>
+            <artifactId>zAuctionHouseV3-API</artifactId>
+            <version>3.0.8.2</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
