@@ -82,7 +82,7 @@ NewAuction:
 #        Compare: 100
 
 # Supported placeholders in text fields for NewAuction:
-# - {seller} = The player who started the auction.
+# - {player} = The player who started the auction.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.
 # - {price} = The starting price.
@@ -130,7 +130,7 @@ AuctionBid:
 #        Compare: 100
 
 # Supported placeholders in text fields for AuctionBid:
-# - {seller} = The player who started the auction.
+# - {player} = The player who started the auction.
 # - {bidder}  = The player who placed a bid on the auction.
 # - {price} = The price of the bid.
 # - {id} = The ID of the auction.
@@ -179,7 +179,7 @@ AuctionEnd:
 #        Compare: 100
 
 # Supported placeholders in text fields for AuctionEnd:
-# - {seller} = The player who started the auction.
+# - {player} = The player who started the auction.
 # - {buyer} = The player who bought the item.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.
@@ -227,7 +227,7 @@ AuctionEndNoBids:
 #        Compare: 100
 
 # Supported placeholders in text fields for AuctionEndNoBids:
-# - {seller} = The player who started the auction.
+# - {player} = The player who started the auction.
 # - {id} = The ID of the auction.
 # - {quantity} = The number of items that were listed.
 # - {item} = The item type that was listed.

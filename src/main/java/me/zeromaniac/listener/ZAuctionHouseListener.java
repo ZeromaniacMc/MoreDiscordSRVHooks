@@ -13,12 +13,10 @@ import me.zeromaniac.handlers.ConfigHandler;
 import me.zeromaniac.listener.enums.AuctionEventType;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
-import javax.annotation.Nullable;
 import java.util.UUID;
 
 public class ZAuctionHouseListener implements Listener {
@@ -36,7 +34,7 @@ public class ZAuctionHouseListener implements Listener {
         Debug.log("Detected ZAuctionHouse Event firing, Type: " + event.getEventName(), debug);
         if (event.isCancelled())
             return;
-        ProcessEvent(AuctionEventType.START, event.getAuctionItem(), event.getPlayer());
+        ProcessEvent(AuctionEventType.START, event.getAuctionItem());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -44,20 +42,20 @@ public class ZAuctionHouseListener implements Listener {
         Debug.log("Detected ZAuctionHouse Event firing, Type: " + event.getEventName(), debug);
         if (event.isCancelled())
             return;
-        ProcessEvent(AuctionEventType.BID, event.getAuctionItem(), null);
+        ProcessEvent(AuctionEventType.BID, event.getAuctionItem());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void auctionEnd(AuctionItemExpireEvent event) {
         Debug.log("Detected ZAuctionHouse Event firing, Type: " + event.getEventName(), debug);
         if (event.getAuctionItem().getBuyer() != null) {
-            ProcessEvent(AuctionEventType.END_SOLD, event.getAuctionItem(), null);
+            ProcessEvent(AuctionEventType.END_SOLD, event.getAuctionItem());
         } else {
-            ProcessEvent(AuctionEventType.END_EXPIRED, event.getAuctionItem(), null);
+            ProcessEvent(AuctionEventType.END_EXPIRED, event.getAuctionItem());
         }
     }
 
-    private void ProcessEvent(AuctionEventType type, AuctionItem auction, @Nullable Player player) {
+    private void ProcessEvent(AuctionEventType type, AuctionItem auction) {
 
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
 
@@ -68,7 +66,7 @@ public class ZAuctionHouseListener implements Listener {
 
             long timeLeft = ((auction.getExpireAt() - System.currentTimeMillis()) / 1000);
 
-            AbstractEmbed embed = new ZAuctionHouseEmbed(player, seller, buyer, auction.getItemStack(), id,
+            AbstractEmbed embed = new ZAuctionHouseEmbed(seller, buyer, auction.getItemStack(), id,
                     parseTime(timeLeft, " minutes ", " seconds"), Math.round(auction.getPrice()),
                     type);
 

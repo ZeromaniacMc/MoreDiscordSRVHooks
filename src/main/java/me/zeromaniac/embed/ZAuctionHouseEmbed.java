@@ -25,10 +25,9 @@ import static me.zeromaniac.common.StringHelper.mapContainsValue;
 
 public class ZAuctionHouseEmbed extends AbstractEmbed {
 
-    OfflinePlayer seller;
     ItemStack stack;
 
-    public ZAuctionHouseEmbed(Player player, OfflinePlayer seller, OfflinePlayer buyer, ItemStack stack, UUID id, String duration,
+    public ZAuctionHouseEmbed(OfflinePlayer player, OfflinePlayer buyer, ItemStack stack, UUID id, String duration,
                               double price, AuctionEventType type) {
         super();
         boolean formatPrices = ConfigHandler.getAuctionGuiPlusConfig().getIsShortenPricesEnabled();
@@ -42,9 +41,9 @@ public class ZAuctionHouseEmbed extends AbstractEmbed {
 
         this.stack = stack;
 
-        this.seller = seller;
-        this.player = player;
+        this.player = (Player) player;
 
+        replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());
         replacer.put(PlaceholdersEnum.QUANTITY.getValue(), String.valueOf(stack.getAmount()));
 
         if (stack.getItemMeta().hasDisplayName()) {
@@ -54,9 +53,9 @@ public class ZAuctionHouseEmbed extends AbstractEmbed {
         } else {
             replacer.put(PlaceholdersEnum.ITEM.getValue(), ItemHelper.nameFormatter(stack));
         }
-        
+
         replacer.put(PlaceholdersEnum.DURATION.getValue(), duration);
-        
+
         replacer.put(PlaceholdersEnum.PRICE.getValue(), (ItemHelper.priceShortener(price, formatPrices)));
 
         replacer.put(PlaceholdersEnum.ID.getValue(), String.valueOf(id));
@@ -66,21 +65,11 @@ public class ZAuctionHouseEmbed extends AbstractEmbed {
         replacer.put(PlaceholdersEnum.ITEM_IMAGE_URL.getValue(), attachmentType + ImageNames.ITEM_IMAGE.getValue());
         replacer.put(PlaceholdersEnum.LORE_IMAGE_URL.getValue(), attachmentType + ImageNames.LORE_IMAGE.getValue());
 
-        if (player != null) {
-            for (AvatarImages avatar : Avatars.PLAYER.getAvatarImages()) {
-                replacer.put(avatar.getValue(),
-                        ImageHelper.constructAvatarUrl(player.getName(), player.getUniqueId(), avatar.getType()));
-            }
-            replacer.put(PlaceholdersEnum.PLAYER.getValue(), player.getName());
+        for (AvatarImages avatar : Avatars.PLAYER.getAvatarImages()) {
+            replacer.put(avatar.getValue(),
+                    ImageHelper.constructAvatarUrl(player.getName(), player.getUniqueId(), avatar.getType()));
         }
 
-        if (seller != null) {
-            for (AvatarImages avatar : Avatars.SELLER.getAvatarImages()) {
-                replacer.put(avatar.getValue(),
-                        ImageHelper.constructAvatarUrl(seller.getName(), seller.getUniqueId(), avatar.getType()));
-            }
-            replacer.put(PlaceholdersEnum.SELLER.getValue(), seller.getName());
-        }
         if (buyer != null) {
             for (AvatarImages avatar : Avatars.BIDDER.getAvatarImages()) {
                 replacer.put(avatar.getValue(),
@@ -102,7 +91,7 @@ public class ZAuctionHouseEmbed extends AbstractEmbed {
         
         if (mapContainsValue(textFieldsMap, ImageNames.ITEM_IMAGE.getValue())) {
             try {
-                OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(seller.getUniqueId());
+                OfflineICPlayer imagePlayer = ICPlayerFactory.getOfflineICPlayer(player.getUniqueId());
                 attachmentImages.add(getImage(ImageNames.ITEM_IMAGE.getValue(), getItemImage(stack, imagePlayer)));
             } catch (Throwable e) {
                 // empty
