@@ -6,7 +6,7 @@
 
     <groupId>me.zeromaniac</groupId>
     <artifactId>MoreDiscordSRVHooks</artifactId>
-    <version>3.2.0-BETA</version>
+    <version>3.3.0-BETA</version>
     <packaging>jar</packaging>
 
     <name>MoreDiscordSRVHooks</name>
@@ -103,16 +103,16 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19.3-R0.1-SNAPSHOT</version>
+            <version>1.19.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         
         <dependency>
             <groupId>com.github.brcdev-minecraft</groupId>
             <artifactId>auctiongui-api</artifactId>
-            <version>1.25.1</version>
+            <version>1.29.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libraries/AuctionGUIPlus-1.25.1.jar</systemPath>
+            <systemPath>${project.basedir}/libraries/AuctionGUIPlus-1.29.0.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -126,16 +126,9 @@
         <dependency>
             <groupId>com.github.brcdev-minecraft</groupId>
             <artifactId>playershopgui-api</artifactId>
-            <version>1.26.2</version>
+            <version>1.28.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libraries/PlayerShopGUIPlus-1.26.2.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.Maxlego08</groupId>
-            <artifactId>zAuctionHouseV3-API</artifactId>
-            <version>3.0.8.2</version>
-            <scope>provided</scope>
+            <systemPath>${project.basedir}/libraries/PlayerShopGUIPlus-1.28.0.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -148,14 +141,14 @@
         <dependency>
             <groupId>com.loohp</groupId>
             <artifactId>InteractiveChatDiscordSrvAddon</artifactId>
-            <version>4.2.5.3</version>
+            <version>4.2.6.1</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.loohp</groupId>
             <artifactId>InteractiveChat</artifactId>
-            <version>4.2.5.3</version>
+            <version>4.2.6.1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -183,7 +176,7 @@
         <dependency>
             <groupId>org.maxgamer</groupId>
             <artifactId>QuickShop</artifactId>
-            <version>5.1.0.9</version>
+            <version>5.1.2.0</version>
             <scope>provided</scope>
         </dependency>
 

@@ -35,9 +35,6 @@ public class ListenerManager {
         if (ThirdPartyChecker.isPluginInstalled("AuctionHouse")) {
             Bukkit.getServer().getPluginManager().registerEvents(new AuctionHouseListener(plugin), plugin);
         }
-        if (ThirdPartyChecker.isPluginInstalled("zAuctionHouseV3")) {
-            Bukkit.getServer().getPluginManager().registerEvents(new ZAuctionHouseListener(plugin), plugin);
-        }
         Bukkit.getServer().getPluginManager().registerEvents(new VanillaListener(plugin), plugin);
     }
 }

@@ -15,7 +15,6 @@ public class MainConfigHandler extends ConfigLoader {
     private boolean isPlayerWarpsEnabled;
     private boolean isVanillaEnabled;
     private boolean isAuctionHouseEnabled;
-    private boolean isZAuctionHouseEnabled;
     private String timezone;
 
     public MainConfigHandler(String configName) {
@@ -44,7 +43,6 @@ public class MainConfigHandler extends ConfigLoader {
         this.isPlayerWarpsEnabled = config.getBoolean(MainConfigDefaults.IS_PLAYER_WARPS_ENABLED.getPath());
         this.isVanillaEnabled = config.getBoolean(MainConfigDefaults.IS_VANILLA_ENABLED.getPath());
         this.isAuctionHouseEnabled = config.getBoolean(MainConfigDefaults.IS_AUCTION_HOUSE_ENABLED.getPath());
-        this.isZAuctionHouseEnabled = config.getBoolean(MainConfigDefaults.IS_ZAUCTION_HOUSE_ENABLED.getPath());
     }
 
     public String getVersion() {
@@ -85,10 +83,6 @@ public class MainConfigHandler extends ConfigLoader {
 
     public boolean getIsAuctionHouseEnabled() {
         return this.isAuctionHouseEnabled;
-    }
-
-    public boolean getIsZAuctionHouseEnabled() {
-        return isZAuctionHouseEnabled;
     }
 
     public String getTimezone() {

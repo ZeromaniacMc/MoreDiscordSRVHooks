@@ -5,21 +5,22 @@ import me.zeromaniac.common.Debug;
 import me.zeromaniac.config.enums.MainConfigDefaults;
 import me.zeromaniac.embed.AbstractEmbed;
 import me.zeromaniac.embed.AuctionGuiPlusEmbed;
-import me.zeromaniac.listener.enums.*;
 import me.zeromaniac.handlers.ConfigHandler;
-import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import javax.annotation.Nullable;
+import me.zeromaniac.listener.enums.AuctionEventType;
 import net.brcdev.auctiongui.AuctionGuiPlusApi;
 import net.brcdev.auctiongui.auction.Auction;
 import net.brcdev.auctiongui.auction.AuctionManager;
 import net.brcdev.auctiongui.auction.Bid;
 import net.brcdev.auctiongui.event.AuctionBidEvent;
 import net.brcdev.auctiongui.event.AuctionEndEvent;
-import net.brcdev.auctiongui.event.AuctionStartEvent;
+import net.brcdev.auctiongui.event.AuctionPreStartEvent;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+
+import javax.annotation.Nullable;
 
 public class AuctionGUIPlusListener implements Listener {
     private final AuctionManager manager;
@@ -46,7 +47,7 @@ public class AuctionGUIPlusListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void auctionStart(AuctionStartEvent event) {
+    public void auctionStart(AuctionPreStartEvent event) {
         Debug.log("Detected AuctionGUIPlus Event firing, Type: " + event.getEventName(), debug);
         if (event.isCancelled())
             return;
