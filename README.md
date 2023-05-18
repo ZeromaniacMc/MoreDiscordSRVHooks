@@ -29,4 +29,4 @@ For a while, I was looking for a successor, but that never happened. So this is 
 in hopes someone might pick it up or shows interest in helping me maintain it - or just for contributions. 
 
 ### Downloads
-You can find all releases by me here: [Downlods](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/releases)
+You can find all releases by me here: [Downloads](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/releases)
