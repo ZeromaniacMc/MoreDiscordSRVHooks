@@ -3,8 +3,17 @@ MoreDiscordSRVHooks is a plugin for 1.19+ spigot/fork based minecraft servers.
 
 # What does it do?
 MDH is simply a plugin to fetch data and throw it another direction. Basically, it grabs data given by other
-plugins, such as who started an auction, how much an item is put to sale for and how long the auction will run until it expires, 
-and gives it to DiscordSRV plugin to then display that in your discord server. 
+plugins (hooks from list below), such as AuctionGUI+ and forwards who started an auction, how much an item is put up for and how long the auction will run until it expires
+to DiscordSRV in forma of a pre-formatted embed controlled by MDH's own config files. This could look like so for example: ![yBU9mU9](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/assets/94971971/13367ffb-b701-4735-bbf2-03a4c6a32876)
+
+# Other features
+- MDH comes with simple yet effective debugging which can be enabled for every hook seperately if needed.
+- You can send embeds to multiple channels at the same time.
+- MDH aims to run as async as possible to not impact any other proceses on your server.
+- Even images can be set via simple {placeholders} rather than using some funky urls or gibberish formatting.
+- PAPI support makes the whole thing more dynamic.
+- The 3 implemented condition types of "string", "hasPermission" and "number" let you fine tune when to (not) send an embed - stay hidden!
+  A detailed explanation on how conditions work is provided in the wiki.
 
 # What plugins are supported by MDH?
   - AuctionGUIPlus
