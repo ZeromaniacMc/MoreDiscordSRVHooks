@@ -11,7 +11,7 @@ to DiscordSRV in form of a pre-formatted embed controlled by MDH's own config fi
 # Other features
 - MDH comes with simple yet effective debugging which can be enabled for every hook seperately if needed.
 - You can send embeds to multiple channels at the same time.
-- MDH aims to run as async as possible to not impact any other proceses on your server.
+- MDH aims to run as async as possible to not impact any other proccesses on your server.
 - Even images can be set via simple {placeholders} rather than using some funky urls or gibberish formatting.
 - PAPI support makes the whole thing more dynamic.
 - The 3 implemented condition types of "string", "hasPermission" and "number" let you fine tune when to (not) send an embed - stay hidden!
