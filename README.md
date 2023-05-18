@@ -15,7 +15,7 @@ to DiscordSRV in form of a pre-formatted embed controlled by MDH's own config fi
 - Even images can be set via simple {placeholders} rather than using some funky urls or gibberish formatting.
 - PAPI support makes the whole thing more dynamic.
 - The 3 implemented condition types of "string", "hasPermission" and "number" let you fine tune when to (not) send an embed - stay hidden!
-  A detailed explanation on how conditions work is provided in the wiki.
+  A detailed explanation on how conditions work is provided in the [Wiki about conditions](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/wiki/2.-Conditions).
 
 # What plugins are supported by MDH?
   - AuctionGUIPlus
