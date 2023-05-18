@@ -28,3 +28,5 @@ time. However, as things happen in life, interest in maintaining it deminished a
 For a while, I was looking for a successor, but that never happened. So this is why I decided to make this piece of noob java trash plugin public,
 in hopes someone might pick it up or shows interest in helping me maintain it - or just for contributions. 
 
+### Downloads
+You can find all releases by me here: [Downlods](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/releases)
