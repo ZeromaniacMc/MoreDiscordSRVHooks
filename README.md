@@ -39,5 +39,20 @@ time. However, as things happen in life, interest in maintaining it deminished a
 For a while, I was looking for a successor, but that never happened. So this is why I decided to make this piece of noob java trash plugin public,
 in hopes someone might pick it up or shows interest in helping me maintain it - or just for contributions. 
 
+# What type of contributions do you accept into master? Are there any never-finished todo's?
+- Variable renames for clarity
+- Reduce fallback defaults to one format rather than one for each hook and each embed
+- Anything to comply with changes by plugins I hook into
+- Spelling corrections
+- Hook additions
+
+# Is there anything you will never allow into master?
+- Backporting to any version earlier than 1.19
+- Structural changes other than the defaults reduction
+
+# Compiling and testing
+Compiling requires java 17. Path is set to `/target/`. Note that `/libraries/` should contain the following 3 files in order to access them: 
+![jePEOis](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/assets/94971971/ffd16626-363d-45db-8c43-9efc85b6d3ea). If you do not own a copy of these plugins, you may be out of luck for compiling, but that should not stop you from contributing at other ends.
+
 # Downloads
 You can find all releases by me here: [Downloads](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/releases)
