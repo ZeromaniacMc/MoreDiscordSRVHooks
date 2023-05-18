@@ -44,7 +44,7 @@ in hopes someone might pick it up or shows interest in helping me maintain it - 
 - Reduce fallback defaults to one format rather than one for each hook and each embed
 - Anything to comply with changes by plugins I hook into
 - Spelling corrections
-- Hook additions
+- Hook additions (reasonable amount of users - please don't bother writing hooks for plugins that entered the market just a week ago)
 
 # Is there anything you will never allow into master?
 - Backporting to any version earlier than 1.19
@@ -52,7 +52,8 @@ in hopes someone might pick it up or shows interest in helping me maintain it - 
 
 # Compiling and testing
 Compiling requires java 17. Path is set to `/target/`. Note that `/libraries/` should contain the following 3 files in order to access them: 
-![jePEOis](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/assets/94971971/ffd16626-363d-45db-8c43-9efc85b6d3ea). If you do not own a copy of these plugins, you may be out of luck for compiling, but that should not stop you from contributing at other ends.
+![jePEOis](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/assets/94971971/ffd16626-363d-45db-8c43-9efc85b6d3ea)
+If you do not own a copy of these plugins, you may be out of luck for compiling, but that should not stop you from contributing at other ends.
 
 # Downloads
 You can find all releases by me here: [Downloads](https://github.com/ZeromaniacMc/MoreDiscordSRVHooks/releases)
